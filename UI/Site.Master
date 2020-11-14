@@ -17,7 +17,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body style="background-image:url(Images/Login.png); background-repeat: repeat-x; background-attachment: fixed;" >
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -51,9 +51,9 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
+                        <%--<li><a runat="server" href="~/">Inicio</a></li>
                         <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                        <li><a runat="server" href="~/Contact">Contacto</a></li>--%>
                     </ul>
 
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
@@ -69,7 +69,6 @@
         </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                <img src="Images/Login.png"/>
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
