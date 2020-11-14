@@ -13,14 +13,16 @@ namespace BL
 
         public Boolean InsertInvoiceReceivingSupplier(InvoiceReceivingSupplier invR)
         {
-  
+            DAOInvoiceReceivingSupplier daoIRS = new DAOInvoiceReceivingSupplier();
+            return daoIRS.InsertInvoiceReceivingSupplier(invR);
         }
 
  
 
-        public List<InvoiceReceivingSupplier> LoadSuppliers(int name)
+        public List<InvoiceReceivingSupplier> LoadSuppliers(string name)
         {
-            
+            DAOInvoiceReceivingSupplier daoIRS = new DAOInvoiceReceivingSupplier();
+            return daoIRS.LoadSuppliers(name);
         }
 
     }

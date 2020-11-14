@@ -62,7 +62,7 @@ namespace DAO
 
 
 
-        public List<InvoiceReceivingClient> LoadClients(int name)
+        public List<InvoiceReceivingClient> LoadClients(String name)
         {
             String query = "Select * from DESTINATARIO_FACTURA_CLIENTE where NOMBRE like '%' + @name + '%'";
             List<InvoiceReceivingClient> listClientsName = new List<InvoiceReceivingClient>();

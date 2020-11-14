@@ -60,7 +60,7 @@ namespace DAO
             return verify;
         }
 
-        public List<InvoiceReceivingSupplier> LoadSuppliers(int name)
+        public List<InvoiceReceivingSupplier> LoadSuppliers(string name)
         {
             String query = "Select * from DESTINATARIO_FACTURA_PROVEEDOR where NOMBRE like '%' + @name + '%'";
             List<InvoiceReceivingSupplier> listSuppliersName = new List<InvoiceReceivingSupplier>();

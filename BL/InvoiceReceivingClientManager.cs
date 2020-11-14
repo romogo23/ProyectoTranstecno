@@ -12,15 +12,19 @@ namespace BL
     {
         public Boolean InsertInvoiceReceivingClient(InvoiceReceivingClient invC)
         {
+            DAOInvoiceReceivingClient n = new DAOInvoiceReceivingClient();
+            return n.InsertInvoiceReceivingClient(invC);
            
         }
 
 
 
 
-        public List<InvoiceReceivingClient> LoadClients(int name)
+        public List<InvoiceReceivingClient> LoadClients(string name)
         {
-            
+            DAOInvoiceReceivingClient n = new DAOInvoiceReceivingClient();
+            return n.LoadClients(name);
+
         }
     }
 }
