@@ -42,16 +42,16 @@ namespace DAO
 
         private int VerifyInvoiceReceivingSupplier(string id)
         {
-            String query = "Select count(0) from DESTINATARIO_FACTURA_PROVEEDOR where ID_PROVEEDOR = @idProveedor";
+            String query = "Select count(0) from DESTINATARIO_FACTURA_PROVEEDOR where ID_PROVEEDOR = @idSupplier";
             int verify;
             SqlCommand comm = new SqlCommand(query, conn);
             comm.Connection = conn;
-            comm.Parameters.AddWithValue("@idProveedor", id);
+            comm.Parameters.AddWithValue("@idSupplier", id);
             if (conn.State != System.Data.ConnectionState.Open)
             {
                 conn.Open();
             }
-            verify = comm.ExecuteNonQuery();
+            verify = (int) comm.ExecuteScalar();
             if (conn.State != System.Data.ConnectionState.Closed)
             {
                 conn.Close();
@@ -91,6 +91,39 @@ namespace DAO
 
 
             return listSuppliersName;
+        }
+
+        public InvoiceReceivingSupplier LoadSupplier(string idSupplier)
+        {
+            String query = "Select * from DESTINATARIO_FACTURA_PROVEEDOR where ID_PROVEEDOR = @idSupplier";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.AddWithValue("@idSupplier", idSupplier);
+            SqlDataReader reader;
+            InvoiceReceivingSupplier Supplier = new InvoiceReceivingSupplier();
+
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
+            reader = comm.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Supplier = (new InvoiceReceivingSupplier((string)reader["ID_PROVEEDOR"], (string)reader["CORREO"], (string)reader["NOMBRE"]));
+                }
+            }
+
+
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+
+
+            return Supplier;
         }
 
     }

@@ -51,7 +51,7 @@ namespace DAO
             {
                 conn.Open();
             }
-            verify = comm.ExecuteNonQuery();
+            verify = (int)comm.ExecuteScalar();
             if (conn.State != System.Data.ConnectionState.Closed)
             {
                 conn.Close();
@@ -93,6 +93,40 @@ namespace DAO
 
 
             return listClientsName;
+        }
+
+
+        public InvoiceReceivingClient LoadClient(string idClient)
+        {
+            String query = "Select * from DESTINATARIO_FACTURA_CLIENTE where ID_CLIENTE = @idClient";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.AddWithValue("@idClient", idClient);
+            SqlDataReader reader;
+            InvoiceReceivingClient Client = new InvoiceReceivingClient();
+
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
+            reader = comm.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Client =  (new InvoiceReceivingClient((string)reader["ID_CLIENTE"], (string)reader["CORREO"], (string)reader["NOMBRE"]));
+                }
+            }
+
+
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+
+
+            return Client;
         }
 
 

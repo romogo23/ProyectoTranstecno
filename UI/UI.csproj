@@ -129,6 +129,8 @@
     <Content Include="Images\Confirm.jpg" />
     <Content Include="Images\Login.png" />
     <Content Include="Images\User.png" />
+    <Content Include="InvoiceSupplierTest.aspx" />
+    <Content Include="InvoiceTest.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -190,6 +192,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceSupplierTest.aspx.cs">
+      <DependentUpon>InvoiceSupplierTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvoiceSupplierTest.aspx.designer.cs">
+      <DependentUpon>InvoiceSupplierTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceTest.aspx.cs">
+      <DependentUpon>InvoiceTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvoiceTest.aspx.designer.cs">
+      <DependentUpon>InvoiceTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

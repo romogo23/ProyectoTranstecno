@@ -8,7 +8,7 @@ using DAO;
 
 namespace BL
 {
-    class InvoiceSupplierManager
+    public class InvoiceSupplierManager
     {
         public Boolean InsertInvoiceSupplier(InvoiceSupplier invS)
         {

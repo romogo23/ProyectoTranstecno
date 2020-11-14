@@ -18,5 +18,11 @@ namespace DOM
             this.email = email;
             this.nameClient = nameClient;
         }
+
+        public InvoiceReceivingClient()
+        {
+        }
+
+
     }
 }

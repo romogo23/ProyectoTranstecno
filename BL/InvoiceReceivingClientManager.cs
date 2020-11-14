@@ -8,12 +8,12 @@ using DAO;
 
 namespace BL
 {
-    class InvoiceReceivingClientManager
+    public class InvoiceReceivingClientManager
     {
         public Boolean InsertInvoiceReceivingClient(InvoiceReceivingClient invC)
         {
-            DAOInvoiceReceivingClient n = new DAOInvoiceReceivingClient();
-            return n.InsertInvoiceReceivingClient(invC);
+            DAOInvoiceReceivingClient daoIRC = new DAOInvoiceReceivingClient();
+            return daoIRC.InsertInvoiceReceivingClient(invC);
            
         }
 
@@ -22,9 +22,15 @@ namespace BL
 
         public List<InvoiceReceivingClient> LoadClients(string name)
         {
-            DAOInvoiceReceivingClient n = new DAOInvoiceReceivingClient();
-            return n.LoadClients(name);
+            DAOInvoiceReceivingClient daoIRC = new DAOInvoiceReceivingClient();
+            return daoIRC.LoadClients(name);
 
+        }
+
+        public InvoiceReceivingClient LoadClient(string idClient) 
+        {
+            DAOInvoiceReceivingClient daoIRC = new DAOInvoiceReceivingClient();
+            return daoIRC.LoadClient(idClient);
         }
     }
 }

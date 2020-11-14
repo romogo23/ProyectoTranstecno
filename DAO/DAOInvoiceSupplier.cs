@@ -51,7 +51,7 @@ namespace DAO
 
         public Boolean ModifyInvoiceSupplier(InvoiceSupplier invS)
         {
-            if (verifyInvoiceSupplier(invS.numberInvoice) == 0)
+            if (verifyInvoiceSupplier(invS.numberInvoice) == 1)
             {
 
                 String query = "Update FACTURA_PROVEEDOR set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA_PAGO = @paymentDate where NUMERO_FACTURA = @numberInvoice";
@@ -80,7 +80,7 @@ namespace DAO
 
         }
 
-        public int verifyInvoiceSupplier(int numberInvoice)
+        public int verifyInvoiceSupplier(Int64 numberInvoice)
         {
             String query = " select count(*) from FACTURA_PROVEEDOR where NUMERO_FACTURA = @numberInvoice";
             SqlCommand comm = new SqlCommand(query, conn);
@@ -102,7 +102,7 @@ namespace DAO
 
         public Boolean CloseInvoiceSupplier(InvoiceSupplier invS)
         {
-            if (verifyInvoiceSupplier(invS.numberInvoice) == 0)
+            if (verifyInvoiceSupplier(invS.numberInvoice) == 1)
             {
 
                 String query = "Update FACTURA_PROVEEDOR set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA_PAGO = @paymentDate where NUMERO_FACTURA = @numberInvoice";
@@ -149,7 +149,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    listInvoiceSupplier.Add(new InvoiceSupplier((int)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], (double)reader["MONTO"], (Boolean)reader["ESTADO"]));
+                    listInvoiceSupplier.Add(new InvoiceSupplier((Int64)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"] ));
                 }
             }
 
@@ -184,7 +184,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    listInvoiceSupplier.Add(new InvoiceSupplier((int)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], (double)reader["MONTO"], (Boolean)reader["ESTADO"]));
+                    listInvoiceSupplier.Add(new InvoiceSupplier((Int64)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"]));
                 }
             }
 

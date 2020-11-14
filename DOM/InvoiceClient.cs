@@ -14,11 +14,11 @@ namespace DOM
         public int idPayMethod { get; set; }
         public string payMethod { get; set; }
         public double money { get; set; }
-        public Boolean condition { get; set; }
+        public Byte condition { get; set; }
         public string paymentCondition { get; set; }
 
         public InvoiceClient(int numberInvoice, string idClient, DateTime paymentDate, int idPayMethod, string payMethod,
-            double money, Boolean condition, string paymentCondition)
+            double money, Byte condition, string paymentCondition)
         {
             this.numberInvoice = numberInvoice;
             this.idClient = idClient;
@@ -29,6 +29,16 @@ namespace DOM
             this.condition = condition;
             this.paymentCondition = paymentCondition;
         }
+
+        public InvoiceClient(int numberInvoice, DateTime paymentDate, int idPayMethod, string payMethod)
+        {
+            this.numberInvoice = numberInvoice;
+            this.paymentDate = paymentDate;
+            this.idPayMethod = idPayMethod;
+            this.payMethod = payMethod;
+        }
+
+
         
     }
 }

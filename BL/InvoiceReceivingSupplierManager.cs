@@ -8,7 +8,7 @@ using DAO;
 
 namespace BL
 {
-    class InvoiceReceivingSupplierManager
+    public class InvoiceReceivingSupplierManager
     {
 
         public Boolean InsertInvoiceReceivingSupplier(InvoiceReceivingSupplier invR)
@@ -23,6 +23,11 @@ namespace BL
         {
             DAOInvoiceReceivingSupplier daoIRS = new DAOInvoiceReceivingSupplier();
             return daoIRS.LoadSuppliers(name);
+        }
+
+        public InvoiceReceivingSupplier LoadSupplier(string idSupplier) {
+            DAOInvoiceReceivingSupplier daoIRS = new DAOInvoiceReceivingSupplier();
+            return daoIRS.LoadSupplier(idSupplier);
         }
 
     }

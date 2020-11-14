@@ -12,11 +12,15 @@ namespace DOM
         public string email { get; set; }
         public string nameSupplier { get; set; }
 
-        public InvoiceReceivingSupplier(string idClient, string email, string nameClient)
+        public InvoiceReceivingSupplier(string idSupplier, string email, string nameSupplier)
         {
-            this.idSupplier = idClient;
+            this.idSupplier = idSupplier;
             this.email = email;
-            this.nameSupplier = nameClient;
+            this.nameSupplier = nameSupplier;
+        }
+
+        public InvoiceReceivingSupplier()
+        {
         }
 
     }
