@@ -13,7 +13,7 @@ namespace DAO
     {
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.connString);
 
-        public Boolean insertReminder(Remainder r)
+        public Boolean insertReminder(Reminder r)
         {
             String query = "INSERT INTO [dbo].RECORDATORIO(NUMERO_FACTURA_PROVEEDOR, NUMERO_FACTURA_CLIENTE, DESCRIPCION, NOMBRE_USUARIO,FECHA,CORREO) VALUES (@invoiceNumberClient,@invoiceNumberSupplier,@description, @username, @date, @email)";
 
@@ -23,7 +23,7 @@ namespace DAO
             comm.Parameters.AddWithValue("@invoiceNumberSupplier", r.invoiceNumberSupplier);
             comm.Parameters.AddWithValue("@description", r.description);
             comm.Parameters.AddWithValue("@username", r.userName);
-            comm.Parameters.AddWithValue("@date", r.dateRemainder);
+            comm.Parameters.AddWithValue("@date", r.dateReminder);
             comm.Parameters.AddWithValue("@email", r.email);
 
             if (conn.State != ConnectionState.Open)
@@ -43,15 +43,15 @@ namespace DAO
 
         }
 
-        public Boolean updateReminder(Remainder r)
+        public Boolean updateReminder(Reminder r)
         {
             String query = "UPDATE[dbo].[RECORDATORIO] SET FECHA = @date WHERE ID_RECORDATORIO = @idRemainder";
-            if (verifyReminder(r.idRemainder) != 0)
+            if (verifyReminder(r.idReminder) != 0)
             {
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
-                comm.Parameters.AddWithValue("@date", r.dateRemainder);
-                comm.Parameters.AddWithValue("@idRemainder", r.idRemainder);
+                comm.Parameters.AddWithValue("@date", r.dateReminder);
+                comm.Parameters.AddWithValue("@idRemainder", r.idReminder);
 
                 if (conn.State != ConnectionState.Open)
                 {
@@ -67,15 +67,15 @@ namespace DAO
             else { return false; }
         }
 
-        public Boolean deleteReminder(Remainder r)
+        public Boolean deleteReminder(Reminder r)
         {
 
             String query = "DELETE FROM [dbo].[RECORDATORIO] WHERE ID_RECORDATORIO = @idRemainder";
-            if (verifyReminder(r.idRemainder) != 0)
+            if (verifyReminder(r.idReminder) != 0)
             {
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
-                comm.Parameters.AddWithValue("@idRemainder", r.idRemainder);
+                comm.Parameters.AddWithValue("@idRemainder", r.idReminder);
 
                 if (conn.State != ConnectionState.Open)
                 {
@@ -92,10 +92,10 @@ namespace DAO
 
         }
 
-        public Remainder loadReminderById(int idRemainder)
+        public Reminder loadReminderById(int idRemainder)
         {
             String query = "SELECT * FROM RECORDATORIO WHERE ID_RECORDATORIO = @idRemainder";
-            Remainder temp = new Remainder();
+            Reminder temp = new Reminder();
             SqlCommand comm = new SqlCommand(query, conn);
             SqlDataReader reader;
             comm.Parameters.AddWithValue("@idRemainder", idRemainder);
@@ -108,7 +108,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    //temp = new Remainder();
+                    temp = new Reminder(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetDateTime(5), reader.GetString(6));
                 }
             }
             else
@@ -123,12 +123,12 @@ namespace DAO
             return temp;
         }
 
-        public List<Remainder> loadReminders()
+        public List<Reminder> loadReminders()
         {
             String query = "SELECT * FROM RECORDATORIO";
-            Remainder r;
+            Reminder r;
 
-            List<Remainder> reminderList = new List<Remainder>();
+            List<Reminder> reminderList = new List<Reminder>();
 
             SqlCommand comm = new SqlCommand(query, conn);
             SqlDataReader reader;
@@ -142,8 +142,8 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    //r = new Remainder(); Prgeuntar por la creación de los recordatorios
-                    //reminderList.Add(r);
+                    r = new Reminder(); //Preguntar por la creación de los recordatorios
+                    reminderList.Add(r);
                 }
             }
             if (conn.State != ConnectionState.Closed)

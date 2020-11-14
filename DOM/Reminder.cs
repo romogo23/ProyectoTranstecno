@@ -27,6 +27,18 @@ namespace DOM
             this.email = email;
         }
 
+        public Reminder(int idReminder,int invoiceNumberSupplier, int invoiceNumberClient, string description, string userName,
+                DateTime dateReminder, string email)
+        {
+            this.idReminder = idReminder;
+            this.invoiceNumberSupplier = invoiceNumberSupplier;
+            this.invoiceNumberClient = invoiceNumberClient;
+            this.description = description;
+            this.userName = userName;
+            this.dateReminder = dateReminder;
+            this.email = email;
+        }
+
         public Reminder() { }
     }
 }
