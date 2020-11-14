@@ -12,7 +12,7 @@ namespace BL
     {
         public Boolean InsertInvoiceReceivingClient(InvoiceReceivingClient invC)
         {
-           
+            return true;
         }
 
 
@@ -20,7 +20,7 @@ namespace BL
 
         public List<InvoiceReceivingClient> LoadClients(int name)
         {
-            
+            return null;
         }
     }
 }

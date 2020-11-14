@@ -12,13 +12,13 @@ namespace BL
     {
         public Boolean InsertInvoiceSupplier(InvoiceSupplier invS)
         {
-           
 
+            return true;
         }
 
         public Boolean ModifyInvoiceSupplier(InvoiceSupplier invS)
         {
-
+            return true;
         }
 
       
@@ -26,18 +26,18 @@ namespace BL
 
         public Boolean CloseInvoiceSupplier(InvoiceSupplier invS)
         {
-
+            return true;
         }
 
         public List<InvoiceSupplier> LoadInvoiceSupplier(string idSupplier)
         {
-
+            return null;
         }
 
 
         public List<InvoiceSupplier> LoadInvoiceSupplierBydate(DateTime iniDate, DateTime endDate)
         {
-           
+            return null;
         }
     }
 }

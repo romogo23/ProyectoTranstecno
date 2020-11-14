@@ -13,14 +13,15 @@ namespace BL
 
         public Boolean InsertInvoiceReceivingSupplier(InvoiceReceivingSupplier invR)
         {
-  
+            return true;
+
         }
 
  
 
         public List<InvoiceReceivingSupplier> LoadSuppliers(int name)
         {
-            
+            return null;
         }
 
     }
