@@ -16,6 +16,10 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <link rel="stylesheet" type="text/css" href="CSS/Login.css"/>
+
+<%--    <link href="~/CSS/Login.css" rel="stylesheet" type="text/css" />--%>
+
 </head>
 <body style="background-image:url(Images/Login.png); background-repeat: repeat-x; background-attachment: fixed;" >
     <form runat="server">
@@ -47,7 +51,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                    <a class="navbar-brand" runat="server" href="WebForm2.aspx">Nombre de la aplicación</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
