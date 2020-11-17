@@ -30,6 +30,12 @@ namespace BL
             return dao.loadUserByUserName(username);
         }
 
+        public bool ValidateUser(string userName, string password)
+        {
+            DAOUser daoUser = new DAOUser();
+            return daoUser.ValidateUser(userName, password);
+        }
+
         public List<User> loadUsers() {
             DAOUser dao = new DAOUser();
             return dao.loadUsers();

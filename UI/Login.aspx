@@ -4,7 +4,9 @@
         <form class="test" action="/action_page.php">
             <div class="form-group">
                 <div class="container-fluid">
-                    <h3>Formulario de Inicio de Sesión:</h3>
+                    <h3>Formulario de Inicio de Sesión:
+                    </h3>
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
                     </div>
                 </div>
             <div class="form-group">
@@ -15,7 +17,7 @@
             </div>
             <div class="form-group">
                 <div class="container-fluid">
-                    <label for="pwd">Contraseña:</label>
+                    <label id="l" for="pwd" runat="server">Contraseña:</label>
                     <input type="password" class="form-control" id="pwd" />
                 </div>
             </div>

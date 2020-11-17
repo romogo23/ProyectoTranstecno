@@ -48,6 +48,50 @@ namespace DAO
 
         }
 
+        public Boolean ValidateUser(string userName, string password)
+        {
+            SqlCommand cmd;
+            string lookupPassword = null;
+
+            //if ((null == userName) || (0 == userName.Length) || (userName.Length > 50))
+            //{
+            //    return false;
+            //}
+
+            //if ((null == password) || (6 == password.Length) || (password.Length > 20))
+            //{
+            //    return false;
+            //}
+
+            try
+            {
+                if (conn.State != System.Data.ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                cmd = new SqlCommand("Select CONTRASENNA from USUARIO WHERE NOMBRE_USUARIO = @userName", conn);
+                cmd.Parameters.AddWithValue("@userName", userName);
+
+                lookupPassword = (string)cmd.ExecuteScalar();
+
+                if (conn.State != System.Data.ConnectionState.Closed)
+                {
+                    conn.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine("[ValidateUser] Exception " + ex.Message);
+            }
+
+            if (lookupPassword == null)
+            {
+                return false;
+            }
+            return (0 == string.Compare(lookupPassword, password, false));
+        }
 
         public Boolean updateUser(User u)
         {

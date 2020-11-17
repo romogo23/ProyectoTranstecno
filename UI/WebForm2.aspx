@@ -29,7 +29,7 @@
     </nav>
 
     <div class="container mx-auto" style="width: 400px;">
-        <form class="test" action="/action_page.php">
+        <form class="test" runat="server">
             <div class="form-group">
                 <div class="container-fluid">
                     <h3>Formulario de Inicio de Sesión:</h3>
@@ -38,17 +38,17 @@
             <div class="form-group">
                 <div class="container-fluid">
                     <label for="userName">Nombre de usuario:</label>
-                    <input type="text" class="form-control" id="email" />
+                    <input type="text" class="form-control" id="userName" runat="server"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="container-fluid">
-                    <label for="pwd">Contraseña:</label>
-                    <input type="password" class="form-control" id="pwd" />
+                    <label id="lblPassword" for="pwd" runat="server">Contraseña:</label>
+                    <input type="password" class="form-control" id="pwd" runat="server"/>
                 </div>
             </div>
             <div class="container-fluid">
-                <button type="submit" class="btn btn-default">Iniciar Sesión</button>
+                <asp:Button ID="btnLogin" class="btn btn-default" runat="server" Text="Iniciar Sesión" OnClick="btnLogin_Click"/>
             </div>
         </form>
     </div>
