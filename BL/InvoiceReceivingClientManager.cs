@@ -18,8 +18,6 @@ namespace BL
         }
 
 
-
-
         public List<InvoiceReceivingClient> LoadClients(string name)
         {
             DAOInvoiceReceivingClient daoIRC = new DAOInvoiceReceivingClient();

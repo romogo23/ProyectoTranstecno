@@ -25,7 +25,7 @@ namespace DAO
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@numberInvoice", invC.numberInvoice);
                 comm.Parameters.AddWithValue("@idClient", invC.idClient);
-                comm.Parameters.AddWithValue("@paymentDate", invC.paymentDate);
+                comm.Parameters.AddWithValue("@paymentDate", new DateTime(invC.paymentDate.Year, invC.paymentDate.Month, invC.paymentDate.Day));
                 comm.Parameters.AddWithValue("@idPayMethod", invC.idPayMethod);
                 comm.Parameters.AddWithValue("@payMethod", invC.payMethod);
                 comm.Parameters.AddWithValue("@money", invC.money);
