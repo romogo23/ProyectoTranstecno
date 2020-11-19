@@ -6,6 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>LOL</title>
+
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
@@ -16,17 +17,17 @@
 
 </head>
 <body>
-    
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Inicio</a>
-            </div>
-            <div class="navbar-right">
-                <a class="navbar-brand" href="#">Iniciar Sesión</a>
-            </div>
-        </div>
-    </nav>
+
+    <!--Navigation bar-->
+    <div id="nav-placeholder">
+    </div>
+
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("navbarLogin.html");
+        });
+    </script>
+    <!--end of Navigation bar-->
 
     <div class="container mx-auto" style="width: 400px;">
         <form class="test" runat="server">

@@ -1,0 +1,28 @@
+﻿body {
+}
+
+.navbar {
+    margin-bottom: 60px;
+    border-radius: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: black;
+}
+
+    .navbar .navbar-header {
+        padding-left: 150px;
+    }
+
+    .navbar .navbar-right {
+        padding-right: 150px;
+    }
+
+    .navbar .container-fluid .navbar-header .navbar-brand {
+        text-decoration: none;
+        color: #feffa6;
+    }
+
+    .navbar .container-fluid .navbar-right .navbar-brand {
+        text-decoration: none;
+        color: #feffa6;
+    }

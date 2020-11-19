@@ -119,7 +119,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CSS\LoadTemplate.css" />
     <Content Include="CSS\Login.css" />
+    <Content Include="CSS\NavbarAdmin.css" />
+    <Content Include="CSS\Navbar.css" />
     <Content Include="Default.aspx" />
     <Content Include="ExcelTest.aspx" />
     <Content Include="favicon.ico" />
@@ -133,6 +136,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="LoadTemplate.aspx" />
     <Content Include="Login.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\Bill.png" />
@@ -141,6 +145,9 @@
     <Content Include="Images\User.png" />
     <Content Include="InvoiceSupplierTest.aspx" />
     <Content Include="InvoiceTest.aspx" />
+    <Content Include="NavbarAdmin.aspx" />
+    <Content Include="navbarAdmin.html" />
+    <Content Include="navbarLogin.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -222,6 +229,20 @@
     </Compile>
     <Compile Include="InvoiceTest.aspx.designer.cs">
       <DependentUpon>InvoiceTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoadTemplate.aspx.cs">
+      <DependentUpon>LoadTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoadTemplate.aspx.designer.cs">
+      <DependentUpon>LoadTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NavbarAdmin.aspx.cs">
+      <DependentUpon>NavbarAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NavbarAdmin.aspx.designer.cs">
+      <DependentUpon>NavbarAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

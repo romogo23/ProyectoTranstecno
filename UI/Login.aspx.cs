@@ -13,7 +13,10 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["userWithRol"] != null)
+            {
+                Response.Redirect("~/Logout.aspx");
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -36,7 +39,7 @@ namespace UI
                         else
                         {
                             User userSesssion = um.loadUserByUserName(userNameIn);
-                            Session["userWithRole"] = userSesssion;
+                            Session["userWithRol"] = userSesssion;
                             if (userSesssion.rol == 0)
                             {
                                 Response.Redirect("~/Default.aspx");

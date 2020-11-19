@@ -1,0 +1,73 @@
+﻿body {
+}
+
+.navbar {
+    margin-bottom: 60px;
+    border-radius: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: black;
+}
+
+    .navbar .navbar-header {
+        padding-left: 150px;
+    }
+
+    .navbar .navbar-right {
+        padding-right: 150px;
+    }
+
+    .navbar .container-fluid .navbar-header .navbar-brand {
+        text-decoration: none;
+        color: #feffa6;
+    }
+
+    .navbar .container-fluid .navbar-right .navbar-brand {
+        text-decoration: none;
+        color: #feffa6;
+    }
+
+    .navbar .container-fluid .navbar-right .nav .dropdown .btn{
+        text-decoration: none;
+        color: #feffa6;
+        background-color: black;
+        border-color: black;
+    }
+
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+    background-color: black;
+    padding-bottom: 0px;
+    padding-top: 20px;
+    border-radius: 25px;
+}
+
+.dropdown > .dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+.dropdown-menu .dropdown-item {
+    margin-right: 11px;
+    padding-left: 15px;
+    width: 100%;
+    text-decoration: none;
+    color: #feffa6;
+}
+
+.containerPrueba{
+    margin-bottom: 20px;
+}
+
+ul.nav {
+    display: table;
+    width: 100%;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+    ul.nav > li {
+        display: table-cell;
+        float: none;
+    }
