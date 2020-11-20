@@ -20,7 +20,7 @@ namespace DAO
                 
 
                 String query = "INSERT INTO FACTURA_CLIENTE(NUMERO_FACTURA,ID_CLIENTE,FECHA_PAGO,ID_METODO_PAGO, METODO_PAGO," +
-                 "MONTO,ESTADO, CONDICION_PAGO) VALUES(@numberInvoice, @idClient,@paymentDate,@idPayMethod,@payMethod,@money,@condition, @paymentCondition)";
+                 "MONTO,ESTADO, CONDICION_PAGO, FECHA) VALUES(@numberInvoice, @idClient, @paymentDate, @idPayMethod, @payMethod, @money, @condition, @paymentCondition, @reminderDate)";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@numberInvoice", invC.numberInvoice);
@@ -31,6 +31,7 @@ namespace DAO
                 comm.Parameters.AddWithValue("@money", invC.money);
                 comm.Parameters.AddWithValue("@condition", invC.condition);
                 comm.Parameters.AddWithValue("@paymentCondition", invC.paymentCondition);
+                comm.Parameters.AddWithValue("@reminderDate", invC.reminderDate);
                 if (conn.State != System.Data.ConnectionState.Open)
                 {
                     conn.Open();
@@ -150,7 +151,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    listInvoiceClient.Add(new InvoiceClient((Int64)reader["NUMERO_FACTURA"], (string)reader["ID_CLIENTE"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte) reader["ESTADO"], (string)reader["CONDICION_PAGO"]));
+                    listInvoiceClient.Add(new InvoiceClient((Int64)reader["NUMERO_FACTURA"], (string)reader["ID_CLIENTE"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte) reader["ESTADO"], (string)reader["CONDICION_PAGO"], (DateTime)reader["FECHA"]));
                 }
             }
 
@@ -183,7 +184,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    listInvoiceClient.Add(new InvoiceClient((Int64)reader["NUMERO_FACTURA"], (string)reader["ID_CLIENTE"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"] , (string)reader["CONDICION_PAGO"]));
+                    listInvoiceClient.Add(new InvoiceClient((Int64)reader["NUMERO_FACTURA"], (string)reader["ID_CLIENTE"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"] , (string)reader["CONDICION_PAGO"], (DateTime)reader["FECHA"]));
                 }
             }
 

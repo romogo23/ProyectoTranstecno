@@ -20,7 +20,7 @@ namespace DAO
             {
 
                 String query = "INSERT INTO FACTURA_PROVEEDOR (NUMERO_FACTURA,ID_PROVEEDOR,FECHA_PAGO,ID_METODO_PAGO, METODO_PAGO," +
-                 "MONTO,ESTADO) VALUES(@numberInvoice, @idSupplier,@paymentDate,@idPayMethod,@payMethod,@money,@condition)";
+                 "MONTO, ESTADO, FECHA) VALUES(@numberInvoice, @idSupplier, @paymentDate, @idPayMethod, @payMethod, @money, @condition, @reminderDate)";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@numberInvoice", invS.numberInvoice);
@@ -30,6 +30,7 @@ namespace DAO
                 comm.Parameters.AddWithValue("@payMethod", invS.payMethod);
                 comm.Parameters.AddWithValue("@money", invS.money);
                 comm.Parameters.AddWithValue("@condition", invS.condition);
+                comm.Parameters.AddWithValue("@reminderDate", invS.reminderDate);
                 if (conn.State != System.Data.ConnectionState.Open)
                 {
                     conn.Open();
@@ -149,7 +150,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    listInvoiceSupplier.Add(new InvoiceSupplier((string)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"] ));
+                    listInvoiceSupplier.Add(new InvoiceSupplier((string)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"], (DateTime)reader["FECHA"]));
                 }
             }
 
@@ -184,7 +185,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    listInvoiceSupplier.Add(new InvoiceSupplier((string)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"]));
+                    listInvoiceSupplier.Add(new InvoiceSupplier((string)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"], (DateTime)reader["FECHA"]));
                 }
             }
 
