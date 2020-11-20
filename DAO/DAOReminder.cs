@@ -15,7 +15,7 @@ namespace DAO
 
         public Boolean insertReminder(Reminder r)
         {
-            String query = "INSERT INTO [dbo].RECORDATORIO(NUMERO_FACTURA_PROVEEDOR, NUMERO_FACTURA_CLIENTE, DESCRIPCION, NOMBRE_USUARIO,FECHA,CORREO) VALUES (@invoiceNumberClient,@invoiceNumberSupplier,@description, @username, @date, @email)";
+            String query = "INSERT INTO [dbo].RECORDATORIO(NUMERO_FACTURA_PROVEEDOR, NUMERO_FACTURA_CLIENTE, DESCRIPCION, NOMBRE_USUARIO,FECHA) VALUES (@invoiceNumberClient,@invoiceNumberSupplier,@description, @username, @date)";
 
             SqlCommand comm = new SqlCommand(query, conn);
             comm.Connection = conn;
@@ -24,7 +24,6 @@ namespace DAO
             comm.Parameters.AddWithValue("@description", r.description);
             comm.Parameters.AddWithValue("@username", r.userName);
             comm.Parameters.AddWithValue("@date", r.dateReminder);
-            comm.Parameters.AddWithValue("@email", r.email);
 
             if (conn.State != ConnectionState.Open)
             {
@@ -108,7 +107,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    temp = new Reminder(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetDateTime(5), reader.GetString(6));
+                    temp = new Reminder(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetDateTime(5));
                 }
             }
             else

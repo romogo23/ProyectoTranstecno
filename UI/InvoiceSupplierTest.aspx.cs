@@ -20,7 +20,7 @@ namespace UI
         protected void Button1_Click(object sender, EventArgs e)
         {
             InvoiceReceivingSupplierManager invoiceReceivingSupplierManager = new InvoiceReceivingSupplierManager();
-            invoiceReceivingSupplierManager.InsertInvoiceReceivingSupplier(new InvoiceReceivingSupplier("390159", "SodaTROMPOS.A@gmail.com", "Soda Trompos"));
+            invoiceReceivingSupplierManager.InsertInvoiceReceivingSupplier(new InvoiceReceivingSupplier("390159", "Soda Trompos"));
 
             InvoiceSupplier inV = new InvoiceSupplier(0010900105781470, "390159", new DateTime(2019, 05, 11), 0, "", 3200, 0);
             InvoiceSupplierManager inM = new InvoiceSupplierManager();
@@ -56,7 +56,7 @@ namespace UI
             tbInvoiceSupplier.Columns.Add("Identificacion");
             tbInvoiceSupplier.Columns.Add("correo");
 
-            tbInvoiceSupplier.Rows.Add(supplier.nameSupplier, supplier.idSupplier, supplier.email);
+            tbInvoiceSupplier.Rows.Add(supplier.nameSupplier, supplier.idSupplier);
             grdSupplier.DataSource = tbInvoiceSupplier;
             grdSupplier.DataBind();
 

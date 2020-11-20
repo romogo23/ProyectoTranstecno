@@ -8,7 +8,7 @@ namespace DOM
 {
     public class InvoiceClient
     {
-        public int numberInvoice { get; set; }
+        public Int64 numberInvoice { get; set; }
         public string idClient { get; set; }
         public DateTime paymentDate { get; set; }
         public int idPayMethod { get; set; }
@@ -17,7 +17,7 @@ namespace DOM
         public Byte condition { get; set; }
         public string paymentCondition { get; set; }
 
-        public InvoiceClient(int numberInvoice, string idClient, DateTime paymentDate, int idPayMethod, string payMethod,
+        public InvoiceClient(Int64 numberInvoice, string idClient, DateTime paymentDate, int idPayMethod, string payMethod,
             double money, Byte condition, string paymentCondition)
         {
             this.numberInvoice = numberInvoice;
@@ -30,7 +30,7 @@ namespace DOM
             this.paymentCondition = paymentCondition;
         }
 
-        public InvoiceClient(int numberInvoice, DateTime paymentDate, int idPayMethod, string payMethod)
+        public InvoiceClient(Int64 numberInvoice, DateTime paymentDate, int idPayMethod, string payMethod)
         {
             this.numberInvoice = numberInvoice;
             this.paymentDate = paymentDate;

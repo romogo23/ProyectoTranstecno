@@ -15,13 +15,12 @@ namespace DAO
         {
             if (VerifyInvoiceReceivingSupplier(invR.idSupplier) == 0)
             {
-                String query = "INSERT INTO DESTINATARIO_FACTURA_PROVEEDOR(ID_PROVEEDOR, CORREO, NOMBRE) " +
-                    "VALUES(@idProveedor,@email,@name)";
+                String query = "INSERT INTO DESTINATARIO_FACTURA_PROVEEDOR(ID_PROVEEDOR, NOMBRE) " +
+                    "VALUES(@idProveedor,@name)";
 
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@idProveedor", invR.idSupplier);
-                comm.Parameters.AddWithValue("@email", invR.email);
                 comm.Parameters.AddWithValue("@name", invR.nameSupplier);
                 if (conn.State != System.Data.ConnectionState.Open)
                 {
@@ -78,7 +77,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    listSuppliersName.Add(new InvoiceReceivingSupplier((string)reader["ID_PROVEEDOR"], (string)reader["CORREO"], (string)reader["NOMBRE"]));
+                    listSuppliersName.Add(new InvoiceReceivingSupplier((string)reader["ID_PROVEEDOR"], (string)reader["NOMBRE"]));
                 }
             }
 
@@ -111,7 +110,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    Supplier = (new InvoiceReceivingSupplier((string)reader["ID_PROVEEDOR"], (string)reader["CORREO"], (string)reader["NOMBRE"]));
+                    Supplier = (new InvoiceReceivingSupplier((string)reader["ID_PROVEEDOR"], (string)reader["NOMBRE"]));
                 }
             }
 

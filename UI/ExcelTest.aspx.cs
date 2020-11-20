@@ -16,12 +16,37 @@ namespace WebApplication1
 {
     public partial class ExcelTest : System.Web.UI.Page
     {
-        private string customerIemplateIndicator = "Condición de Venta";
+        //string clientBillNumberCell = table.Rows[0][1].ToString();
+        //string idClientCell = table.Rows[0][8].ToString();
+        //string conditionClientCell = table.Rows[0][11].ToString();
+        //string totalClientCell = table.Rows[0][24].ToString();
+        //string dateClientCell = table.Rows[0][26].ToString();
+
+        //string dateSupplierCell = table.Rows[0][3].ToString();
+        //string supplierBillNumberCell = table.Rows[0][4].ToString();
+        //string idSupplierCell = table.Rows[0][9].ToString();
+        //string totalSupplierCell = table.Rows[0][23].ToString();
+
+        private const string customerTemplateId = "# Factura";
+        private const string customerId = "Cedula Receptor";
+        private const string customerTemplateIndicator = "Condición de Venta";
+        private const string customerTotal = "TotalFactura";
+        private const string customerDate = "FechaVencimiento";
+
+        private const string supplierDate = "FechaEmisionAceptacion";
+        private const string supplierTemplateId = "ConsecutivoDocumento";
+        private const string supplierId = "IdentificacionEmisor";
+        private const string supplierTotal = "Total Colones";
+
         private DataTable table;
-        private string textEmpty= "vacio";
-        private string verifyFileXls = ".xls";
-        private string verifyFileXlsx = ".xlsx";
-        private string noExcelFile = "no es de excel";
+        private const string textEmpty = "Archivo vacío";
+        private const string verifyFileXls = ".xls";
+        private const string verifyFileXlsx = ".xlsx";
+        private const string noExcelFile = "El archivo no es un archivo de excel";
+        private const string noClientTemplateFile = "El archivo no contiene información de facturas de clientes";
+        private const string noSupplierTemplateFile = "El archivo no contiene información de facturas de proveedores";
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (ViewState["table"] == null) {
@@ -37,7 +62,7 @@ namespace WebApplication1
         {
             if (FP.PostedFile.ContentLength <= 0)
             {
-                lblInformationInvoice.Text = textEmpty ;
+                lblInformationInvoice.Text = textEmpty;
             }
 
             //Get the file extension  
@@ -45,7 +70,9 @@ namespace WebApplication1
 
             //If file is not in excel format then return  
             if (fileExtension != verifyFileXls && fileExtension != verifyFileXlsx)
-            { lblInformationInvoice.Text = noExcelFile; }
+            { 
+                lblInformationInvoice.Text = noExcelFile;
+            }
             else
             {
 
@@ -70,32 +97,49 @@ namespace WebApplication1
 
         protected void btnUploadInvoice_Click(object sender, EventArgs e)
         {
-            string cell = table.Rows[0][11].ToString();
-            if (cell == customerIemplateIndicator)
+            string clientBillNumberCell = table.Rows[0][1].ToString();
+            string idClientCell = table.Rows[0][8].ToString();
+            string conditionClientCell = table.Rows[0][11].ToString();
+            string totalClientCell = table.Rows[0][24].ToString();
+            string dateClientCell = table.Rows[0][26].ToString(); // PARA HACER LA VALIDACION DE SI ES UN ARCHIVO QUE POSEE FACTURAS!!
+
+            string dateSupplierCell = table.Rows[0][3].ToString();
+            string supplierBillNumberCell = table.Rows[0][4].ToString();
+            string idSupplierCell = table.Rows[0][9].ToString();
+            string totalSupplierCell = table.Rows[0][23].ToString();
+
+            if (clientBillNumberCell == customerTemplateId && idClientCell == customerId && conditionClientCell == customerTemplateIndicator 
+                && totalClientCell == customerTotal && dateClientCell == customerDate)
             {
 
                 for (int row = 1; row < table.Rows.Count; row++)
                 {
-                    InvoiceReceivingClientManager invoiceReceivingClientM = new InvoiceReceivingClientManager();
+                    InvoiceReceivingClientManager invoiceReceivingClientM = new InvoiceReceivingClientManager(); //LOS DE ABAJO SE PUEDEN CAMBIAR POR LAS VARIABLES
                     invoiceReceivingClientM.InsertInvoiceReceivingClient(new InvoiceReceivingClient(table.Rows[row][8].ToString(), table.Rows[row][9].ToString(), table.Rows[row][7].ToString()));
                     InvoiceClientManager invoiceClientManager = new InvoiceClientManager();
-                    invoiceClientManager.InsertInvoiceClient(new InvoiceClient(int.Parse(table.Rows[row][1].ToString()), table.Rows[row][8].ToString(), DateTime.ParseExact(table.Rows[row][26].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, table.Rows[row][14].ToString(), double.Parse(table.Rows[row][24].ToString()), byte.Parse(table.Rows[row][10].ToString().Replace(table.Rows[row][10].ToString(), "0")), table.Rows[row][11].ToString()));
+                    invoiceClientManager.InsertInvoiceClient(new InvoiceClient(int.Parse(table.Rows[row][1].ToString()), table.Rows[row][8].ToString(), DateTime.ParseExact(table.Rows[row][26].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, "", double.Parse(table.Rows[row][24].ToString()), 0, table.Rows[row][11].ToString()));
 
                 }
             }
             else
             {
-
-
-                for (int row1 = 1; row1 < table.Rows.Count; row1++)
+                if (dateSupplierCell == supplierDate && supplierBillNumberCell == supplierTemplateId && idSupplierCell == supplierId && 
+                    totalSupplierCell == supplierTotal)
                 {
-                    InvoiceReceivingSupplierManager invoiceReceivingSupplierM = new InvoiceReceivingSupplierManager();
-                    invoiceReceivingSupplierM.InsertInvoiceReceivingSupplier(new InvoiceReceivingSupplier(table.Rows[row1][9].ToString(), "", table.Rows[row1][10].ToString()));
-                    InvoiceSupplierManager invoiceSupplierManager = new InvoiceSupplierManager();
-                    invoiceSupplierManager.InsertInvoiceSupplier(new InvoiceSupplier(Int64.Parse(table.Rows[row1][2].ToString()), table.Rows[row1][6].ToString(), new DateTime(1753, 12, 12), 0, "", double.Parse(table.Rows[row1][23].ToString()), 0));
+                    for (int row1 = 1; row1 < table.Rows.Count; row1++)
+                    {
+                        InvoiceReceivingSupplierManager invoiceReceivingSupplierM = new InvoiceReceivingSupplierManager();
+                        invoiceReceivingSupplierM.InsertInvoiceReceivingSupplier(new InvoiceReceivingSupplier(table.Rows[row1][9].ToString(), table.Rows[row1][10].ToString()));
+                        InvoiceSupplierManager invoiceSupplierManager = new InvoiceSupplierManager();
+                        invoiceSupplierManager.InsertInvoiceSupplier(new InvoiceSupplier(Int64.Parse(table.Rows[row1][4].ToString()), table.Rows[row1][9].ToString(), DateTime.ParseExact(table.Rows[row1][3].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, "", double.Parse(table.Rows[row1][23].ToString()), 0));
 
+                    }
                 }
-
+                else
+                {
+                    lblInformationInvoice.Text = noSupplierTemplateFile;
+                }
+                lblInformationInvoice.Text = noClientTemplateFile;
             }
         }
 

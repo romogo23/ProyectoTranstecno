@@ -14,21 +14,19 @@ namespace DOM
         public string description { get; set; }
         public string userName { get; set; }
         public DateTime dateReminder { get; set; }
-        public string email { get; set; }
 
         public Reminder(int invoiceNumberSupplier, int invoiceNumberClient, string description, string userName,
-                DateTime dateReminder, string email)
+                DateTime dateReminder)
         {
             this.invoiceNumberSupplier = invoiceNumberSupplier;
             this.invoiceNumberClient = invoiceNumberClient;
             this.description = description;
             this.userName = userName;
             this.dateReminder = dateReminder;
-            this.email = email;
         }
 
         public Reminder(int idReminder,int invoiceNumberSupplier, int invoiceNumberClient, string description, string userName,
-                DateTime dateReminder, string email)
+                DateTime dateReminder)
         {
             this.idReminder = idReminder;
             this.invoiceNumberSupplier = invoiceNumberSupplier;
@@ -36,7 +34,6 @@ namespace DOM
             this.description = description;
             this.userName = userName;
             this.dateReminder = dateReminder;
-            this.email = email;
         }
 
         public Reminder() { }
