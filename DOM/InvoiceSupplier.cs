@@ -8,7 +8,7 @@ namespace DOM
 {
     public class InvoiceSupplier
     {
-        public Int64 numberInvoice { get; set; }
+        public string numberInvoice { get; set; }
         public string idSupplier { get; set; }
         public DateTime paymentDate { get; set; }
         public int idPayMethod { get; set; }
@@ -16,7 +16,7 @@ namespace DOM
         public double money { get; set; }
         public Byte condition { get; set; }
 
-        public InvoiceSupplier(Int64 numberInvoice, string idSupplier, DateTime paymentDate, int idPayMethod, string payMethod,
+        public InvoiceSupplier(string numberInvoice, string idSupplier, DateTime paymentDate, int idPayMethod, string payMethod,
             double money, Byte condition)
         {
             this.numberInvoice = numberInvoice;
@@ -28,7 +28,7 @@ namespace DOM
             this.condition = condition;
         }
 
-        public InvoiceSupplier(Int64 numberInvoice, DateTime paymentDate, int idPayMethod, string payMethod )
+        public InvoiceSupplier(string numberInvoice, DateTime paymentDate, int idPayMethod, string payMethod )
         {
             this.numberInvoice = numberInvoice;
             this.paymentDate = paymentDate;

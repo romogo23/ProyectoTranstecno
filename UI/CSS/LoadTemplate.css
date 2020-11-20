@@ -45,9 +45,9 @@
 
 .btnFile {
     border-radius: 25px;
-    background-color: black;
-    text-decoration: none;
-    color: white;
+    background-color: white !important;
+/*    text-decoration: none;
+    color: white;*/
 }
 
 /*.col-5 {

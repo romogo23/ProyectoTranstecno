@@ -97,11 +97,17 @@ namespace WebApplication1
 
         protected void btnUploadInvoice_Click(object sender, EventArgs e)
         {
-            string clientBillNumberCell = table.Rows[0][1].ToString();
-            string idClientCell = table.Rows[0][8].ToString();
-            string conditionClientCell = table.Rows[0][11].ToString();
-            string totalClientCell = table.Rows[0][24].ToString();
-            string dateClientCell = table.Rows[0][26].ToString(); // PARA HACER LA VALIDACION DE SI ES UN ARCHIVO QUE POSEE FACTURAS!!
+            //string clientBillNumberCell = table.Rows[0][1].ToString();
+            //string idClientCell = table.Rows[0][8].ToString();
+            //string conditionClientCell = table.Rows[0][11].ToString();
+            //string totalClientCell = table.Rows[0][24].ToString();
+            //string dateClientCell = table.Rows[0][26].ToString(); // PARA HACER LA VALIDACION DE SI ES UN ARCHIVO QUE POSEE FACTURAS!!
+
+            string clientBillNumberCell = "";
+            string idClientCell = "";
+            string conditionClientCell = "";
+            string totalClientCell = "";
+            string dateClientCell = "";
 
             string dateSupplierCell = table.Rows[0][3].ToString();
             string supplierBillNumberCell = table.Rows[0][4].ToString();
@@ -131,7 +137,7 @@ namespace WebApplication1
                         InvoiceReceivingSupplierManager invoiceReceivingSupplierM = new InvoiceReceivingSupplierManager();
                         invoiceReceivingSupplierM.InsertInvoiceReceivingSupplier(new InvoiceReceivingSupplier(table.Rows[row1][9].ToString(), table.Rows[row1][10].ToString()));
                         InvoiceSupplierManager invoiceSupplierManager = new InvoiceSupplierManager();
-                        invoiceSupplierManager.InsertInvoiceSupplier(new InvoiceSupplier(Int64.Parse(table.Rows[row1][4].ToString()), table.Rows[row1][9].ToString(), DateTime.ParseExact(table.Rows[row1][3].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, "", double.Parse(table.Rows[row1][23].ToString()), 0));
+                        invoiceSupplierManager.InsertInvoiceSupplier(new InvoiceSupplier(table.Rows[row1][4].ToString(), table.Rows[row1][9].ToString(), DateTime.ParseExact(table.Rows[row1][3].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, "", double.Parse(table.Rows[row1][23].ToString()), 0));
 
                     }
                 }

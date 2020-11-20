@@ -80,7 +80,7 @@ namespace DAO
 
         }
 
-        public int verifyInvoiceSupplier(Int64 numberInvoice)
+        public int verifyInvoiceSupplier(string numberInvoice)
         {
             String query = " select count(*) from FACTURA_PROVEEDOR where NUMERO_FACTURA = @numberInvoice";
             SqlCommand comm = new SqlCommand(query, conn);
@@ -149,7 +149,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    listInvoiceSupplier.Add(new InvoiceSupplier((Int64)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"] ));
+                    listInvoiceSupplier.Add(new InvoiceSupplier((string)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"] ));
                 }
             }
 
@@ -184,7 +184,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    listInvoiceSupplier.Add(new InvoiceSupplier((Int64)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"]));
+                    listInvoiceSupplier.Add(new InvoiceSupplier((string)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"]));
                 }
             }
 

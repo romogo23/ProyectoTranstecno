@@ -21,9 +21,7 @@ namespace DAO
             comm.Connection = conn;
             comm.Parameters.AddWithValue("@invoiceNumberClient", r.invoiceNumberClient);
             comm.Parameters.AddWithValue("@invoiceNumberSupplier", r.invoiceNumberSupplier);
-            comm.Parameters.AddWithValue("@description", r.description);
             comm.Parameters.AddWithValue("@username", r.userName);
-            comm.Parameters.AddWithValue("@date", r.dateReminder);
 
             if (conn.State != ConnectionState.Open)
             {
@@ -42,29 +40,30 @@ namespace DAO
 
         }
 
-        public Boolean updateReminder(Reminder r)
-        {
-            String query = "UPDATE[dbo].[RECORDATORIO] SET FECHA = @date WHERE ID_RECORDATORIO = @idRemainder";
-            if (verifyReminder(r.idReminder) != 0)
-            {
-                SqlCommand comm = new SqlCommand(query, conn);
-                comm.Connection = conn;
-                comm.Parameters.AddWithValue("@date", r.dateReminder);
-                comm.Parameters.AddWithValue("@idRemainder", r.idReminder);
+        // ESTO SE HACE EN FACTURAS
+        //public Boolean updateReminder(Reminder r)
+        //{
+        //    String query = "UPDATE[dbo].[RECORDATORIO] SET FECHA = @date WHERE ID_RECORDATORIO = @idRemainder";
+        //    if (verifyReminder(r.idReminder) != 0)
+        //    {
+        //        SqlCommand comm = new SqlCommand(query, conn);
+        //        comm.Connection = conn;
+        //        comm.Parameters.AddWithValue("@date", r.dateReminder);
+        //        comm.Parameters.AddWithValue("@idRemainder", r.idReminder);
 
-                if (conn.State != ConnectionState.Open)
-                {
-                    conn.Open();
-                }
-                comm.ExecuteNonQuery();
-                if (conn.State != ConnectionState.Closed)
-                {
-                    conn.Close();
-                }
-                return true;
-            }
-            else { return false; }
-        }
+        //        if (conn.State != ConnectionState.Open)
+        //        {
+        //            conn.Open();
+        //        }
+        //        comm.ExecuteNonQuery();
+        //        if (conn.State != ConnectionState.Closed)
+        //        {
+        //            conn.Close();
+        //        }
+        //        return true;
+        //    }
+        //    else { return false; }
+        //}
 
         public Boolean deleteReminder(Reminder r)
         {

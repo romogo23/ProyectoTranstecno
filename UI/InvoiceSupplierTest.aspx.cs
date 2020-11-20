@@ -22,25 +22,25 @@ namespace UI
             InvoiceReceivingSupplierManager invoiceReceivingSupplierManager = new InvoiceReceivingSupplierManager();
             invoiceReceivingSupplierManager.InsertInvoiceReceivingSupplier(new InvoiceReceivingSupplier("390159", "Soda Trompos"));
 
-            InvoiceSupplier inV = new InvoiceSupplier(0010900105781470, "390159", new DateTime(2019, 05, 11), 0, "", 3200, 0);
-            InvoiceSupplierManager inM = new InvoiceSupplierManager();
-            inM.InsertInvoiceSupplier(inV);
+            //InvoiceSupplier inV = new InvoiceSupplier(0010900105781470, "390159", new DateTime(2019, 05, 11), 0, "", 3200, 0);
+            //InvoiceSupplierManager inM = new InvoiceSupplierManager();
+            //inM.InsertInvoiceSupplier(inV);
 
 
         }
 
         protected void Modify_Click(object sender, EventArgs e)
         {
-            InvoiceSupplier inV = new InvoiceSupplier(0010900105781470, new DateTime(2019, 12, 30), 0, "Cheque");
-            InvoiceSupplierManager inM = new InvoiceSupplierManager();
-            inM.ModifyInvoiceSupplier(inV);
+            //InvoiceSupplier inV = new InvoiceSupplier(0010900105781470, new DateTime(2019, 12, 30), 0, "Cheque");
+            //InvoiceSupplierManager inM = new InvoiceSupplierManager();
+            //inM.ModifyInvoiceSupplier(inV);
         }
 
         protected void Close_Click(object sender, EventArgs e)
         {
-            InvoiceSupplier inV = new InvoiceSupplier(0010900105781470, new DateTime(2019, 12, 30), 29, "Cheque");
-            InvoiceSupplierManager inM = new InvoiceSupplierManager();
-            inM.CloseInvoiceSupplier(inV);
+            //InvoiceSupplier inV = new InvoiceSupplier(0010900105781470, new DateTime(2019, 12, 30), 29, "Cheque");
+            //InvoiceSupplierManager inM = new InvoiceSupplierManager();
+            //inM.CloseInvoiceSupplier(inV);
 
         }
 
