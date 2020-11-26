@@ -42,6 +42,7 @@ namespace UI
                                 //if uM.insertUser = true, enviarlo a la pagina de exito
                                 u = new User(userNameR, emailR, passwordR, int.Parse(rols.SelectedValue));
                                 uM.insertUser(u);
+                                Response.Write("<script> alert(" + "'Usuario registrado exitosamente'" + ") </script>");
                             }
                         }
                         else
