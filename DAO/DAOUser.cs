@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -196,6 +197,36 @@ namespace DAO
 
             return temp;
 
+        }
+
+
+        public DataTable loadUsersName() {
+            DataTable tbl = new DataTable();
+            SqlDataReader reader;
+            String query = "SELECT NOMBRE_USUARIO FROM USUARIO";
+            SqlCommand comm = new SqlCommand(query, conn);
+
+         
+            tbl.Columns.Add("UserName");
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            reader = comm.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    tbl.Rows.Add(Convert.ToString(reader.GetString(0)));
+                }
+            }
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+            return tbl;
         }
 
         public List<User> loadUsers()

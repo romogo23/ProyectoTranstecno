@@ -19,25 +19,25 @@ namespace UI
 
         protected void insert_Click(object sender, EventArgs e)
         {
-            InvoiceClient inV = new InvoiceClient(219, "3101005212", new DateTime(2019, 12, 27), 0, "Efectivo", 1370742.91, 0, "Credito");
+            //InvoiceClient inV = new InvoiceClient(219, "3101005212", new DateTime(2019, 12, 27), 0, "Efectivo", 1370742.91, 0, "Credito");
             InvoiceClientManager inM = new InvoiceClientManager();
-            inM.InsertInvoiceClient(inV);
+            //inM.InsertInvoiceClient(inV);
             
         }
 
         protected void modify_Click(object sender, EventArgs e)
         {
-            InvoiceClient inV = new InvoiceClient(216, new DateTime(2019, 12, 30), 0, "Cheque");
+           // InvoiceClient inV = new InvoiceClient(216, new DateTime(2019, 12, 30), 0, "Cheque");
             InvoiceClientManager inM = new InvoiceClientManager();
-            inM.ModifyInvoiceClient(inV);
+           // inM.ModifyInvoiceClient(inV);
 
         }
 
         protected void close_Click(object sender, EventArgs e)
         {
-            InvoiceClient inV = new InvoiceClient(216, new DateTime(2019, 12, 30), 231, "Cheque");
+           // InvoiceClient inV = new InvoiceClient(216, new DateTime(2019, 12, 30), 231, "Cheque");
             InvoiceClientManager inM = new InvoiceClientManager();
-            inM.CloseInvoiceClient(inV);
+            //inM.CloseInvoiceClient(inV);
         }
 
         protected void loadC_Click(object sender, EventArgs e)

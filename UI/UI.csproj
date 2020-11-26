@@ -124,6 +124,7 @@
     <Content Include="CSS\NavbarAdmin.css" />
     <Content Include="CSS\Navbar.css" />
     <Content Include="Default.aspx" />
+    <Content Include="DeleteUser.aspx" />
     <Content Include="ExcelTest.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -145,9 +146,11 @@
     <Content Include="Images\User.png" />
     <Content Include="InvoiceSupplierTest.aspx" />
     <Content Include="InvoiceTest.aspx" />
+    <Content Include="ManageUsers.aspx" />
     <Content Include="NavbarAdmin.aspx" />
     <Content Include="navbarAdmin.html" />
     <Content Include="navbarLogin.html" />
+    <Content Include="RegisterUser.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -206,6 +209,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DeleteUser.aspx.cs">
+      <DependentUpon>DeleteUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteUser.aspx.designer.cs">
+      <DependentUpon>DeleteUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ExcelTest.aspx.cs">
       <DependentUpon>ExcelTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -237,6 +247,13 @@
     <Compile Include="LoadTemplate.aspx.designer.cs">
       <DependentUpon>LoadTemplate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NavbarAdmin.aspx.cs">
       <DependentUpon>NavbarAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -245,6 +262,13 @@
       <DependentUpon>NavbarAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterUser.aspx.cs">
+      <DependentUpon>RegisterUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterUser.aspx.designer.cs">
+      <DependentUpon>RegisterUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

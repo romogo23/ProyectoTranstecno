@@ -123,7 +123,7 @@ namespace WebApplication1
                     InvoiceReceivingClientManager invoiceReceivingClientM = new InvoiceReceivingClientManager(); //LOS DE ABAJO SE PUEDEN CAMBIAR POR LAS VARIABLES
                     invoiceReceivingClientM.InsertInvoiceReceivingClient(new InvoiceReceivingClient(table.Rows[row][8].ToString(), table.Rows[row][9].ToString(), table.Rows[row][7].ToString()));
                     InvoiceClientManager invoiceClientManager = new InvoiceClientManager();
-                    invoiceClientManager.InsertInvoiceClient(new InvoiceClient(int.Parse(table.Rows[row][1].ToString()), table.Rows[row][8].ToString(), DateTime.ParseExact(table.Rows[row][26].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, "", double.Parse(table.Rows[row][24].ToString()), 0, table.Rows[row][11].ToString()));
+                    //invoiceClientManager.InsertInvoiceClient(new InvoiceClient(int.Parse(table.Rows[row][1].ToString()), table.Rows[row][8].ToString(), DateTime.ParseExact(table.Rows[row][26].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, "", double.Parse(table.Rows[row][24].ToString()), 0, table.Rows[row][11].ToString()));
 
                 }
             }
@@ -137,7 +137,7 @@ namespace WebApplication1
                         InvoiceReceivingSupplierManager invoiceReceivingSupplierM = new InvoiceReceivingSupplierManager();
                         invoiceReceivingSupplierM.InsertInvoiceReceivingSupplier(new InvoiceReceivingSupplier(table.Rows[row1][9].ToString(), table.Rows[row1][10].ToString()));
                         InvoiceSupplierManager invoiceSupplierManager = new InvoiceSupplierManager();
-                        invoiceSupplierManager.InsertInvoiceSupplier(new InvoiceSupplier(table.Rows[row1][4].ToString(), table.Rows[row1][9].ToString(), DateTime.ParseExact(table.Rows[row1][3].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, "", double.Parse(table.Rows[row1][23].ToString()), 0));
+                        //invoiceSupplierManager.InsertInvoiceSupplier(new InvoiceSupplier(table.Rows[row1][4].ToString(), table.Rows[row1][9].ToString(), DateTime.ParseExact(table.Rows[row1][3].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, "", double.Parse(table.Rows[row1][23].ToString()), 0));
 
                     }
                 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,16 @@ namespace BL
         public Boolean updateUser(User u) {
             DAOUser dao = new DAOUser();
             return dao.updateUser(u);
+        }
+
+        public int verifyUser(String userName) {
+            DAOUser dao = new DAOUser();
+            return dao.verifyUser(userName);
+        }
+
+        public DataTable loadUsersNames() {
+            DAOUser dao = new DAOUser();
+            return dao.loadUsersName();
         }
 
         public Boolean deleteUser(User u) {
