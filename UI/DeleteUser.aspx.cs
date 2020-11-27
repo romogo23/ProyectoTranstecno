@@ -24,14 +24,24 @@ namespace UI
             UserManager uM = new UserManager();
             User u = new User();
             u.username = Request["userName"];
-            uM.deleteUser(u);
+            bool vari = uM.deleteUser(u);
+            if (vari)
+            {
+                Response.Write("<script> alert(" + "'Usuario eliminado con exito'" + ") </script>");
+                Response.Redirect("~/ManageUsers.aspx");
+            }
+            else
+            {
+                Response.Write("<script> alert(" + "'Usuario no eliminado'" + ") </script>");
+            }
            //if um.deleteUser = true redirect a una página, else a la de error
             //Response.Redirect("~/CategoryManagement.aspx");
         }
 
         protected void cancelbtn_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("~/CategoryManagement.aspx");
+            Response.Write("<script> alert(" + "'Usuario no eliminado'" + ") </script>");
+            //Response.Redirect("~/ManageUsers.aspx");
         }
     }
 }
