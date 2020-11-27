@@ -51,6 +51,34 @@ namespace DAO
 
         }
 
+        public List<Reminder> LoadMonthClientReminder()
+        {
+            List<Reminder> reminderClientList = new List<Reminder>();
+            String query = "Select T1.FECHA_PAGO, T2.NOMBRE FROM FACTURA_CLIENTE T1 JOIN DESTINATARIO_FACTURA_CLIENTE T2 ON T1.ID_CLIENTE = T2.ID_CLIENTE;";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Connection = conn;
+            SqlDataReader reader;
+            if (conn.State != System.Data.ConnectionState.Open)
+                {
+                conn.Open();
+            }
+            reader = comm.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    reminderClientList.Add(new Reminder((DateTime)reader["FECHA_PAGO"], (String)reader["NOMBRE"]));
+                }
+            }
+
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+            }
+            return reminderClientList;
+        }
+
         public Boolean ModifyInvoiceClient(InvoiceClient invC)
         {
             if (verifyInvoiceClient((int)invC.numberInvoice) == 1)

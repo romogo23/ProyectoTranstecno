@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-7">
                     <div class="containerCal">
-                        <asp:Calendar ID="Calendar1" runat="server" CssClass="cal"></asp:Calendar>
+                        <asp:Calendar ID="Calendar1" runat="server" CssClass="cal" OnDayRender="Calendar1_DayRender"></asp:Calendar>
                     </div>
                 </div>
             </div>

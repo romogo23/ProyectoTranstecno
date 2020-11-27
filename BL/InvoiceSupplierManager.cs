@@ -46,5 +46,11 @@ namespace BL
             return daoIS.LoadInvoiceSupplierBydate(iniDate, endDate);
 
         }
+
+        public List<Reminder> LoadSupplierMonthReminder()
+        {
+            DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
+            return daoIS.LoadMonthSupplierReminder();
+        }
     }
 }
