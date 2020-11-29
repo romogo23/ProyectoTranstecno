@@ -38,13 +38,16 @@ namespace WebApplication1
         private const string supplierId = "IdentificacionEmisor";
         private const string supplierTotal = "Total Colones";
 
-        private DataTable table;
         private const string textEmpty = "Archivo vacío";
         private const string verifyFileXls = ".xls";
         private const string verifyFileXlsx = ".xlsx";
         private const string noExcelFile = "El archivo no es un archivo de excel";
         private const string noClientTemplateFile = "El archivo no contiene información de facturas de clientes";
         private const string noSupplierTemplateFile = "El archivo no contiene información de facturas de proveedores";
+
+        private DataTable table;
+        private Boolean isClient;
+        private int failDateBill = 0;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -55,6 +58,14 @@ namespace WebApplication1
             else
             {
                 table = (DataTable)ViewState["table"];
+            }
+            if (ViewState["isClient"] == null)
+            {
+                isClient = new Boolean();
+            }
+            else
+            {
+                isClient = (Boolean)ViewState["isClient"];
             }
         }
 
@@ -85,10 +96,33 @@ namespace WebApplication1
                     {
                         var result = reader.AsDataSet();
                         table = result.Tables[0];
-                        grdInvoice.DataSource = table;
-                        grdInvoice.DataBind();
-                        btnUploadInvoice.Visible = true;
-                        ViewState["table"] = table; 
+
+                        if (table.Rows[0][1].ToString() == customerTemplateId)
+                        {
+                            grdInvoice.DataSource = table;
+                            grdInvoice.DataBind();
+                            btnUploadInvoice.Visible = true;
+                            ViewState["table"] = table;
+                            isClient = true;
+                            ViewState["isClient"] = isClient;
+                        }
+                        else
+                        {
+                            if (table.Rows[0][3].ToString() == supplierDate)
+                            {
+                                grdInvoice.DataSource = table;
+                                grdInvoice.DataBind();
+                                btnUploadInvoice.Visible = true;
+                                ViewState["table"] = table;
+                                isClient = false;
+                                ViewState["isClient"] = isClient;
+                                return;
+                            }
+                            else
+                            {
+                                lblInformationInvoice.Text = "El archivo no coincide con el formato de las plantillas";
+                            }
+                        } 
                     }
                 }
                 File.Delete(path);
@@ -96,36 +130,62 @@ namespace WebApplication1
         }
 
         protected void btnUploadInvoice_Click(object sender, EventArgs e)
-        {
-            //string clientBillNumberCell = table.Rows[0][1].ToString();
-            //string idClientCell = table.Rows[0][8].ToString();
-            //string conditionClientCell = table.Rows[0][11].ToString();
-            //string totalClientCell = table.Rows[0][24].ToString();
-            //string dateClientCell = table.Rows[0][26].ToString(); // PARA HACER LA VALIDACION DE SI ES UN ARCHIVO QUE POSEE FACTURAS!!
-
+        { //VALIDAR LA FECHA = 9999/99/99
+            // VAIDAR EL NULL DE LA FECHA DE PAGO
             string clientBillNumberCell = "";
             string idClientCell = "";
             string conditionClientCell = "";
             string totalClientCell = "";
-            string dateClientCell = "";
+            string dateClientCell = ""; // PARA HACER LA VALIDACION DE SI ES UN ARCHIVO QUE POSEE FACTURAS!!
 
-            string dateSupplierCell = table.Rows[0][3].ToString();
-            string supplierBillNumberCell = table.Rows[0][4].ToString();
-            string idSupplierCell = table.Rows[0][9].ToString();
-            string totalSupplierCell = table.Rows[0][23].ToString();
+            string dateSupplierCell = "";
+            string supplierBillNumberCell = "";
+            string idSupplierCell = "";
+            string totalSupplierCell = "";
+
+            if (isClient == true)
+            {
+                clientBillNumberCell = table.Rows[0][1].ToString();
+                idClientCell = table.Rows[0][8].ToString();
+                conditionClientCell = table.Rows[0][11].ToString();
+                totalClientCell = table.Rows[0][24].ToString();
+                dateClientCell = table.Rows[0][26].ToString(); 
+            }
+            else
+            {
+                dateSupplierCell = table.Rows[0][3].ToString();
+                supplierBillNumberCell = table.Rows[0][4].ToString();
+                idSupplierCell = table.Rows[0][9].ToString();
+                totalSupplierCell = table.Rows[0][23].ToString();
+            }
 
             if (clientBillNumberCell == customerTemplateId && idClientCell == customerId && conditionClientCell == customerTemplateIndicator 
                 && totalClientCell == customerTotal && dateClientCell == customerDate)
             {
-
                 for (int row = 1; row < table.Rows.Count; row++)
                 {
-                    InvoiceReceivingClientManager invoiceReceivingClientM = new InvoiceReceivingClientManager(); //LOS DE ABAJO SE PUEDEN CAMBIAR POR LAS VARIABLES
-                    invoiceReceivingClientM.InsertInvoiceReceivingClient(new InvoiceReceivingClient(table.Rows[row][8].ToString(), table.Rows[row][9].ToString(), table.Rows[row][7].ToString()));
-                    InvoiceClientManager invoiceClientManager = new InvoiceClientManager();
-                    //invoiceClientManager.InsertInvoiceClient(new InvoiceClient(int.Parse(table.Rows[row][1].ToString()), table.Rows[row][8].ToString(), DateTime.ParseExact(table.Rows[row][26].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, "", double.Parse(table.Rows[row][24].ToString()), 0, table.Rows[row][11].ToString()));
+                    DateTime dateBill = DateTime.ParseExact(table.Rows[row][26].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    DateTime dateCompare = new DateTime(2100, 12, 30);
 
+                    int result = DateTime.Compare(dateBill, dateCompare);
+
+                    if (result < 0)
+                    {
+                        //relationship = "is earlier than";
+                        InvoiceReceivingClientManager invoiceReceivingClientM = new InvoiceReceivingClientManager();
+                        invoiceReceivingClientM.InsertInvoiceReceivingClient(new InvoiceReceivingClient(table.Rows[row][8].ToString(), table.Rows[row][9].ToString(), table.Rows[row][7].ToString()));
+                        InvoiceClientManager invoiceClientManager = new InvoiceClientManager();
+                        invoiceClientManager.InsertInvoiceClient(new InvoiceClient(int.Parse(table.Rows[row][1].ToString()), table.Rows[row][8].ToString(), DateTime.Now, 0, "", double.Parse(table.Rows[row][24].ToString()), 0, table.Rows[row][11].ToString(), DateTime.ParseExact(table.Rows[row][26].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture)));
+                    }
+                    else
+                    {
+                        //relationship = "is later than";
+                        failDateBill++;
+                    }
+                    
                 }
+                lblInformationInvoice.Text = failDateBill + " Facturas fallidas, fecha errónea";
+                return;
             }
             else
             {
@@ -137,13 +197,15 @@ namespace WebApplication1
                         InvoiceReceivingSupplierManager invoiceReceivingSupplierM = new InvoiceReceivingSupplierManager();
                         invoiceReceivingSupplierM.InsertInvoiceReceivingSupplier(new InvoiceReceivingSupplier(table.Rows[row1][9].ToString(), table.Rows[row1][10].ToString()));
                         InvoiceSupplierManager invoiceSupplierManager = new InvoiceSupplierManager();
-                        //invoiceSupplierManager.InsertInvoiceSupplier(new InvoiceSupplier(table.Rows[row1][4].ToString(), table.Rows[row1][9].ToString(), DateTime.ParseExact(table.Rows[row1][3].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture), 0, "", double.Parse(table.Rows[row1][23].ToString()), 0));
-
+                        invoiceSupplierManager.InsertInvoiceSupplier(new InvoiceSupplier(table.Rows[row1][4].ToString(), table.Rows[row1][9].ToString(), DateTime.MinValue, 0, "", double.Parse(table.Rows[row1][23].ToString()), 0, DateTime.ParseExact(table.Rows[row1][3].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture)));
                     }
+                    lblInformationInvoice.Text = "Facturas de proveedor insertadas con exito";
+                    return;
                 }
                 else
                 {
                     lblInformationInvoice.Text = noSupplierTemplateFile;
+                    return;
                 }
                 lblInformationInvoice.Text = noClientTemplateFile;
             }

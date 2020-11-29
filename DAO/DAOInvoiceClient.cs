@@ -25,7 +25,7 @@ namespace DAO
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@numberInvoice", invC.numberInvoice);
                 comm.Parameters.AddWithValue("@idClient", invC.idClient);
-                comm.Parameters.AddWithValue("@paymentDate", new DateTime(invC.paymentDate.Year, invC.paymentDate.Month, invC.paymentDate.Day));
+                comm.Parameters.AddWithValue("@paymentDate", invC.paymentDate);
                 comm.Parameters.AddWithValue("@idPayMethod", invC.idPayMethod);
                 comm.Parameters.AddWithValue("@payMethod", invC.payMethod);
                 comm.Parameters.AddWithValue("@money", invC.money);
@@ -49,6 +49,34 @@ namespace DAO
                 return false;
             }
 
+        }
+
+        public List<Reminder> LoadMonthClientReminder()
+        {
+            List<Reminder> reminderClientList = new List<Reminder>();
+            String query = "Select T1.FECHA, T2.NOMBRE FROM FACTURA_CLIENTE T1 JOIN DESTINATARIO_FACTURA_CLIENTE T2 ON T1.ID_CLIENTE = T2.ID_CLIENTE;";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Connection = conn;
+            SqlDataReader reader;
+            if (conn.State != System.Data.ConnectionState.Open)
+                {
+                conn.Open();
+            }
+            reader = comm.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    reminderClientList.Add(new Reminder((DateTime)reader["FECHA"], (String)reader["NOMBRE"]));
+                }
+            }
+
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+            }
+            return reminderClientList;
         }
 
         public Boolean ModifyInvoiceClient(InvoiceClient invC)
