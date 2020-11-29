@@ -125,5 +125,38 @@ namespace DAO
             return Supplier;
         }
 
+
+        public List<InvoiceReceivingSupplier> LoadAllSuppliers()
+        {
+            String query = "Select * from DESTINATARIO_FACTURA_PROVEEDOR";
+            List<InvoiceReceivingSupplier> listSuppliersName = new List<InvoiceReceivingSupplier>();
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader reader;
+
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
+            reader = comm.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    listSuppliersName.Add(new InvoiceReceivingSupplier((string)reader["ID_PROVEEDOR"], (string)reader["NOMBRE"]));
+                }
+            }
+
+
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+
+
+            return listSuppliersName;
+        }
+
     }
 }

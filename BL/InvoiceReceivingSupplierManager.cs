@@ -30,5 +30,11 @@ namespace BL
             return daoIRS.LoadSupplier(idSupplier);
         }
 
+        public List<InvoiceReceivingSupplier> LoadAllSuppliers()
+        {
+            DAOInvoiceReceivingSupplier daoIRS = new DAOInvoiceReceivingSupplier();
+            return daoIRS.LoadAllSuppliers();
+        }
+
     }
 }

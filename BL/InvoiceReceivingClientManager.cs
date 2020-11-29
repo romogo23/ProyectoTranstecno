@@ -30,5 +30,11 @@ namespace BL
             DAOInvoiceReceivingClient daoIRC = new DAOInvoiceReceivingClient();
             return daoIRC.LoadClient(idClient);
         }
+
+        public List<InvoiceReceivingClient> LoadAllClients()
+        {
+            DAOInvoiceReceivingClient daoIRC = new DAOInvoiceReceivingClient();
+            return daoIRC.LoadAllClients();
+        }
     }
 }

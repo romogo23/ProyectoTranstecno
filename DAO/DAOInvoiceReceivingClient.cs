@@ -130,6 +130,41 @@ namespace DAO
         }
 
 
+        public List<InvoiceReceivingClient> LoadAllClients()
+        {
+            String query = "Select * from DESTINATARIO_FACTURA_CLIENTE";
+            List<InvoiceReceivingClient> listClientsName = new List<InvoiceReceivingClient>();
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader reader;
+
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
+            reader = comm.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    listClientsName.Add(new InvoiceReceivingClient((string)reader["ID_CLIENTE"], (string)reader["CORREO"], (string)reader["NOMBRE"]));
+                }
+            }
+
+
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+
+
+            return listClientsName;
+        }
+
+
+
+
 
     }
 }

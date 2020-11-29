@@ -67,12 +67,12 @@ namespace UI
             tbInvoice.Columns.Add("Método de Pago");
             tbInvoice.Columns.Add("Fecha de Pago");
 
-            List<InvoiceSupplier> listInvoice = inM.LoadInvoiceSupplier("390159");
-            foreach (InvoiceSupplier invS in listInvoice)
-            {
+            //List<InvoiceSupplier> listInvoice = inM.LoadInvoiceSupplier("390159");
+            //foreach (InvoiceSupplier invS in listInvoice)
+            //{
 
-                tbInvoice.Rows.Add(invS.numberInvoice, invS.money, invS.condition, invS.idPayMethod, invS.payMethod, invS.paymentDate);
-            }
+            //    tbInvoice.Rows.Add(invS.numberInvoice, invS.money, invS.condition, invS.idPayMethod, invS.payMethod, invS.paymentDate);
+            //}
 
             grdInvoice.DataSource = tbInvoice;
             grdInvoice.DataBind();
@@ -92,12 +92,12 @@ namespace UI
             tbInvoice.Columns.Add("Método de Pago");
             tbInvoice.Columns.Add("Fecha de Pago");
 
-            List<InvoiceSupplier> listInvoice = inM.LoadInvoiceSupplierBydate(new DateTime(2019, 01, 01), new DateTime(2020, 12, 12));
-            foreach (InvoiceSupplier invS in listInvoice)
-            {
+            //List<InvoiceSupplier> listInvoice = inM.LoadInvoiceSupplierBydate(new DateTime(2019, 01, 01), new DateTime(2020, 12, 12));
+            //foreach (InvoiceSupplier invS in listInvoice)
+            //{
 
-                tbInvoice.Rows.Add(invS.numberInvoice, invS.money, invS.condition, invS.idPayMethod, invS.payMethod, invS.paymentDate);
-            }
+            //    tbInvoice.Rows.Add(invS.numberInvoice, invS.money, invS.condition, invS.idPayMethod, invS.payMethod, invS.paymentDate);
+            //}
 
             grdInvoice.DataSource = tbInvoice;
             grdInvoice.DataBind();

@@ -127,6 +127,9 @@
     <Content Include="DeleteUser.aspx" />
     <Content Include="ExcelTest.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="FilterByClient.aspx" />
+    <Content Include="FilterByDate.aspx" />
+    <Content Include="FilterBySupplier.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -137,6 +140,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="InvoiceClient.aspx" />
+    <Content Include="InvoiceSupplier.aspx" />
     <Content Include="LoadTemplate.aspx" />
     <Content Include="Login.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -223,8 +228,43 @@
     <Compile Include="ExcelTest.aspx.designer.cs">
       <DependentUpon>ExcelTest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FilterByClient.aspx.cs">
+      <DependentUpon>FilterByClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FilterByClient.aspx.designer.cs">
+      <DependentUpon>FilterByClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FilterByDate.aspx.cs">
+      <DependentUpon>FilterByDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FilterByDate.aspx.designer.cs">
+      <DependentUpon>FilterByDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FilterBySupplier.aspx.cs">
+      <DependentUpon>FilterBySupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FilterBySupplier.aspx.designer.cs">
+      <DependentUpon>FilterBySupplier.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceClient.aspx.cs">
+      <DependentUpon>InvoiceClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvoiceClient.aspx.designer.cs">
+      <DependentUpon>InvoiceClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceSupplier.aspx.cs">
+      <DependentUpon>InvoiceSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvoiceSupplier.aspx.designer.cs">
+      <DependentUpon>InvoiceSupplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="InvoiceSupplierTest.aspx.cs">
       <DependentUpon>InvoiceSupplierTest.aspx</DependentUpon>
@@ -322,6 +362,9 @@
       <Project>{f3af0529-737c-4189-ba38-a894a61daf29}</Project>
       <Name>DOM</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
