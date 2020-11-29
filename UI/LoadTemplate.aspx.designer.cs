@@ -33,6 +33,33 @@ namespace UI
         protected global::System.Web.UI.WebControls.FileUpload FP;
 
         /// <summary>
+        /// Control btnLoadInvoice.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLoadInvoice;
+
+        /// <summary>
+        /// Control btnUploadInvoice.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUploadInvoice;
+
+        /// <summary>
+        /// Control lblInformationInvoice.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInformationInvoice;
+
+        /// <summary>
         /// Control Calendar1.
         /// </summary>
         /// <remarks>

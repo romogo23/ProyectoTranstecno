@@ -56,6 +56,9 @@
                                 <asp:FileUpload ID="FP" runat="server" CssClass="btnFile"/>
                             </div>
                         </div>
+                        <asp:Button ID="btnLoadInvoice" runat="server" Text="Validar plantilla" OnClick="btnLoadInvoice_Click" CssClass="btnFileVal"/> 
+                                <asp:Button ID="btnUploadInvoice" runat="server" Text="Cargar plantilla" Visible="False" OnClick="btnUploadInvoice_Click" CssClass="btnFileLoad"/>
+                        <asp:Label ID="lblInformationInvoice" runat="server" Text="" CssClass="lblError"></asp:Label>
                     </div>
                 </div>
                 <div class="col-7">

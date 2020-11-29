@@ -11,7 +11,7 @@
 }
 
 .containerCal {
-    height: 500px;
+
 }
 
 .containerBlack {
@@ -23,6 +23,7 @@
     text-decoration: none;
     color: white;
     margin-right: 100px;
+    margin-bottom: 500px;
 }
 
 .containerCal .cal {
@@ -45,9 +46,41 @@
 
 .btnFile {
     border-radius: 25px;
-    background-color: white !important;
+    background-color: black !important;
+    margin-top: -50px;
+    margin-left: 250px;
 /*    text-decoration: none;
     color: white;*/
+}
+
+.btnFileVal {
+    border-radius: 25px;
+    background-color: white;
+    text-decoration: none;
+    color: black !important;
+    
+    margin-top: 20px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.btnFileLoad {
+    border-radius: 25px;
+    background-color: white;
+    text-decoration: none;
+    color: black !important;
+    
+    margin-top: 20px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.lblError {
+    width: 50px !important;
 }
 
 /*.col-5 {
