@@ -5,6 +5,8 @@
     <asp:TextBox ID="tbxInsertSupplierName" runat="server"></asp:TextBox>
     <asp:Button ID="btnSearch" runat="server" Text="Buscar" OnClick="btnSearch_Click" />
     
+    <asp:RequiredFieldValidator ID="RFVSupplierName" runat="server" ControlToValidate="tbxInsertSupplierName" ErrorMessage="Debe introducir un nombre"></asp:RequiredFieldValidator>
+    
     <br />
     <br />
     
