@@ -1,0 +1,55 @@
+﻿body {
+    background-image: url(../Images/User.png);
+}
+
+.AdminForm {
+    border-radius: 25px;
+    background-color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    text-decoration: none;
+    color: white;
+    margin-right: 100px;
+    margin-top: 0px;
+    text-align: left;
+}
+
+.titleAdmin {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.formlabels {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 40px;
+}
+
+.btnStyle {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: black;
+}
+
+.table {
+    border: 0px !important;
+    text-align: center;
+}
+
+    .table th, .table td {
+        border: 1px !important;
+    }
+
+.fixed-table-container {
+    border: 0px !important;
+}

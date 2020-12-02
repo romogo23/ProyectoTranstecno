@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AdministerUsers.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -121,6 +122,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="CSS\LoadTemplate.css" />
     <Content Include="CSS\Login.css" />
+    <Content Include="CSS\ManageUser.css" />
     <Content Include="CSS\NavbarAdmin.css" />
     <Content Include="CSS\Navbar.css" />
     <Content Include="CSS\RegisterUser.css" />
@@ -194,6 +196,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministerUsers.aspx.cs">
+      <DependentUpon>AdministerUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdministerUsers.aspx.designer.cs">
+      <DependentUpon>AdministerUsers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
