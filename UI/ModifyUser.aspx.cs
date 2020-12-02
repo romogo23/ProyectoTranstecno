@@ -32,7 +32,7 @@ namespace UI
                     if (passwordR.Length <= 20) {
                         u = new User(userName, emailR, passwordR, int.Parse(rols.SelectedValue));
                         uM.updateUser(u);
-
+                        Response.Redirect("~/ModifySuccess.aspx");
                     }
                     else {
                         Response.Write("<script> alert(" + "'Contraseña demasiado larga'" + ") </script>");

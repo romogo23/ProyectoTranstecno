@@ -49,23 +49,34 @@ namespace UI
             createDiv.Style.Add(HtmlTextWriterStyle.Padding, "20px");
             createDiv.Attributes.Add("class", "col-sm-3 text-center");
 
-
-            foreach (InvoiceReceivingClient client in invoiceReceivingClient)
+            if (invoiceReceivingClient.Count > 0)
             {
-                HtmlGenericControl createDetail = new HtmlGenericControl("a");
-                createDetail.Style.Add(HtmlTextWriterStyle.Color, "White");
-                createDetail.Attributes.Add("href", "InvoiceClient.aspx?idClient=" + client.idClient);
-                createDetail.InnerHtml = "<span class='glyphicon glyphicon-info-sign'></span>" + client.nameClient + "<br/>";
 
-                createDivCont.Controls.Add(createDetail);
-                createDiv.Controls.Add(createDivCont);
+                foreach (InvoiceReceivingClient client in invoiceReceivingClient)
+                {
+                    HtmlGenericControl createDetail = new HtmlGenericControl("a");
+                    createDetail.Style.Add(HtmlTextWriterStyle.Color, "White");
+                    createDetail.Attributes.Add("href", "InvoiceClient.aspx?idClient=" + client.idClient);
+                    createDetail.InnerHtml = "<span class='glyphicon glyphicon-info-sign'></span>" + client.nameClient + "<br/>";
+
+                    createDivCont.Controls.Add(createDetail);
+                    createDiv.Controls.Add(createDivCont);
+
+
+                }
+
+
+                contentClientsName.Controls.Add(createDiv);
 
 
             }
-
-
-            contentClientsName.Controls.Add(createDiv);
-
+            else {
+                Response.Write("<script> alert('No se encontraron coincidencias') </script>");
+                InvoiceReceivingClientManager invoiceReceivingClientManager = new InvoiceReceivingClientManager();
+                createContend(invoiceReceivingClientManager.LoadAllClients());
+            }
+            
         }
+
     }
 }

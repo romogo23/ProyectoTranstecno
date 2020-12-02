@@ -156,6 +156,7 @@
     <Content Include="InvoiceSupplierTest.aspx" />
     <Content Include="InvoiceTest.aspx" />
     <Content Include="ManageUsers.aspx" />
+    <Content Include="ModifySuccess.aspx" />
     <Content Include="ModifyUser.aspx" />
     <Content Include="NavbarAdmin.aspx" />
     <Content Include="navbarAdmin.html" />
@@ -312,6 +313,13 @@
     </Compile>
     <Compile Include="ManageUsers.aspx.designer.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModifySuccess.aspx.cs">
+      <DependentUpon>ModifySuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifySuccess.aspx.designer.cs">
+      <DependentUpon>ModifySuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModifyUser.aspx.cs">
       <DependentUpon>ModifyUser.aspx</DependentUpon>
