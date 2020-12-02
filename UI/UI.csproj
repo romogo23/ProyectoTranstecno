@@ -123,6 +123,7 @@
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\NavbarAdmin.css" />
     <Content Include="CSS\Navbar.css" />
+    <Content Include="CSS\RegisterUser.css" />
     <Content Include="Default.aspx" />
     <Content Include="DeleteUser.aspx" />
     <Content Include="ExcelTest.aspx" />
@@ -140,6 +141,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="InsertUser.aspx" />
     <Content Include="InvoiceClient.aspx" />
     <Content Include="InvoiceSupplier.aspx" />
     <Content Include="LoadTemplate.aspx" />
@@ -252,6 +254,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InsertUser.aspx.cs">
+      <DependentUpon>InsertUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertUser.aspx.designer.cs">
+      <DependentUpon>InsertUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="InvoiceClient.aspx.cs">
       <DependentUpon>InvoiceClient.aspx</DependentUpon>
