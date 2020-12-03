@@ -1,0 +1,49 @@
+﻿body {
+    background-image: url(../Images/Confirm.jpg);
+    background-position: 50% 50%;
+    background-size: 1200px;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+.formConf {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    padding-left: 220px;
+    padding-right: 220px;
+    border-radius: 25px;
+}
+
+.formLabels {
+    border-radius: 25px;
+    text-align: center;
+    opacity: 1;
+    background-color: rgba(238, 193, 112, 0.69);
+}
+
+.textBlock {
+    text-align: center;
+    margin-top: 54px;
+    color: #222;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.image {
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: transparent;
+    opacity: 1;
+    width: 150px;
+    height: 100px;
+}
+
+.btnStyle {
+    color: #f9f9f9;
+    font-weight: 700;
+    margin: 20px;
+    padding: 9px 15px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-color: #222; 
+}

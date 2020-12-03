@@ -114,12 +114,14 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdministerUsers.aspx" />
+    <Content Include="CofirmDeleteUser.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CSS\ConfirmD.css" />
     <Content Include="CSS\LoadTemplate.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\ManageUser.css" />
@@ -143,6 +145,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Images\3.png" />
     <Content Include="InsertUser.aspx" />
     <Content Include="InvoiceClient.aspx" />
     <Content Include="InvoiceSupplier.aspx" />
@@ -213,6 +216,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CofirmDeleteUser.aspx.cs">
+      <DependentUpon>CofirmDeleteUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CofirmDeleteUser.aspx.designer.cs">
+      <DependentUpon>CofirmDeleteUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

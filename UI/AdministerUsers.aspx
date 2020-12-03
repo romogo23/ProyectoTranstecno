@@ -20,7 +20,7 @@
 </head>
 <body>
 
-     <!--Navigation bar-->
+     <%--<!--Navigation bar-->
     <div id="nav-placehold">
     </div>
 
@@ -29,7 +29,7 @@
             $("#nav-placehold").load("navbarAdmin.html");
         });
     </script>
-    <!--end of Navigation bar-->
+    <!--end of Navigation bar-->--%>
 
     <form id="form1" runat="server">
         <div class="container fluid">
@@ -41,7 +41,7 @@
                             <%--<asp:ButtonField ButtonType="Button" ControlStyle-CssClass="btnStyle"/ Text="Modificar">--%> <%--CAMBIAR LO DE ABAJO POR BOTONES--%>
                             <asp:BoundField DataField="UserName" />
                             <asp:BoundField DataField="UserName" HtmlEncode="False" DataFormatString="<a class='btn btn-default btn-w' href='ModifyUser.aspx?userName={0}'>Modificar</a>"/>
-                            <asp:BoundField DataField="UserName" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='DeleteUser.aspx?userName={0}'>Eliminar</a>"/>
+                            <asp:BoundField DataField="UserName" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='CofirmDeleteUser.aspx?userName={0}'>Eliminar</a>"/>
                         </Columns>
                     </asp:GridView>
                 </div>
