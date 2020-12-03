@@ -24,6 +24,7 @@
             <img src="Images/3.png" class="image"/>
             <div class="textBlock">
                 <asp:Label ID="Label1" runat="server" Text="Modificación exitosa"></asp:Label>
+                <asp:Button ID="Button1" runat="server" Text="Button" CssClass="btnStyle" OnClick="Button1_Click"/>
             </div>
         </div>
     </form>

@@ -16,8 +16,19 @@ namespace UI
             String userName = Request["userName"];
             UserManager userMan = new UserManager();
             User user = userMan.loadUserByUserName(userName);
-            //email.Value = user.email;
-            //password.Value = user.password;
+            if (!IsPostBack)
+            {
+                email.Value = user.email;
+                password.Value = user.password;
+                if (user.rol == 1)
+                {
+                    rols.SelectedIndex = 0;
+                }
+                else
+                {
+                    rols.SelectedIndex = 1;
+                }
+            }
         }
 
         protected void btnModify_Click(object sender, EventArgs e)
@@ -62,9 +73,15 @@ namespace UI
             Response.Redirect("~/AdministerUsers.aspx");
         }
 
-        protected void newEvent(object sender, EventArgs e)
-        {
-            email.Value = "";
-        }
+        //protected void newEvent()
+        //{
+        //    ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
+        //}
+
+        //protected void email_TextChanged(object sender, EventArgs e)
+        //{
+        //    String vari = email.Text;
+        //    password.Value = vari;
+        //}
     }
 }
