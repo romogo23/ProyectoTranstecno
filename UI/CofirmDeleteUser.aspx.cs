@@ -39,7 +39,7 @@ namespace UI
         protected void cancelbtn_Click(object sender, EventArgs e)
         {
             Response.Write("<script> alert(" + "'Usuario no eliminado'" + ") </script>");
-            Response.Redirect("~/ManageUsers.aspx");
+            Response.Redirect("~/AdministerUsers.aspx");
         }
     }
 }

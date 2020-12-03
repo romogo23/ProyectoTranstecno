@@ -20,7 +20,7 @@
 </head>
 <body>
 
-    <!--Navigation bar-->
+    <%--<!--Navigation bar-->
     <div id="nav-placehold">
     </div>
 
@@ -29,7 +29,7 @@
             $("#nav-placehold").load("navbarAdmin.html");
         });
     </script>
-    <!--end of Navigation bar-->
+    <!--end of Navigation bar-->--%>
 
     <form id="form1" runat="server" class="formConf">
         <div class="formLabels">
