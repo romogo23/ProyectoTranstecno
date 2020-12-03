@@ -37,11 +37,11 @@
                 <h1 class="titleRegister">Registrar usuario:</h1>
                 <div class="formlabels">
                     <label class="lblName">Nombre de usuario:</label>
-                    <input type="text" class="form-control" id="userNameRegister" runat="server" placeholder="Nombre de usuario..."/>
+                    <input type="text" class="form-control" id="userNameRegister" runat="server" placeholder="Nombre de usuario..." required=""/>
                     <label class="lblName">Correo:</label>
-                    <input type="email" class="form-control" id="email" runat="server" placeholder="Correo de usuario..."/>
+                    <input type="email" class="form-control" id="email" runat="server" placeholder="Correo de usuario..." required=""/>
                     <label class="lblName">Contraseña:</label>
-                    <input type="password" class="form-control" id="password" runat="server" placeholder="Contraseña..."/>
+                    <input type="password" class="form-control" id="password" runat="server" placeholder="Contraseña..." required=""/>
                     <label class="lblName">Rol:</label>
                     <asp:DropDownList ID="rols" runat="server" CssClass="form-control">
                         <asp:ListItem Value="1" Selected="True">Administrador Secundario</asp:ListItem>
