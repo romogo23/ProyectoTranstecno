@@ -37,9 +37,9 @@
                 <h1 class="titleRegister">Modificar usuario:</h1>
                 <div class="formlabels">
                     <label class="lblName">Correo:</label>
-                    <input type="email" class="form-control" id="email" runat="server" placeholder="Correo de usuario..." required=""/>
+                    <input type="email" class="form-control" id="email" runat="server" placeholder="Correo de usuario..."/>
                     <label class="lblName">Contraseña:</label>
-                    <input type="text" class="form-control" id="password" runat="server" placeholder="Contraseña..." required=""/>
+                    <input type="text" class="form-control" id="password" runat="server" placeholder="Contraseña..." />
                     <label class="lblName">Rol:</label>
                     <asp:DropDownList ID="rols" runat="server" CssClass="form-control">
                         <asp:ListItem Value="1" Selected="True">Administrador Secundario</asp:ListItem>
