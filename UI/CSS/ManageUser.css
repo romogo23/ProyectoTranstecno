@@ -28,17 +28,20 @@
     padding-right: 40px;
 }
 
-.btnStyle {
-    margin-top: 20px;
+
+.btn {
+    background-color: white;
+    margin-top: 0px;
     margin-bottom: 10px;
     margin-left: 20px;
     padding-top: 9px;
     padding-bottom: 9px;
     padding-left: 15px;
     padding-right: 15px;
-    border-radius: 25px;
+    border-radius: 25px !important;
     text-decoration: none;
     color: black;
+    width: 180px;
 }
 
 .table {

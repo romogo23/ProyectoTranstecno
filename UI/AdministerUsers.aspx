@@ -38,10 +38,10 @@
                 <div class="formlabels">
                     <asp:GridView ID="grdUsers" runat="server" AutoGenerateColumns="False" class="table table-borderless">
                         <Columns>
-                            <asp:ButtonField ButtonType="Button" ControlStyle-CssClass="btnStyle"/> <%--CAMBIAR LO DE ABAJO POR BOTONES--%>
+                            <%--<asp:ButtonField ButtonType="Button" ControlStyle-CssClass="btnStyle"/ Text="Modificar">--%> <%--CAMBIAR LO DE ABAJO POR BOTONES--%>
                             <asp:BoundField DataField="UserName" />
-                            <asp:BoundField DataField="UserName" HtmlEncode="False" DataFormatString="<a href='ModifyUser.aspx?userName={0}'>Modificar</a>" ControlStyle-CssClass="btnStyle"/>
-                            <asp:BoundField DataField="UserName" HtmlEncode="False" DataFormatString="<a href='DeleteUser.aspx?userName={0}'>Eliminar</a>" ControlStyle-CssClass="btnStyle"/>
+                            <asp:BoundField DataField="UserName" HtmlEncode="False" DataFormatString="<a class='btn btn-default btn-w' href='ModifyUser.aspx?userName={0}'>Modificar</a>"/>
+                            <asp:BoundField DataField="UserName" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='DeleteUser.aspx?userName={0}'>Eliminar</a>"/>
                         </Columns>
                     </asp:GridView>
                 </div>
