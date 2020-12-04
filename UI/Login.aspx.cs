@@ -42,13 +42,18 @@ namespace UI
                             Session["userWithRol"] = userSesssion;
                             if (userSesssion.rol == 0)
                             {
-                                Response.Redirect("~/Default.aspx");
+                                Response.Redirect("~/LoadTemplate.aspx");
                             }
-                            else
+                            if (userSesssion.rol == 1)
                             {
-                                Response.Redirect("~/About.aspx");
+                                Response.Redirect("~/AdministerUsers.aspx");
                             }
-                        }
+                            if (userSesssion.rol == 2)
+                            {
+                                Response.Redirect("~/LoadTemplate.aspx");
+                            }
+
+                }
                 //    }
                 //    else
                 //    {

@@ -13,6 +13,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            VerifySession();
             String userName = Request["userName"];
             UserManager userMan = new UserManager();
             User user = userMan.loadUserByUserName(userName);
@@ -27,6 +28,22 @@ namespace UI
                 else
                 {
                     rols.SelectedIndex = 1;
+                }
+            }
+        }
+
+        private void VerifySession()
+        {
+            if (Session["userWithRol"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                User role = (User)Session["userWithRol"];
+                if (role.rol != 0 || role.rol != 1 || role.rol != 2)
+                {
+                    Response.Redirect("~/Login.aspx");
                 }
             }
         }

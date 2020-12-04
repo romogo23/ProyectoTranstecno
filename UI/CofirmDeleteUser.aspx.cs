@@ -13,8 +13,25 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            VerifySession();
             String userName = Request["userName"];
             lblmsg.Text = "¿Está seguro que desea eliminar al usuario: " + userName + "?";
+        }
+
+        private void VerifySession()
+        {
+            if (Session["userWithRol"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                User role = (User)Session["userWithRol"];
+                if (role.rol != 0 || role.rol != 1 || role.rol != 2)
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
         }
 
         protected void deletebtn_Click(object sender, EventArgs e)

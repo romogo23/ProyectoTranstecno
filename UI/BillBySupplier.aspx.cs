@@ -14,8 +14,25 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            VerifySession();
             InvoiceReceivingSupplierManager invoiceReceivingSupplierManager = new InvoiceReceivingSupplierManager();
             createContend(invoiceReceivingSupplierManager.LoadAllSuppliers());
+        }
+
+        private void VerifySession()
+        {
+            if (Session["userWithRol"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                User role = (User)Session["userWithRol"];
+                if (role.rol != 0 || role.rol != 1 || role.rol != 2)
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
