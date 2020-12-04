@@ -115,6 +115,7 @@
     <Content Include="About.aspx" />
     <Content Include="AdministerUsers.aspx" />
     <Content Include="BillByClient.aspx" />
+    <Content Include="BillByDate.aspx" />
     <Content Include="BillBySupplier.aspx" />
     <Content Include="CofirmDeleteUser.aspx" />
     <Content Include="Contact.aspx" />
@@ -125,6 +126,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="CSS\ConfirmD.css" />
     <Content Include="CSS\Filter.css" />
+    <Content Include="CSS\FilterDate.css" />
     <Content Include="CSS\LoadTemplate.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\ManageUser.css" />
@@ -226,6 +228,13 @@
     </Compile>
     <Compile Include="BillByClient.aspx.designer.cs">
       <DependentUpon>BillByClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BillByDate.aspx.cs">
+      <DependentUpon>BillByDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BillByDate.aspx.designer.cs">
+      <DependentUpon>BillByDate.aspx</DependentUpon>
     </Compile>
     <Compile Include="BillBySupplier.aspx.cs">
       <DependentUpon>BillBySupplier.aspx</DependentUpon>
