@@ -115,6 +115,7 @@
     <Content Include="About.aspx" />
     <Content Include="AdministerUsers.aspx" />
     <Content Include="BillByClient.aspx" />
+    <Content Include="BillBySupplier.aspx" />
     <Content Include="CofirmDeleteUser.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -225,6 +226,13 @@
     </Compile>
     <Compile Include="BillByClient.aspx.designer.cs">
       <DependentUpon>BillByClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BillBySupplier.aspx.cs">
+      <DependentUpon>BillBySupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BillBySupplier.aspx.designer.cs">
+      <DependentUpon>BillBySupplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="CofirmDeleteUser.aspx.cs">
       <DependentUpon>CofirmDeleteUser.aspx</DependentUpon>
