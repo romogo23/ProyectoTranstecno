@@ -31,19 +31,20 @@ namespace UI
 
         private void createContend(List<InvoiceReceivingClient> invoiceReceivingClient)
         {
-            HtmlGenericControl createH3Code = new HtmlGenericControl("H3");
-            createH3Code.ID = "createH3Code";
-            createH3Code.InnerHtml = "Lista de clientes";
+            //HtmlGenericControl createH3Code = new HtmlGenericControl("H3");
+            //createH3Code.ID = "createH3Code";
+            //createH3Code.InnerHtml = "Lista de clientes";
+            //createH3Code.Style.Add("class", "tittle");
 
             HtmlGenericControl createDivCont = new HtmlGenericControl("DIV");
             createDivCont.ID = "createDivCont";
             HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
             createDiv.ID = "createDiv";
-            createDivCont.Controls.Add(createH3Code);
-            createDiv.Style.Add(HtmlTextWriterStyle.BackgroundColor, "Black");
+            //createDivCont.Controls.Add(createH3Code);
+            //createDiv.Style.Add(HtmlTextWriterStyle.BackgroundColor, "Black");
             createDiv.Style.Add(HtmlTextWriterStyle.Color, "White");
-            createDiv.Style.Add(HtmlTextWriterStyle.Padding, "20px");
-            createDiv.Attributes.Add("class", "col-sm-3 text-center");
+            //createDiv.Style.Add(HtmlTextWriterStyle.MarginBottom, "20px");
+            //createDiv.Attributes.Add("class", "col-md-3 text-center");
 
             if (invoiceReceivingClient.Count > 0)
             {
@@ -51,10 +52,13 @@ namespace UI
                 foreach (InvoiceReceivingClient client in invoiceReceivingClient)
                 {
                     HtmlGenericControl createDetail = new HtmlGenericControl("a");
+                    HtmlGenericControl createBr = new HtmlGenericControl("br");
                     createDetail.Style.Add(HtmlTextWriterStyle.Color, "White");
+                    createDetail.Attributes.Add("class", "clientDiv");
                     createDetail.Attributes.Add("href", "InvoiceClient.aspx?idClient=" + client.idClient);
-                    createDetail.InnerHtml = "<span class='glyphicon glyphicon-info-sign'></span>" + client.nameClient + "<br/>";
+                    createDetail.InnerHtml = "<span class='glyphicon glyphicon-info-sign'></span> " + client.nameClient + "<br/>";
 
+                    createDivCont.Controls.Add(createBr);
                     createDivCont.Controls.Add(createDetail);
                     createDiv.Controls.Add(createDivCont);
 

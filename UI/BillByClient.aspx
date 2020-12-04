@@ -36,16 +36,18 @@
             <div class="row align-items-start">
                 <div class="col-4">
                     <div class="containerBlack">
-                        <asp:Label ID="lblClient" runat="server" Text="Cliente"></asp:Label>
-                        <asp:TextBox ID="tbxInsertClientName" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnSearch" runat="server" Text="Buscar" OnClick="btnSearch_Click" />
+                        <asp:Label ID="lblClient" runat="server" Text="Cliente" CssClass="tittle"></asp:Label>
+                        <br />
+                        <asp:TextBox ID="tbxInsertClientName" runat="server" CssClass="findtxt"></asp:TextBox>
+                        <asp:Button ID="btnSearch" runat="server" Text="Buscar" OnClick="btnSearch_Click" CssClass="btnR"/>
 
                         <asp:RequiredFieldValidator ID="RFClientName" runat="server" ControlToValidate="tbxInsertClientName" ErrorMessage="Debe introducir un nombre"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="col-8">
                     <div class="containerCal">
-                        <div id="contentClientsName" class="row justify-content-center py-3" runat="server">
+                        <asp:Label ID="lblClientList" runat="server" Text="Lista De Clientes" CssClass="tittle"></asp:Label>
+                        <div id="contentClientsName" class="container-fluid" runat="server">
                         </div>
                     </div>
                 </div>

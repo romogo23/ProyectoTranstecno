@@ -9,6 +9,14 @@
     background-color: black;
 }
 
+.container-fluid > a {
+    display: inline-block;
+}
+
+.navbar-header > a {
+    display: block;
+}
+
     .navbar .navbar-header {
         padding-left: 150px;
     }
