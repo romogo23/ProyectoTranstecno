@@ -1,0 +1,25 @@
+﻿body {
+    background-image: url(../Images/Bill.png);
+}
+
+.row {
+    column-count: 2;
+}
+
+.containerBlack {
+    border-radius: 25px;
+    background-color: black;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    text-decoration: none;
+    color: white;
+    margin-right: 100px;
+    margin-bottom: 500px;
+}
+
+.containerCal .row {
+    /*width: 100%;*/
+    /*height: 100%;*/
+    border-radius: 25px;
+}

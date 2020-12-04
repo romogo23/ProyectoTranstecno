@@ -40,7 +40,7 @@
                         <Columns>
                             <%--<asp:ButtonField ButtonType="Button" ControlStyle-CssClass="btnStyle"/ Text="Modificar">--%> <%--CAMBIAR LO DE ABAJO POR BOTONES--%>
                             <asp:BoundField DataField="UserName" />
-                            <asp:BoundField DataField="UserName" HtmlEncode="False" DataFormatString="<a class='btn btn-default btn-w' href='ModifyUserForm.aspx?userName={0}'>Modificar</a>"/>
+                            <asp:BoundField DataField="UserName" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='ModifyUserForm.aspx?userName={0}'>Modificar</a>"/>
                             <asp:BoundField DataField="UserName" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='CofirmDeleteUser.aspx?userName={0}'>Eliminar</a>"/>
                         </Columns>
                     </asp:GridView>

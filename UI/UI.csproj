@@ -114,6 +114,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdministerUsers.aspx" />
+    <Content Include="BillByClient.aspx" />
     <Content Include="CofirmDeleteUser.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -122,6 +123,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CSS\ConfirmD.css" />
+    <Content Include="CSS\Filter.css" />
     <Content Include="CSS\LoadTemplate.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\ManageUser.css" />
@@ -217,6 +219,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BillByClient.aspx.cs">
+      <DependentUpon>BillByClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BillByClient.aspx.designer.cs">
+      <DependentUpon>BillByClient.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CofirmDeleteUser.aspx.cs">
       <DependentUpon>CofirmDeleteUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
