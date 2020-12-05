@@ -31,8 +31,8 @@
     </script>
     <!--end of Navigation bar-->
 
-    <form id="form1" runat="server">
-        <<div class="container fluid">
+    <form id="form1" runat="server" class="formImage">
+        <div class="container">
             <div class="dateForm">
                 <asp:Label ID="lblStartDate" runat="server" Text="Fecha de Inicio" CssClass="tittle"></asp:Label>
                 <br />
@@ -52,5 +52,17 @@
             </div>
         </div>
     </form>
+
+    <!--Footer-->
+    <footer id="foot-placehold">
+    </footer>
+
+    <script>
+        $(function () {
+            $("#foot-placehold").load("generalFooter.html");
+        });
+    </script>
+    <!--end of Footer-->
+
 </body>
 </html>

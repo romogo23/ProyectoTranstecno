@@ -14,7 +14,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            VerifySession();
+            //VerifySession();
             InvoiceReceivingSupplierManager invoiceReceivingSupplierManager = new InvoiceReceivingSupplierManager();
             createContend(invoiceReceivingSupplierManager.LoadAllSuppliers());
         }

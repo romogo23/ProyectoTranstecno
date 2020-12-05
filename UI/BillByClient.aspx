@@ -31,7 +31,7 @@
     </script>
     <!--end of Navigation bar-->
 
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="formImage">
         <div class="container fluid">
             <div class="row align-items-start">
                 <div class="col-4">
@@ -54,5 +54,17 @@
             </div>
         </div>
     </form>
+
+    <!--Footer-->
+    <footer id="foot-placehold">
+    </footer>
+
+    <script>
+        $(function () {
+            $("#foot-placehold").load("generalFooter.html");
+        });
+    </script>
+    <!--end of Footer-->
+
 </body>
 </html>

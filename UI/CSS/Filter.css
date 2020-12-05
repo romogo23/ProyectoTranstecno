@@ -1,5 +1,9 @@
 ﻿body {
+}
+
+.formImage {
     background-image: url(../Images/Bill.png);
+    padding-bottom: 20px;
 }
 
 .row {

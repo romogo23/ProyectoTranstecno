@@ -14,7 +14,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            VerifySession();
+            //VerifySession();
             InvoiceReceivingClientManager invoiceReceivingClientManager = new InvoiceReceivingClientManager();
             createContend(invoiceReceivingClientManager.LoadAllClients());
         }

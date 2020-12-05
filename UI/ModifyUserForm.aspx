@@ -52,15 +52,27 @@
             </div>
         </div>
 
-        <script>
+        <%--<script>
             function checkInput(obj) {
                 //location.reload();
                 //document.email.value = "Hola";
                 //alert(obj.value);
                 //WebForm_DoPostBackWithOptions(obj.value);
             }
-        </script>
+        </script>--%>
 
     </form>
+
+    <!--Footer-->
+    <footer id="foot-placehold">
+    </footer>
+
+    <script>
+        $(function () {
+            $("#foot-placehold").load("generalFooter.html");
+        });
+    </script>
+    <!--end of Footer-->
+
 </body>
 </html>

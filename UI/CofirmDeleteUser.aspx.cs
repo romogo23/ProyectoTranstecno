@@ -13,7 +13,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            VerifySession();
+            //VerifySession();
             String userName = Request["userName"];
             lblmsg.Text = "¿Está seguro que desea eliminar al usuario: " + userName + "?";
         }

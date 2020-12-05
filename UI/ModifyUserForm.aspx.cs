@@ -13,7 +13,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            VerifySession();
+            //VerifySession();
             String userName = Request["userName"];
             UserManager userMan = new UserManager();
             User user = userMan.loadUserByUserName(userName);
