@@ -112,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdministerBills.aspx" />
     <Content Include="AdministerUsers.aspx" />
     <Content Include="BillByClient.aspx" />
     <Content Include="BillByDate.aspx" />
@@ -129,6 +130,7 @@
     <Content Include="CSS\Footer.css" />
     <Content Include="CSS\LoadTemplate.css" />
     <Content Include="CSS\Login.css" />
+    <Content Include="CSS\ManageBills.css" />
     <Content Include="CSS\ManageUser.css" />
     <Content Include="CSS\NavbarAdmin.css" />
     <Content Include="CSS\Navbar.css" />
@@ -212,6 +214,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministerBills.aspx.cs">
+      <DependentUpon>AdministerBills.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdministerBills.aspx.designer.cs">
+      <DependentUpon>AdministerBills.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdministerUsers.aspx.cs">
       <DependentUpon>AdministerUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

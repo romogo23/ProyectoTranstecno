@@ -58,7 +58,7 @@
     background-color: black;
     padding-bottom: 0px;
     padding-top: 20px;
-    border-radius: 25px;
+   /* border-radius: 25px;*/
 }
 
 .dropdown > .dropdown-toggle:active {
