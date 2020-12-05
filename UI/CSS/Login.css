@@ -1,7 +1,5 @@
 ﻿body {
-    background-image:url(../Images/Login.png); 
-    background-repeat: repeat-x; 
-    background-attachment: fixed;
+
 }
 
 .container .test {
@@ -28,5 +26,16 @@
 
 .container .test .form-group .container-fluid .form-control {
     border-radius: 25px;
+}
+
+.txt {
+    color: white;
+}
+
+.container {
+    background-image: url(../Images/Login.png);
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    padding-bottom: 20px;
 }
 

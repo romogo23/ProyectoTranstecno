@@ -20,7 +20,7 @@ namespace UI
             {
                 UserManager sm = new UserManager();
                 User user = (User)(Session["userWithRol"]);
-                userName.InnerText = user.username;
+                userName.InnerText = "Hola " + user.username;
             }
         }
 

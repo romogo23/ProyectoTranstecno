@@ -155,6 +155,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Images\1.png" />
     <Content Include="Images\3.png" />
+    <Content Include="Images\8.png" />
     <Content Include="Images\trans.png" />
     <Content Include="InsertUser.aspx" />
     <Content Include="InvoiceClient.aspx" />
