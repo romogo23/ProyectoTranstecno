@@ -23,7 +23,7 @@
     text-decoration: none;
     color: white;
     margin-right: 100px;
-    margin-bottom: 500px;
+    margin-bottom: 100px;
 }
 
 .containerCal .cal {
@@ -41,7 +41,7 @@
 
 .contFile2 {
     padding-top: 27px;
-    margin-left: -130px;
+/*    margin-left: -130px;*/
 }
 
 .btnFile {

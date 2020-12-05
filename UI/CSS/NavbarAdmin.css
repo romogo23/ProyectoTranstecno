@@ -3,10 +3,9 @@
 
 .navbar {
     margin-bottom: 60px;
-    border-radius: 0px;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: black;
+    background-color: black !important;
 }
 
 .container-fluid > a {
@@ -30,9 +29,15 @@
         color: #feffa6;
     }
 
+        .navbar .container-fluid .navbar-header .navbar-brand:hover {
+            background-color: rgba(255, 192, 3, 0.56);
+            border-radius: 20px;
+        }
+
     .navbar .container-fluid .navbar-right .navbar-brand {
         text-decoration: none;
         color: #feffa6;
+
     }
 
     .navbar .container-fluid .navbar-right .nav .dropdown .btn{
@@ -41,6 +46,11 @@
         background-color: black;
         border-color: black;
     }
+
+        .navbar .container-fluid .navbar-right .nav .dropdown .btn:hover {
+            background-color: rgba(255, 192, 3, 0.56);
+            border-radius: 25px;
+        }
 
 
 .dropdown:hover > .dropdown-menu {
@@ -64,9 +74,12 @@
     color: #feffa6;
 }
 
-.containerPrueba{
-    margin-bottom: 20px;
-}
+    .dropdown-menu .dropdown-item:hover {
+    }
+
+    .containerPrueba {
+        margin-bottom: 20px;
+    }
 
 ul.nav {
     display: table;

@@ -1,0 +1,30 @@
+﻿body {
+}
+
+.container-fluidFoot {
+    background-color: #222222;
+    text-decoration: none;
+    color: #feffa6;
+    padding-top: 10px;
+}
+
+.containerFooter {
+    column-count: 2;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.txtNNF {
+    text-decoration: none;
+    color: #feffa6;
+}
+
+.textDiv {
+    /*margin-top: 20px;
+    margin-right: 150px;*/
+    text-align: right;
+}
+
+.footer {
+    padding: 20px;
+}

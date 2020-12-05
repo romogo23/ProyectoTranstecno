@@ -45,7 +45,7 @@ namespace UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            VerifySession();
+            //VerifySession();
             _schedleData = GetSchedule();
 
             Calendar1.FirstDayOfWeek = FirstDayOfWeek.Sunday;

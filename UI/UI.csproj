@@ -125,6 +125,7 @@
     <Content Include="CSS\ConfirmD.css" />
     <Content Include="CSS\Filter.css" />
     <Content Include="CSS\FilterDate.css" />
+    <Content Include="CSS\Footer.css" />
     <Content Include="CSS\LoadTemplate.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\ManageUser.css" />
@@ -139,6 +140,7 @@
     <Content Include="FilterByDate.aspx" />
     <Content Include="FilterBySupplier.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="generalFooter.html" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -150,6 +152,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Images\1.png" />
     <Content Include="Images\3.png" />
+    <Content Include="Images\trans.png" />
     <Content Include="InsertUser.aspx" />
     <Content Include="InvoiceClient.aspx" />
     <Content Include="InvoiceSupplier.aspx" />

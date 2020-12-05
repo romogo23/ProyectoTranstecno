@@ -70,5 +70,15 @@
         </div>
     </form>
 
+    <!--Navigation bar-->
+    <div id="foot-placehold">
+    </div>
+
+    <script>
+        $(function () {
+            $("#foot-placehold").load("generalFooter.html");
+        });
+    </script>
+    <!--end of Navigation bar-->
 </body>
 </html>
