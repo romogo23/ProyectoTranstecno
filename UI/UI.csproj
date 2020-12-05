@@ -166,7 +166,9 @@
     <Content Include="InvoiceSupplierTest.aspx" />
     <Content Include="InvoiceTest.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="ManageInvoices.aspx" />
     <Content Include="ManageUsers.aspx" />
+    <Content Include="ModifyInvoice.aspx" />
     <Content Include="ModifySuccess.aspx" />
     <Content Include="ModifyUser.aspx" />
     <Content Include="ModifyUserForm.aspx" />
@@ -339,12 +341,26 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageInvoices.aspx.cs">
+      <DependentUpon>ManageInvoices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageInvoices.aspx.designer.cs">
+      <DependentUpon>ManageInvoices.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageUsers.aspx.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManageUsers.aspx.designer.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyInvoice.aspx.cs">
+      <DependentUpon>ModifyInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifyInvoice.aspx.designer.cs">
+      <DependentUpon>ModifyInvoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModifySuccess.aspx.cs">
       <DependentUpon>ModifySuccess.aspx</DependentUpon>
