@@ -1,17 +1,22 @@
 ﻿body {
-    background-image: url(../Images/Bill.png);
+    /*background-image: url(../Images/Bill.png);*/
 }
 
 /*form {
     column-count: 2;
 }*/
 
+.formImage {
+    background-image: url(../Images/Bill.png);
+}
+
 .row {
     column-count: 2;
 }
 
 .containerCal {
-
+    padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .containerBlack {
@@ -23,12 +28,13 @@
     text-decoration: none;
     color: white;
     margin-right: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 200px;
 }
 
 .containerCal .cal {
     width: 100%;
     height: 100%;
+    
 }
 
 .contFile {
@@ -42,6 +48,8 @@
 .contFile2 {
     padding-top: 27px;
 /*    margin-left: -130px;*/
+    text-align: left;
+    align-content: flex-start;
 }
 
 .btnFile {

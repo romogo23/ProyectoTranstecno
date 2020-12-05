@@ -25,6 +25,9 @@
     text-align: right;
 }
 
-.footer {
+/*.footer {
     padding: 20px;
-}
+    margin-top: 50px;
+    padding-top: 50px;
+    position: static;
+}*/

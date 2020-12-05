@@ -31,7 +31,7 @@
     </script>
     <!--end of Navigation bar-->
 
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="formImage">
 
         <%--<div class="containerBlack">
             <h1 class="titleBills">Ingresar Plantilla de Facturas:</h1>
@@ -71,8 +71,8 @@
     </form>
 
     <!--Navigation bar-->
-    <div id="foot-placehold">
-    </div>
+    <footer id="foot-placehold">
+    </footer>
 
     <script>
         $(function () {
