@@ -116,6 +116,7 @@
     <Content Include="BillByClient.aspx" />
     <Content Include="BillByDate.aspx" />
     <Content Include="BillBySupplier.aspx" />
+    <Content Include="CloseInvoice.aspx" />
     <Content Include="CofirmDeleteUser.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -174,6 +175,7 @@
     <Content Include="ModifyUserForm.aspx" />
     <Content Include="navbarAdmin.html" />
     <Content Include="navbarLogin.html" />
+    <Content Include="PostponeInvoice.aspx" />
     <Content Include="RegisterUser.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -239,6 +241,13 @@
     </Compile>
     <Compile Include="BillBySupplier.aspx.designer.cs">
       <DependentUpon>BillBySupplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CloseInvoice.aspx.cs">
+      <DependentUpon>CloseInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CloseInvoice.aspx.designer.cs">
+      <DependentUpon>CloseInvoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="CofirmDeleteUser.aspx.cs">
       <DependentUpon>CofirmDeleteUser.aspx</DependentUpon>
@@ -382,6 +391,13 @@
     </Compile>
     <Compile Include="ModifyUserForm.aspx.designer.cs">
       <DependentUpon>ModifyUserForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostponeInvoice.aspx.cs">
+      <DependentUpon>PostponeInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostponeInvoice.aspx.designer.cs">
+      <DependentUpon>PostponeInvoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterUser.aspx.cs">
