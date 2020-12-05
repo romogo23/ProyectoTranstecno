@@ -1,5 +1,9 @@
 ﻿body {
+}
+
+.formImage {
     background-image: url(../Images/User.png);
+    padding-bottom: 20px;
 }
 
 .AdminForm {

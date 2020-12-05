@@ -43,7 +43,7 @@
             <asp:Calendar ID="Calendar2" runat="server"></asp:Calendar>
         </div>--%>
 
-        <div class="container fluid">
+        <div class="container">
             <div class="row align-items-start">
                 <div class="col-5">
                     <div class="containerBlack">
@@ -70,7 +70,7 @@
         </div>
     </form>
 
-    <!--Navigation bar-->
+    <!--Footer-->
     <footer id="foot-placehold">
     </footer>
 
@@ -79,6 +79,6 @@
             $("#foot-placehold").load("generalFooter.html");
         });
     </script>
-    <!--end of Navigation bar-->
+    <!--end of Footer-->
 </body>
 </html>

@@ -13,7 +13,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            VerifySession();
+            //VerifySession();
             UserManager uM = new UserManager();
             grdUsers.DataSource = uM.loadUsersNames();
             grdUsers.DataBind();
