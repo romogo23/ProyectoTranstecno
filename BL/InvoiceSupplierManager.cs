@@ -52,5 +52,10 @@ namespace BL
             DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
             return daoIS.LoadMonthSupplierReminder();
         }
-    }
+
+        public int verifyInvoiceSupplier(string numberInvoice)
+        {
+            DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
+            return daoIS.verifyInvoiceSupplier(numberInvoice);
+        }
 }

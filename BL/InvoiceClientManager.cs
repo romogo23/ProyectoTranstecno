@@ -50,5 +50,11 @@ namespace BL
             DAOInvoiceClient iC = new DAOInvoiceClient();
             return iC.LoadMonthClientReminder();
         }
+
+        public int verifyInvoiceClient(int numberInvoice)
+        {
+            DAOInvoiceClient iC = new DAOInvoiceClient();
+            return iC.verifyInvoiceClient(numberInvoice);
+        }
     }
 }
