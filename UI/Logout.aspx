@@ -29,15 +29,15 @@
     </script>
     <!--end of Navigation bar-->
 
-    <div class="container mx-auto" style="width: 400px;">
+    <div class="container mx-auto">
         <form class="test" runat="server">
             <div class="form-group">
-                <div class="container-fluid">
-                    <h3>Cerrar Sesión:</h3>
+                <div class="container">
+                    <h3 class="tittle">Cerrar Sesión:</h3>
                 </div>
             </div>
             <div class="container-fluid bg-1 text-center">
-                <img src="Images/8.png" class="img-circle" alt="clock" width="auto" height="auto">
+                <img src="Images/8.png" class="img-circle" alt="clock" width="200px" height="200px">
                 <h3 id="userName" runat="server" class="txt"></h3>
             </div>
 
