@@ -22,7 +22,7 @@ namespace BL
             return daoIS.ModifyInvoiceSupplier(invS);
         }
 
-      
+
 
 
         public Boolean CloseInvoiceSupplier(InvoiceSupplier invS)
@@ -58,4 +58,5 @@ namespace BL
             DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
             return daoIS.verifyInvoiceSupplier(numberInvoice);
         }
+    }
 }
