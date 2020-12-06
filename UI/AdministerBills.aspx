@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 
     <meta charset="utf-8" />
@@ -36,20 +36,18 @@
             <div class="AdminFormBill">
                 <h1 class="titleAdmin">Gestionar Facturas:</h1>
                 <div class="formlabels">
-                    <asp:GridView ID="grdUsers" runat="server" AutoGenerateColumns="False" class="table table-borderless">
+                    <asp:GridView ID="grdInvoices" runat="server" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="idInvoice" />
+                            <asp:BoundField DataField="ClientName" />
+                            <asp:BoundField DataField="TotalBill" />
+                            <asp:BoundField DataField="PaymentDate" />
+                            <asp:BoundField DataField="State" />
+                            <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='ModifyInvoice.aspx?idInvoice={0}'>Modificar</a>" />
+                            <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='CloseInvoice.aspx?idInvoice={0}'>Cerrar</a>" />
+                            <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='PostponeInvoice.aspx?idInvoice={0}'>Aplazar</a>" />
+                        </Columns>
                     </asp:GridView>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                 </div>
             </div>
         </div>

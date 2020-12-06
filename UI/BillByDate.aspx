@@ -36,11 +36,11 @@
             <div class="dateForm">
                 <asp:Label ID="lblStartDate" runat="server" Text="Fecha de Inicio" CssClass="tittle"></asp:Label>
                 <br />
-                <asp:TextBox ID="TxtStartDate" runat="server" TextMode="Date" CssClass="findtxt"></asp:TextBox>
+                <asp:TextBox ID="TxtStartDate" runat="server" TextMode="Date" CssClass="findtxt"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Fecha Requerida" ControlToValidate="TxtStartDate"></asp:RequiredFieldValidator>
                 <br />
                 <asp:Label ID="lblendDate" runat="server" Text="Fecha de Final" CssClass="tittle"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtEndDate" runat="server" TextMode="Date" CssClass="findtxt"></asp:TextBox>
+                <asp:TextBox ID="txtEndDate" runat="server" TextMode="Date" CssClass="findtxt"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Fecha Requerida" ControlToValidate="txtEndDate"></asp:RequiredFieldValidator>
                 <br />
                 <asp:Button ID="btnSearch" runat="server" Text="Buscar" OnClick="btnSearch_Click" CssClass="btnR" />
 

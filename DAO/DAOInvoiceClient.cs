@@ -85,11 +85,11 @@ namespace DAO
             if (verifyInvoiceClient((int)invC.numberInvoice) == 1)
             {
 
-                String query = "Update FACTURA_CLIENTE set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA_PAGO = @paymentDate where NUMERO_FACTURA = @numberInvoice";
+                String query = "Update FACTURA_CLIENTE set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA = @reminderDate where NUMERO_FACTURA = @numberInvoice";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@numberInvoice", invC.numberInvoice);
-                comm.Parameters.AddWithValue("@paymentDate", invC.paymentDate);
+                comm.Parameters.AddWithValue("@reminderDate", invC.paymentDate);
                 comm.Parameters.AddWithValue("@idPayMethod", invC.idPayMethod);
                 comm.Parameters.AddWithValue("@payMethod", invC.payMethod);
                 if (conn.State != System.Data.ConnectionState.Open)
@@ -242,7 +242,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    temp = new InvoiceClient(reader.GetInt64(0), reader.GetString(1), reader.GetDateTime(2), reader.GetInt16(3), reader.GetString(4), reader.GetDouble(5), reader.GetByte(6), reader.GetString(7), new DateTime());
+                    temp = new InvoiceClient((Int64)reader["NUMERO_FACTURA"], (string)reader["ID_CLIENTE"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"], (string)reader["CONDICION_PAGO"], (DateTime)reader["FECHA"]);
 
    //Int64 numberInvoice 0, string idClient  1,  DateTime paymentDate  2, int idPayMethod  3, string payMethod  4,double money  5, Byte condition  6, string paymentCondition 7, DateTime reminderDate 8
                     //new User(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
@@ -265,12 +265,16 @@ namespace DAO
         {
             DataTable tbl = new DataTable();
             SqlDataReader reader;
-            String query = "SELECT dbo.FACTURA_CLIENTE.NUMERO_FACTURA, dbo.DESTINATARIO_FACTURA_CLIENTE.NOMBRE, dbo.FACTURA_CLIENTE.MONTO, dbo.FACTURA_CLIENTE.FECHA_PAGO, dbo.FACTURA_CLIENTE.ESTADO FROM dbo.FACTURA_CLIENTE INNER JOIN dbo.DESTINATARIO_FACTURA_CLIENTE ON dbo.FACTURA_CLIENTE.ID_CLIENTE = dbo.DESTINATARIO_FACTURA_CLIENTE.ID_CLIENTE";
+            String query = "SELECT dbo.FACTURA_CLIENTE.NUMERO_FACTURA, dbo.DESTINATARIO_FACTURA_CLIENTE.NOMBRE, dbo.FACTURA_CLIENTE.MONTO, dbo.FACTURA_CLIENTE.FECHA, dbo.FACTURA_CLIENTE.ESTADO FROM dbo.FACTURA_CLIENTE INNER JOIN dbo.DESTINATARIO_FACTURA_CLIENTE ON dbo.FACTURA_CLIENTE.ID_CLIENTE = dbo.DESTINATARIO_FACTURA_CLIENTE.ID_CLIENTE";
             SqlCommand comm = new SqlCommand(query, conn);
 
 
             tbl.Columns.Add("IdInvoice");
-            
+            tbl.Columns.Add("ClientName");
+            tbl.Columns.Add("TotalBill");
+            tbl.Columns.Add("PaymentDate");
+            tbl.Columns.Add("State");
+
             if (conn.State != ConnectionState.Open)
             {
                 conn.Open();
@@ -281,11 +285,7 @@ namespace DAO
                 while (reader.Read())
                 {
 
-                    tbl.Rows.Add(Convert.ToString(reader.GetInt32(0)));
-                    tbl.Rows.Add(Convert.ToString(reader.GetString(1)));
-                    tbl.Rows.Add(Convert.ToString(reader.GetDecimal(2)));
-                    tbl.Rows.Add(Convert.ToString(reader.GetDateTime(3)));
-                    tbl.Rows.Add(Convert.ToString(reader.GetByte(4)));
+                    tbl.Rows.Add(Convert.ToString(reader.GetInt64(0)), Convert.ToString(reader.GetString(1)), Convert.ToString(reader.GetDecimal(2)), Convert.ToString(reader.GetDateTime(3)), Convert.ToString(reader.GetByte(4)));
                 }
             }
             if (conn.State != ConnectionState.Closed)

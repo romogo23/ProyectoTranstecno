@@ -84,11 +84,11 @@ namespace DAO
             if (verifyInvoiceSupplier(invS.numberInvoice) == 1)
             {
 
-                String query = "Update FACTURA_PROVEEDOR set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA_PAGO = @paymentDate where NUMERO_FACTURA = @numberInvoice";
+                String query = "Update FACTURA_PROVEEDOR set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA = @reminderDate where NUMERO_FACTURA = @numberInvoice";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@numberInvoice", invS.numberInvoice);
-                comm.Parameters.AddWithValue("@paymentDate", invS.paymentDate);
+                comm.Parameters.AddWithValue("@reminderDate", invS.paymentDate);
                 comm.Parameters.AddWithValue("@idPayMethod", invS.idPayMethod);
                 comm.Parameters.AddWithValue("@payMethod", invS.payMethod);
                 if (conn.State != System.Data.ConnectionState.Open)

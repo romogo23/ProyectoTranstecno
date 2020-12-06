@@ -16,13 +16,13 @@
             <asp:GridView ID="grdInvoices" runat="server" AutoGenerateColumns="False">
                     <Columns>
                        <asp:BoundField DataField="idInvoice"/>
-                        <asp:BoundField DataField="idInvoice"/>
-                        <asp:BoundField DataField="idInvoice"/>
-                        <asp:BoundField DataField="idInvoice"/>
-                        <asp:BoundField DataField="idInvoice"/>
-                        <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a href='ModifyInvoice.aspx?'>Modificar</a>" />
-                        <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a href='CloseInvoice.aspx?'>Cerrar</a>" />
-                        <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a href='PostponeInvoice.aspx?el atributoquevoyapasar={0}'>Aplazar</a>" />
+                        <asp:BoundField DataField="ClientName"/>
+                        <asp:BoundField DataField="TotalBill"/>
+                        <asp:BoundField DataField="PaymentDate"/>
+                        <asp:BoundField DataField="State"/>
+                        <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a href='ModifyInvoice.aspx?idInvoice={0}'>Modificar</a>" />
+                        <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a href='CloseInvoice.aspx?idInvoice={0}'>Cerrar</a>" />
+                        <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a href='PostponeInvoice.aspx?idInvoice={0}'>Aplazar</a>" />
                     </Columns>
                 </asp:GridView>
         </div>
