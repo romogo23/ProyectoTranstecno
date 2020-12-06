@@ -12,6 +12,7 @@ namespace UI
 {
     public partial class BillByDate : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             //VerifySession();
@@ -35,202 +36,247 @@ namespace UI
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+           
+            
+
+            InvoiceClientManager invoiceClientManager = new InvoiceClientManager();
+            InvoiceSupplierManager invoiceSupplierManager = new InvoiceSupplierManager();
+            
+            if (DateTime.Parse(TxtStartDate.Text) > DateTime.Parse(TxtStartDate.Text) || DateTime.Parse(txtEndDate.Text) < DateTime.Parse(TxtStartDate.Text)) {
+                Response.Write("<script> alert(" + "'Las fechas ingresadas son invalidas'" + ") </script>");
+              
+            }
+            else {
+               
+                List<DOM.InvoiceClient> listInvoiceClient = invoiceClientManager.LoadInvoiceClientsBydate(DateTime.Parse(TxtStartDate.Text), DateTime.Parse(txtEndDate.Text));
+                List<DOM.InvoiceSupplier> listInvoiceSupplier = invoiceSupplierManager.LoadInvoiceSupplierBydate(DateTime.Parse(TxtStartDate.Text), DateTime.Parse(txtEndDate.Text));
+                if (listInvoiceClient.Count > 0 && listInvoiceSupplier.Count > 0)
+                {
+                    createContentClient(listInvoiceClient);
+                    createContentSuppliers(listInvoiceSupplier);
+                    changebuttons();
+                }
+                else {
+
+                    if (listInvoiceClient.Count > 0)
+                    {
+                        createContentClient(listInvoiceClient);
+                        changebuttons();
+
+                    }
+                    else {
+
+                        if (listInvoiceSupplier.Count > 0)
+                        {
+
+                            createContentSuppliers(listInvoiceSupplier);
+                            changebuttons();
+                        }
+                        else {
+
+                            Response.Write("<script> alert(" + "'No se encontraron coincidencias'" + ") </script>");
+                        }
+                    }
+                }
+              
+            }
+           
+        }
+
+
+        private void changebuttons() {
             lblendDate.Visible = false;
             lblStartDate.Visible = false;
             TxtStartDate.Visible = false;
             txtEndDate.Visible = false;
             btnSearch.Visible = false;
-
-            InvoiceClientManager invoiceClientManager = new InvoiceClientManager();
-            InvoiceSupplierManager invoiceSupplierManager = new InvoiceSupplierManager();
-            if (DateTime.Parse(TxtStartDate.Text) > DateTime.Parse(TxtStartDate.Text) || DateTime.Parse(txtEndDate.Text) < DateTime.Parse(TxtStartDate.Text)) {
-                Response.Write("<script> alert(" + "'Las fechas ingresadas son invalidas'" + ") </script>");
-            }
-            else {
-                createContentClient(invoiceClientManager.LoadInvoiceClientsBydate(DateTime.Parse(TxtStartDate.Text), DateTime.Parse(txtEndDate.Text)));
-                createContentSuppliers(invoiceSupplierManager.LoadInvoiceSupplierBydate(DateTime.Parse(TxtStartDate.Text), DateTime.Parse(txtEndDate.Text)));
-            }
-           
         }
 
         private void createContentClient(List<DOM.InvoiceClient> invoiceClient)
         {
+           
+
+                HtmlGenericControl tr = new HtmlGenericControl("tr");
+
+                HtmlGenericControl createDivCont = new HtmlGenericControl("DIV");
+                createDivCont.ID = "createDivCont";
+                HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
+                createDiv.ID = "createDiv";
+                createDivCont.Controls.Add(createH3("Facturas Clientes"));
+                createDivCont.Style.Add(HtmlTextWriterStyle.Color, "White");
+                //createDivCont.Style.Add(HtmlTextWriterStyle.Padding, "20px");
 
 
 
-            HtmlGenericControl tr = new HtmlGenericControl("tr");
-
-            HtmlGenericControl createDivCont = new HtmlGenericControl("DIV");
-            createDivCont.ID = "createDivCont";
-            HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
-            createDiv.ID = "createDiv";
-            createDivCont.Controls.Add(createH3("Facturas Clientes"));
-            createDivCont.Style.Add(HtmlTextWriterStyle.Color, "White");
-            //createDivCont.Style.Add(HtmlTextWriterStyle.Padding, "20px");
+                HtmlGenericControl table = new HtmlGenericControl("table"); //Table create
 
 
 
-            HtmlGenericControl table = new HtmlGenericControl("table"); //Table create
+                table.Attributes.Add("class", "classname"); //assign class
 
+                HtmlGenericControl thead = new HtmlGenericControl("thead"); // add thead tag
 
+                createth(" Número de Factura", tr);
+                createth(" Nombre", tr);
+                createth(" Identificacion", tr);
+                createth(" Monto", tr);
+                createth(" Estado", tr);
+                createth(" Id Método pago", tr);
+                createth(" MétodoPago", tr);
+                createth(" Condición", tr);
+                createth(" Fecha Recordatorio", tr);
+                createth(" Fecha Pago", tr);
 
-            table.Attributes.Add("class", "classname"); //assign class
+                thead.Controls.Add(tr); // header row add in thead
+                table.Controls.Add(thead); //thead add in table
+                HtmlGenericControl tbody = new HtmlGenericControl("tbody");
 
-            HtmlGenericControl thead = new HtmlGenericControl("thead"); // add thead tag
-
-            createth(" Número de Factura", tr);
-            createth(" Nombre", tr);
-            createth(" Identificacion", tr);
-            createth(" Monto", tr);
-            createth(" Estado", tr);
-            createth(" Id Método pago", tr);
-            createth(" MétodoPago", tr);
-            createth(" Condición", tr);
-            createth(" Fecha Recordatorio", tr);
-            createth(" Fecha Pago", tr);
-
-            thead.Controls.Add(tr); // header row add in thead
-            table.Controls.Add(thead); //thead add in table
-            HtmlGenericControl tbody = new HtmlGenericControl("tbody");
-
-            //for datatable row count loop
-            foreach (DOM.InvoiceClient invoice in invoiceClient)
-            {
-
-                string condition = invoice.condition.ToString();
-                if (condition == "0")
+                //for datatable row count loop
+                foreach (DOM.InvoiceClient invoice in invoiceClient)
                 {
-                    condition = "No pagado";
+
+                    string condition = invoice.condition.ToString();
+                    if (condition == "0")
+                    {
+                        condition = "No pagado";
+                    }
+                    else
+                    {
+                        condition = "Pagado";
+                    }
+
+                    string payMethod = invoice.payMethod.ToString();
+                    if (payMethod == "")
+                    {
+                        payMethod = "-";
+                    }
+                    InvoiceReceivingClientManager invoiceReceivingClientManager = new InvoiceReceivingClientManager();
+                    InvoiceReceivingClient invoiceReceiving = invoiceReceivingClientManager.LoadClient(invoice.idClient);
+
+                    HtmlGenericControl dataTR = new HtmlGenericControl("tr");
+
+                    createtd(invoice.numberInvoice.ToString(), dataTR, tbody);
+                    createtd(invoiceReceiving.nameClient.ToString(), dataTR, tbody);
+                    createtd(invoice.idClient.ToString(), dataTR, tbody);
+                    createtd(invoice.money.ToString(), dataTR, tbody);
+                    createtd(condition, dataTR, tbody);
+                    createtd(invoice.idPayMethod.ToString().Replace("0", "-"), dataTR, tbody);
+                    createtd(payMethod, dataTR, tbody);
+                    createtd(invoice.paymentCondition, dataTR, tbody);
+                    createtd(invoice.reminderDate.ToString(), dataTR, tbody);
+                    createtd(invoice.paymentDate.ToString(), dataTR, tbody);
+
+
+
                 }
-                else
-                {
-                    condition = "Pagado";
-                }
-
-                string payMethod = invoice.payMethod.ToString();
-                if (payMethod == "")
-                {
-                    payMethod = "-";
-                }
-                InvoiceReceivingClientManager invoiceReceivingClientManager = new InvoiceReceivingClientManager();
-                InvoiceReceivingClient invoiceReceiving = invoiceReceivingClientManager.LoadClient(invoice.idClient);
-
-                HtmlGenericControl dataTR = new HtmlGenericControl("tr");
-
-                createtd(invoice.numberInvoice.ToString(), dataTR, tbody);
-                createtd(invoiceReceiving.nameClient.ToString(), dataTR, tbody);
-                createtd(invoice.idClient.ToString(), dataTR, tbody);
-                createtd(invoice.money.ToString(), dataTR, tbody);
-                createtd(condition, dataTR, tbody);
-                createtd(invoice.idPayMethod.ToString().Replace("0", "-"), dataTR, tbody);
-                createtd(payMethod, dataTR, tbody);
-                createtd(invoice.paymentCondition, dataTR, tbody);
-                createtd(invoice.reminderDate.ToString(), dataTR, tbody);
-                createtd(invoice.paymentDate.ToString(), dataTR, tbody);
+                table.Controls.Add(tbody); // tbody all row will add in table.
 
 
 
-            }
-            table.Controls.Add(tbody); // tbody all row will add in table.
-
-
-
-            createDivCont.Controls.Add(table);
-            createDivCont.Style.Add(HtmlTextWriterStyle.BackgroundColor, "Black");
-            createDiv.Controls.Add(createDivCont);
+                createDivCont.Controls.Add(table);
+                createDivCont.Style.Add(HtmlTextWriterStyle.BackgroundColor, "Black");
+                createDiv.Controls.Add(createDivCont);
 
 
 
 
-            contentInvoiceByDate.Controls.Add(createDiv);
+                contentInvoiceByDate.Controls.Add(createDiv);
+            
+
+
+           
         }
 
 
         private void createContentSuppliers(List<DOM.InvoiceSupplier> invoiceSupplier)
         {
+          
+                HtmlGenericControl tr = new HtmlGenericControl("tr");
 
-            HtmlGenericControl tr = new HtmlGenericControl("tr");
-
-            HtmlGenericControl createDivCont = new HtmlGenericControl("DIV");
-            createDivCont.ID = "createDivCont";
-            HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
-            createDiv.ID = "createDiv";
-            createDivCont.Controls.Add(createH3("Facturas Proveedores"));
-            createDivCont.Style.Add(HtmlTextWriterStyle.Color, "White");
-            createDivCont.Style.Add(HtmlTextWriterStyle.BackgroundColor, "Black");
-
-
-            HtmlGenericControl table = new HtmlGenericControl("table"); //Table create
+                HtmlGenericControl createDivCont = new HtmlGenericControl("DIV");
+                createDivCont.ID = "createDivCont";
+                HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
+                createDiv.ID = "createDiv";
+                createDivCont.Controls.Add(createH3("Facturas Proveedores"));
+                createDivCont.Style.Add(HtmlTextWriterStyle.Color, "White");
+                createDivCont.Style.Add(HtmlTextWriterStyle.BackgroundColor, "Black");
 
 
+                HtmlGenericControl table = new HtmlGenericControl("table"); //Table create
 
-            table.Attributes.Add("class", "classname"); //assign class
 
-            HtmlGenericControl thead = new HtmlGenericControl("thead"); // add thead tag
 
-            createth(" Número de Factura", tr);
-            createth(" Nombre", tr);
-            createth(" Identificacion", tr);
-            createth(" Monto", tr);
-            createth(" Estado", tr);
-            createth(" Id Método pago", tr);
-            createth(" MétodoPago", tr);
-            createth(" Fecha Recordatorio", tr);
-            createth(" Fecha Pago", tr);
+                table.Attributes.Add("class", "classname"); //assign class
 
-            thead.Controls.Add(tr); // header row add in thead
-            table.Controls.Add(thead); //thead add in table
-            HtmlGenericControl tbody = new HtmlGenericControl("tbody");
+                HtmlGenericControl thead = new HtmlGenericControl("thead"); // add thead tag
 
-            //for datatable row count loop
-            foreach (DOM.InvoiceSupplier invoice in invoiceSupplier)
-            {
-                string condition = invoice.condition.ToString();
-                if (condition == "0")
+                createth(" Número de Factura", tr);
+                createth(" Nombre", tr);
+                createth(" Identificacion", tr);
+                createth(" Monto", tr);
+                createth(" Estado", tr);
+                createth(" Id Método pago", tr);
+                createth(" MétodoPago", tr);
+                createth(" Fecha Recordatorio", tr);
+                createth(" Fecha Pago", tr);
+
+                thead.Controls.Add(tr); // header row add in thead
+                table.Controls.Add(thead); //thead add in table
+                HtmlGenericControl tbody = new HtmlGenericControl("tbody");
+
+                //for datatable row count loop
+                foreach (DOM.InvoiceSupplier invoice in invoiceSupplier)
                 {
-                    condition = "No pagado";
+                    string condition = invoice.condition.ToString();
+                    if (condition == "0")
+                    {
+                        condition = "No pagado";
+                    }
+                    else
+                    {
+                        condition = "Pagado";
+                    }
+
+                    string payMethod = invoice.payMethod.ToString();
+                    if (payMethod == "")
+                    {
+                        payMethod = "-";
+                    }
+
+                    InvoiceReceivingSupplierManager invoiceReceivingSuppliertManager = new InvoiceReceivingSupplierManager();
+                    InvoiceReceivingSupplier invoiceReceiving = invoiceReceivingSuppliertManager.LoadSupplier(invoice.idSupplier);
+
+
+                    HtmlGenericControl dataTR = new HtmlGenericControl("tr");
+
+                    createtd(invoice.numberInvoice.ToString(), dataTR, tbody);
+                    createtd(invoiceReceiving.nameSupplier, dataTR, tbody);
+                    createtd(invoice.idSupplier, dataTR, tbody);
+                    createtd(invoice.money.ToString(), dataTR, tbody);
+                    createtd(condition, dataTR, tbody);
+                    createtd(invoice.idPayMethod.ToString().Replace("0", "-"), dataTR, tbody);
+                    createtd(payMethod, dataTR, tbody);
+                    createtd(invoice.reminderDate.ToString(), dataTR, tbody);
+                    createtd(invoice.paymentDate.ToString(), dataTR, tbody);
+
+
+
                 }
-                else
-                {
-                    condition = "Pagado";
-                }
-
-                string payMethod = invoice.payMethod.ToString();
-                if (payMethod == "")
-                {
-                    payMethod = "-";
-                }
-
-                InvoiceReceivingSupplierManager invoiceReceivingSuppliertManager = new InvoiceReceivingSupplierManager();
-                InvoiceReceivingSupplier invoiceReceiving = invoiceReceivingSuppliertManager.LoadSupplier(invoice.idSupplier);
-
-
-                HtmlGenericControl dataTR = new HtmlGenericControl("tr");
-
-                createtd(invoice.numberInvoice.ToString(), dataTR, tbody);
-                createtd(invoiceReceiving.nameSupplier, dataTR, tbody);
-                createtd(invoice.idSupplier, dataTR, tbody);
-                createtd(invoice.money.ToString(), dataTR, tbody);
-                createtd(condition, dataTR, tbody);
-                createtd(invoice.idPayMethod.ToString().Replace("0", "-"), dataTR, tbody);
-                createtd(payMethod, dataTR, tbody);
-                createtd(invoice.reminderDate.ToString(), dataTR, tbody);
-                createtd(invoice.paymentDate.ToString(), dataTR, tbody);
+                table.Controls.Add(tbody); // tbody all row will add in table.
 
 
 
-            }
-            table.Controls.Add(tbody); // tbody all row will add in table.
-
-
-
-            createDivCont.Controls.Add(table);
-            createDiv.Controls.Add(createDivCont);
+                createDivCont.Controls.Add(table);
+                createDiv.Controls.Add(createDivCont);
 
 
 
 
-            contentInvoiceSupplier.Controls.Add(createDiv);
+                contentInvoiceSupplier.Controls.Add(createDiv);
+
+
+            
+            
         }
 
 
