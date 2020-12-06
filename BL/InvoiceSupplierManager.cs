@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DOM;
 using DAO;
+using System.Data;
 
 namespace BL
 {
@@ -57,6 +58,17 @@ namespace BL
         {
             DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
             return daoIS.verifyInvoiceSupplier(numberInvoice);
+        }
+
+        public InvoiceSupplier loadSupplierById(String idInvoice)
+        {
+            DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
+            return daoIS.LoadInvoiceSupplierById(idInvoice);
+        }
+        public DataTable loadInvoicesSupplierT()
+        {
+            DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
+            return daoIS.loadInvoicesSupplierT();
         }
     }
 }

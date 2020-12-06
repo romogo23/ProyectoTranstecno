@@ -32,6 +32,11 @@ namespace DOM
             this.reminderDate = reminderDate;
         }
 
+        public InvoiceClient()
+        {
+            
+        }
+
         //public InvoiceClient(Int64 numberInvoice, DateTime paymentDate, int idPayMethod, string payMethod)
         //{
         //    this.numberInvoice = numberInvoice;

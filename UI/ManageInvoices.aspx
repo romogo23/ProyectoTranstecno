@@ -11,11 +11,15 @@
      <form id="form1" runat="server">
         <div>
             <div>
-                <asp:Label ID="lblManageInvoice" runat="server" Text="Gestionar Facturas" CssClass="tittle"></asp:Label>
+                <h3>Gestionar facturas</h3>
             </div>
             <asp:GridView ID="grdInvoices" runat="server" AutoGenerateColumns="False">
                     <Columns>
                        <asp:BoundField DataField="idInvoice"/>
+                        <asp:BoundField DataField="idInvoice"/>
+                        <asp:BoundField DataField="idInvoice"/>
+                        <asp:BoundField DataField="idInvoice"/>
+                        <asp:BoundField DataField="idInvoice"/>
                         <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a href='ModifyInvoice.aspx?'>Modificar</a>" />
                         <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a href='CloseInvoice.aspx?'>Cerrar</a>" />
                         <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a href='PostponeInvoice.aspx?el atributoquevoyapasar={0}'>Aplazar</a>" />

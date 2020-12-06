@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using DOM;
+using System.Data;
 
 namespace DAO
 {
@@ -224,6 +225,76 @@ namespace DAO
             }
 
             return listInvoiceSupplier;
+        }
+
+        public InvoiceSupplier LoadInvoiceSupplierById(String idInvoice)
+        {
+            String query = "SELECT * FROM FACTURA_PROVEEDOR WHERE NUMERO_FACTURA = @idInvoice";
+            InvoiceSupplier temp = new InvoiceSupplier();
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader reader;
+            comm.Parameters.AddWithValue("@idInvoice", idInvoice);
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            reader = comm.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    temp = new InvoiceSupplier(reader.GetInt64(0).ToString(), reader.GetString(1), reader.GetDateTime(2), reader.GetInt16(3), reader.GetString(4), reader.GetDouble(5), reader.GetByte(6), new DateTime());
+                //string numberInvoice, string idSupplier, DateTime paymentDate, int idPayMethod, string payMethod,double money, Byte condition, DateTime reminderDate
+                }
+            }
+            else
+            {
+                temp = null;
+            }
+            if (conn.State != ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+
+            return temp;
+        }
+        public DataTable loadInvoicesSupplierT()
+        {
+            DataTable tbl = new DataTable();
+            SqlDataReader reader;
+            String query = "SELECT dbo.FACTURA_PROVEEDOR.NUMERO_FACTURA, dbo.DESTINATARIO_FACTURA_PROVEEDOR.NOMBRE, dbo.FACTURA_PROVEEDOR.MONTO, dbo.FACTURA_PROVEEDOR.FECHA_PAGO,dbo.FACTURA_PROVEEDOR.ESTADO FROM dbo.DESTINATARIO_FACTURA_PROVEEDOR INNER JOIN dbo.FACTURA_PROVEEDOR ON dbo.DESTINATARIO_FACTURA_PROVEEDOR.ID_PROVEEDOR = dbo.FACTURA_PROVEEDOR.ID_PROVEEDOR";
+            SqlCommand comm = new SqlCommand(query, conn);
+
+
+            tbl.Columns.Add("NumberInvoice");
+            tbl.Columns.Add("Name");
+            tbl.Columns.Add("Amount");
+            tbl.Columns.Add("PaymentDate");
+            tbl.Columns.Add("Condition");
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            reader = comm.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    tbl.Rows.Add(Convert.ToString(reader.GetInt16(0)));
+                    tbl.Rows.Add(Convert.ToString(reader.GetString(1)));
+                    tbl.Rows.Add(Convert.ToString(reader.GetDouble(2)));
+                    tbl.Rows.Add(Convert.ToString(reader.GetDateTime(3)));
+                    tbl.Rows.Add(Convert.ToString(reader.GetByte(4)));
+                }
+            }
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+            return tbl;
         }
     }
 }

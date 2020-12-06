@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using DOM;
+using System.Data;
 
 namespace DAO
 {
@@ -225,6 +226,75 @@ namespace DAO
             return listInvoiceClient;
         }
 
+        public InvoiceClient LoadInvoiceClientById(int idInvoice)
+        {
+            String query = "SELECT * FROM FACTURA_CLIENTE WHERE NUMERO_FACTURA = @idInvoice";
+            InvoiceClient temp = new InvoiceClient();
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader reader;
+            comm.Parameters.AddWithValue("@idInvoice", idInvoice);
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            reader = comm.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    temp = new InvoiceClient(reader.GetInt64(0), reader.GetString(1), reader.GetDateTime(2), reader.GetInt16(3), reader.GetString(4), reader.GetDouble(5), reader.GetByte(6), reader.GetString(7), new DateTime());
+
+   //Int64 numberInvoice 0, string idClient  1,  DateTime paymentDate  2, int idPayMethod  3, string payMethod  4,double money  5, Byte condition  6, string paymentCondition 7, DateTime reminderDate 8
+                    //new User(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
+                }
+            }
+            else
+            {
+                temp = null;
+            }
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+
+            return temp;
+        }
+
+        public DataTable loadInvoicesClientT()
+        {
+            DataTable tbl = new DataTable();
+            SqlDataReader reader;
+            String query = "SELECT dbo.FACTURA_CLIENTE.NUMERO_FACTURA, dbo.DESTINATARIO_FACTURA_CLIENTE.NOMBRE, dbo.FACTURA_CLIENTE.MONTO, dbo.FACTURA_CLIENTE.FECHA_PAGO, dbo.FACTURA_CLIENTE.ESTADO FROM dbo.FACTURA_CLIENTE INNER JOIN dbo.DESTINATARIO_FACTURA_CLIENTE ON dbo.FACTURA_CLIENTE.ID_CLIENTE = dbo.DESTINATARIO_FACTURA_CLIENTE.ID_CLIENTE";
+            SqlCommand comm = new SqlCommand(query, conn);
+
+
+            tbl.Columns.Add("IdInvoice");
+            
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            reader = comm.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    tbl.Rows.Add(Convert.ToString(reader.GetInt32(0)));
+                    tbl.Rows.Add(Convert.ToString(reader.GetString(1)));
+                    tbl.Rows.Add(Convert.ToString(reader.GetDecimal(2)));
+                    tbl.Rows.Add(Convert.ToString(reader.GetDateTime(3)));
+                    tbl.Rows.Add(Convert.ToString(reader.GetByte(4)));
+                }
+            }
+            if (conn.State != ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+            return tbl;
+        }
     }
 }
 
