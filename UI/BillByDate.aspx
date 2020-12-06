@@ -42,6 +42,7 @@
                 <br />
                 <asp:TextBox ID="txtEndDate" runat="server" TextMode="Date" CssClass="findtxt"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Fecha Requerida" ControlToValidate="txtEndDate"></asp:RequiredFieldValidator>
                 <br />
+                <br />
                 <asp:Button ID="btnSearch" runat="server" Text="Buscar" OnClick="btnSearch_Click" CssClass="btnR" />
 
                 <div id="contentInvoiceByDate" class="row text-center" runat="server">
