@@ -1,6 +1,8 @@
 ﻿using BL;
+using DOM;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,17 +14,50 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            InvoiceClientManager invCM = new InvoiceClientManager();
             InvoiceSupplierManager invSM = new InvoiceSupplierManager();
-            grdInvoices.DataSource = invCM.loadInvoicesClientT();
+            InvoiceClientManager invCM = new InvoiceClientManager();
+            List<BillName> billWNameList = invCM.loadInvoicesClientT();
+
+            fillClientsGrd(billWNameList);
+            //fillSupplierGrd();
+            
             //No sé si crear dos grid o qué
-            grdInvoices.DataBind();
+
         }
 
         protected void grdInvoices_RowCreated(object sender, GridViewRowEventArgs e)
         {
-            grdInvoices.Columns[0].HeaderText = "Codigo de factura";
-            grdInvoices.Columns[1].HeaderText = "Nombre de acredor";
+            
+        }
+
+        private void fillClientsGrd(List<BillName> billWNameList)
+        {
+            DataTable tblInvoiceClient = new DataTable();
+            
+            tblInvoiceClient.Columns.Add("idInvoice");
+            tblInvoiceClient.Columns.Add("ClientName");
+            tblInvoiceClient.Columns.Add("TotalBill");
+            tblInvoiceClient.Columns.Add("PaymentDate");
+            tblInvoiceClient.Columns.Add("State");
+
+            foreach (BillName invoice in billWNameList)
+            {
+                string condition = invoice.state.ToString();
+                if (condition == "0")
+                {
+                    condition = "No pagado";
+                }
+                else
+                {
+                    condition = "Pagado";
+                }
+
+                tblInvoiceClient.Rows.Add(invoice.idInvoice.ToString(), invoice.clientName.ToString(), invoice.total.ToString(), invoice.reminderDate, condition);
+
+            }
+
+            grdInvoices.DataSource = tblInvoiceClient;
+            grdInvoices.DataBind();
         }
     }
 }

@@ -38,11 +38,11 @@
                 <div class="formlabels">
                     <asp:GridView ID="grdInvoices" runat="server" AutoGenerateColumns="False" CssClass="table table-borderless" OnRowCreated="grdInvoices_RowCreated">
                         <Columns>
-                            <asp:BoundField DataField="idInvoice" />
-                            <asp:BoundField DataField="ClientName" />
-                            <asp:BoundField DataField="TotalBill" />
-                            <asp:BoundField DataField="PaymentDate" />
-                            <asp:BoundField DataField="State" />
+                            <asp:BoundField DataField="idInvoice" HeaderText ="Id de Factura"/>
+                            <asp:BoundField DataField="ClientName" HeaderText ="Nombre de Cliente"/>
+                            <asp:BoundField DataField="TotalBill" HeaderText ="Monto"/>
+                            <asp:BoundField DataField="PaymentDate" HeaderText ="Fecha de Recordatorio"/>
+                            <asp:BoundField DataField="State" HeaderText ="Estado"/>
                             <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='ModifyInvoice.aspx?idInvoice={0}'>Modificar</a>" />
                             <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='CloseInvoice.aspx?idInvoice={0}'>Cerrar</a>" />
                             <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='PostponeInvoice.aspx?idInvoice={0}'>Aplazar</a>" />

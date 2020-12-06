@@ -63,7 +63,7 @@ namespace BL
             return daoIC.LoadInvoiceClientById(int.Parse(idInvoice));
         }
 
-        public DataTable loadInvoicesClientT()
+        public List<BillName> loadInvoicesClientT()
         {
             DAOInvoiceClient daoIC = new DAOInvoiceClient();
             return daoIC.loadInvoicesClientT();

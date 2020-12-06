@@ -261,19 +261,12 @@ namespace DAO
             return temp;
         }
 
-        public DataTable loadInvoicesClientT()
+        public List<BillName> loadInvoicesClientT()
         {
-            DataTable tbl = new DataTable();
+            List<BillName> tbl = new List<BillName>();
             SqlDataReader reader;
             String query = "SELECT dbo.FACTURA_CLIENTE.NUMERO_FACTURA, dbo.DESTINATARIO_FACTURA_CLIENTE.NOMBRE, dbo.FACTURA_CLIENTE.MONTO, dbo.FACTURA_CLIENTE.FECHA, dbo.FACTURA_CLIENTE.ESTADO FROM dbo.FACTURA_CLIENTE INNER JOIN dbo.DESTINATARIO_FACTURA_CLIENTE ON dbo.FACTURA_CLIENTE.ID_CLIENTE = dbo.DESTINATARIO_FACTURA_CLIENTE.ID_CLIENTE";
             SqlCommand comm = new SqlCommand(query, conn);
-
-
-            tbl.Columns.Add("IdInvoice");
-            tbl.Columns.Add("ClientName");
-            tbl.Columns.Add("TotalBill");
-            tbl.Columns.Add("PaymentDate");
-            tbl.Columns.Add("State");
 
             if (conn.State != ConnectionState.Open)
             {
@@ -285,7 +278,7 @@ namespace DAO
                 while (reader.Read())
                 {
 
-                    tbl.Rows.Add(Convert.ToString(reader.GetInt64(0)), Convert.ToString(reader.GetString(1)), Convert.ToString(reader.GetDecimal(2)), Convert.ToString(reader.GetDateTime(3)), Convert.ToString(reader.GetByte(4)));
+                    tbl.Add(new BillName((Int64)reader["NUMERO_FACTURA"], (string) reader["NOMBRE"], double.Parse(reader["MONTO"].ToString()), (DateTime)reader["FECHA"], (Byte)reader["ESTADO"]));
                 }
             }
             if (conn.State != ConnectionState.Closed)
