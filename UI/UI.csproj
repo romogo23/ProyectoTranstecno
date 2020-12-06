@@ -135,6 +135,7 @@
     <Content Include="CSS\NavbarAdmin.css" />
     <Content Include="CSS\Navbar.css" />
     <Content Include="CSS\RegisterUser.css" />
+    <Content Include="CSS\ViewFilterClient.css" />
     <Content Include="Default.aspx" />
     <Content Include="DeleteUser.aspx" />
     <Content Include="ExcelTest.aspx" />
@@ -209,6 +210,8 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="ViewBillsClient.aspx" />
+    <Content Include="ViewBillsSupplier.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -430,6 +433,20 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewBillsClient.aspx.cs">
+      <DependentUpon>ViewBillsClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewBillsClient.aspx.designer.cs">
+      <DependentUpon>ViewBillsClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewBillsSupplier.aspx.cs">
+      <DependentUpon>ViewBillsSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewBillsSupplier.aspx.designer.cs">
+      <DependentUpon>ViewBillsSupplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

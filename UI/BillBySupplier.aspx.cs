@@ -72,7 +72,7 @@ namespace UI
                         HtmlGenericControl createBr = new HtmlGenericControl("br");
                         createDetail.Style.Add(HtmlTextWriterStyle.Color, "White");
                         createDetail.Attributes.Add("class", "clientDiv");
-                        createDetail.Attributes.Add("href", "InvoiceSupplier.aspx?idSupplier=" + invoiceReceivingSupplier[i].idSupplier);
+                        createDetail.Attributes.Add("href", "ViewBillsSupplier.aspx?idSupplier=" + invoiceReceivingSupplier[i].idSupplier);
                         createDetail.InnerHtml = "<span class='glyphicon glyphicon-info-sign'></span> " + invoiceReceivingSupplier[i].nameSupplier + "<br/>";
 
                         createDivCont.Controls.Add(createBr);
@@ -89,7 +89,7 @@ namespace UI
                         HtmlGenericControl createBr = new HtmlGenericControl("br");
                         createDetail.Style.Add(HtmlTextWriterStyle.Color, "White");
                         createDetail.Attributes.Add("class", "clientDiv");
-                        createDetail.Attributes.Add("href", "InvoiceSupplier.aspx?idSupplier=" + client.idSupplier);
+                        createDetail.Attributes.Add("href", "ViewBillsSupplier.aspx?idSupplier=" + client.idSupplier);
                         createDetail.InnerHtml = "<span class='glyphicon glyphicon-info-sign'></span> " + client.nameSupplier + "<br/>";
 
                         createDivCont.Controls.Add(createBr);

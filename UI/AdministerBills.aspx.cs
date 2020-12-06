@@ -18,5 +18,11 @@ namespace UI
             //No sé si crear dos grid o qué
             grdInvoices.DataBind();
         }
+
+        protected void grdInvoices_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            grdInvoices.Columns[0].HeaderText = "Codigo de factura";
+            grdInvoices.Columns[1].HeaderText = "Nombre de acredor";
+        }
     }
 }
