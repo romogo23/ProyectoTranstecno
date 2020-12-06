@@ -13,14 +13,9 @@
     <asp:Button ID="btnSearch" runat="server" Text="Buscar" OnClick="btnSearch_Click" />
     <br />
 
-    <div class="container text-center py-3">
-        <div id="contentInvoiceByDate" class="row justify-content-center py-3" runat="server">
-        </div>
-    </div>
-
-    <div class="container text-center py-3">
-        <div id="contentInvoiceSupplier" class="row justify-content-center py-3" runat="server">
-        </div>
-    </div>
+  
+    <asp:GridView ID="gdInvoiceClient" runat="server"></asp:GridView>
+    <br />
+    <asp:GridView ID="gdInvoiceSupplier" runat="server"></asp:GridView>
 
 </asp:Content>
