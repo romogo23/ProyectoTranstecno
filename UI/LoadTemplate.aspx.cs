@@ -134,6 +134,7 @@ namespace UI
 
         protected void btnLoadInvoice_Click(object sender, EventArgs e)
         {
+            lblInformationInvoice.Text = "";
             string clientBillNumberCell = "";
             string idClientCell = "";
             string conditionClientCell = "";
@@ -187,7 +188,10 @@ namespace UI
                              ViewState["table"] = table;
                             isClient = true;
                             ViewState["isClient"] = isClient;
-                            btnUploadInvoice.Visible = true;
+                            if (validateInvoice() == true)
+                            {
+                                btnUploadInvoice.Visible = true;
+                            }
 
                              }
                             else
@@ -200,8 +204,11 @@ namespace UI
                             ViewState["table"] = table;
                              isClient = false;
                              ViewState["isClient"] = isClient;
-                             btnUploadInvoice.Visible = true;
-                            return;
+                                if (validateInvoice() == true)
+                                {
+                                    btnUploadInvoice.Visible = true;
+                                }
+                                return;
 
                             }
                              else
@@ -317,6 +324,62 @@ namespace UI
                 }
                 lblInformationInvoice.Text = noClientTemplateFile;
             }
+        }
+
+
+
+        private Boolean validateInvoice() { 
+        
+        
+             string clientBillNumberCell = "";
+            string idClientCell = "";
+            string conditionClientCell = "";
+            string totalClientCell = "";
+            string dateClientCell = ""; // PARA HACER LA VALIDACION DE SI ES UN ARCHIVO QUE POSEE FACTURAS!!
+
+            string dateSupplierCell = "";
+            string supplierBillNumberCell = "";
+            string idSupplierCell = "";
+            string totalSupplierCell = "";
+
+            if (isClient == true)
+            {
+                clientBillNumberCell = table.Rows[0][1].ToString();
+                idClientCell = table.Rows[0][8].ToString();
+                conditionClientCell = table.Rows[0][11].ToString();
+                totalClientCell = table.Rows[0][24].ToString();
+                dateClientCell = table.Rows[0][26].ToString();
+            }
+            else
+            {
+                dateSupplierCell = table.Rows[0][3].ToString();
+                supplierBillNumberCell = table.Rows[0][4].ToString();
+                idSupplierCell = table.Rows[0][9].ToString();
+                totalSupplierCell = table.Rows[0][23].ToString();
+            }
+
+            if (clientBillNumberCell == customerTemplateId && idClientCell == customerId && conditionClientCell == customerTemplateIndicator
+                && totalClientCell == customerTotal && dateClientCell == customerDate)
+            {
+               
+                return true;
+            }
+            else //VALIDAR LO MISMO EU ARRIBA PARA LAS DE PROVEEDOR
+            {
+                if (dateSupplierCell == supplierDate && supplierBillNumberCell == supplierTemplateId && idSupplierCell == supplierId &&
+                    totalSupplierCell == supplierTotal)
+                {
+                    return true;
+                }
+                else
+                {
+                    lblInformationInvoice.Text = noSupplierTemplateFile;
+                    return false;
+                }
+                lblInformationInvoice.Text = noClientTemplateFile;
+                return false;
+            }
+        
         }
 
     }
