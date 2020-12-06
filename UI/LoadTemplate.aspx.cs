@@ -57,7 +57,7 @@ namespace UI
             Calendar1.DayStyle.Height = new Unit(75);
             Calendar1.DayStyle.Width = new Unit(100);
             Calendar1.OtherMonthDayStyle.BackColor = System.Drawing.Color.LightGray;
-
+            btnUploadInvoice.Visible = false;
             if (ViewState["table"] == null)
             {
                 table = new DataTable();
@@ -134,9 +134,23 @@ namespace UI
 
         protected void btnLoadInvoice_Click(object sender, EventArgs e)
         {
+            string clientBillNumberCell = "";
+            string idClientCell = "";
+            string conditionClientCell = "";
+            string totalClientCell = "";
+            string dateClientCell = ""; // PARA HACER LA VALIDACION DE SI ES UN ARCHIVO QUE POSEE FACTURAS!!
+
+            string dateSupplierCell = "";
+            string supplierBillNumberCell = "";
+            string idSupplierCell = "";
+            string totalSupplierCell = "";
+
             if (FP.PostedFile.ContentLength <= 0)
             {
+                btnUploadInvoice.Visible = false;
                 lblInformationInvoice.Text = textEmpty;
+                
+                
             }
 
             //Get the file extension  
@@ -145,7 +159,10 @@ namespace UI
             //If file is not in excel format then return  
             if (fileExtension != verifyFileXls && fileExtension != verifyFileXlsx)
             {
+                btnUploadInvoice.Visible = false;
                 lblInformationInvoice.Text = noExcelFile;
+                
+                
             }
             else
             {
@@ -159,35 +176,46 @@ namespace UI
                     {
                         var result = reader.AsDataSet();
                         table = result.Tables[0];
+                        btnUploadInvoice.Visible = false;
 
-                        if (table.Rows[0][1].ToString() == customerTemplateId)
-                        {
-                            //grdInvoice.DataSource = table;
-                            //grdInvoice.DataBind();
-                            btnUploadInvoice.Visible = true;
-                            ViewState["table"] = table;
+                       
+                             if (table.Rows[0][1].ToString() == customerTemplateId)
+                             {
+                           // grdInvoice.DataSource = table;
+                           // grdInvoice.DataBind();
+
+                             ViewState["table"] = table;
                             isClient = true;
                             ViewState["isClient"] = isClient;
-                        }
-                        else
-                        {
-                            if (table.Rows[0][3].ToString() == supplierDate)
-                            {
-                                //grdInvoice.DataSource = table;
-                                //grdInvoice.DataBind();
-                                btnUploadInvoice.Visible = true;
-                                ViewState["table"] = table;
-                                isClient = false;
-                                ViewState["isClient"] = isClient;
-                                return;
-                            }
+                            btnUploadInvoice.Visible = true;
+
+                             }
                             else
-                            {
-                                lblInformationInvoice.Text = "El archivo no coincide con el formato de las plantillas";
-                                return;
+                           {
+                            if (table.Rows[0][3].ToString() == supplierDate)
+                             {
+                            //grdInvoice.DataSource = table;
+                            //grdInvoice.DataBind();
+
+                            ViewState["table"] = table;
+                             isClient = false;
+                             ViewState["isClient"] = isClient;
+                             btnUploadInvoice.Visible = true;
+                            return;
+
                             }
+                             else
+                            {
+                             btnUploadInvoice.Visible = false;
+                            //Response.Write("<script> alert(" + "'El archivo no coincide con el formato de las plantillas'" + ") </script>");
+                             lblInformationInvoice.Text = "El archivo no coincide con el formato de las plantillas";
+
+                            return;
+
+                            }
+                            }
+
                         }
-                    }
                 }
                 lblInformationInvoice.Text = "";
                 File.Delete(path);

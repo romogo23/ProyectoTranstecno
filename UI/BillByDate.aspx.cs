@@ -43,8 +43,14 @@ namespace UI
 
             InvoiceClientManager invoiceClientManager = new InvoiceClientManager();
             InvoiceSupplierManager invoiceSupplierManager = new InvoiceSupplierManager();
-            createContentClient(invoiceClientManager.LoadInvoiceClientsBydate(DateTime.Parse(TxtStartDate.Text), DateTime.Parse(txtEndDate.Text)));
-            createContentSuppliers(invoiceSupplierManager.LoadInvoiceSupplierBydate(DateTime.Parse(TxtStartDate.Text), DateTime.Parse(txtEndDate.Text)));
+            if (DateTime.Parse(TxtStartDate.Text) > DateTime.Parse(TxtStartDate.Text) || DateTime.Parse(txtEndDate.Text) < DateTime.Parse(TxtStartDate.Text)) {
+                Response.Write("<script> alert(" + "'Las fechas ingresadas son invalidas'" + ") </script>");
+            }
+            else {
+                createContentClient(invoiceClientManager.LoadInvoiceClientsBydate(DateTime.Parse(TxtStartDate.Text), DateTime.Parse(txtEndDate.Text)));
+                createContentSuppliers(invoiceSupplierManager.LoadInvoiceSupplierBydate(DateTime.Parse(TxtStartDate.Text), DateTime.Parse(txtEndDate.Text)));
+            }
+           
         }
 
         private void createContentClient(List<DOM.InvoiceClient> invoiceClient)
