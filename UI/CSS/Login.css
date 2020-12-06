@@ -1,10 +1,13 @@
 ﻿body {
-
+    background-image: url(../Images/Login.png);
+    background-repeat: repeat-x;
+    background-attachment: fixed;
 }
+
 
 .container .test {
     background-color: black;
-    margin-top: 50px;
+    margin-top: 90px;
     padding: 10px;
     border-radius: 25px;
 }
@@ -33,10 +36,7 @@
 }
 
 .container {
-    background-image: url(../Images/Login.png);
-    background-repeat: repeat-x;
-    background-attachment: fixed;
-    padding-bottom: 20px;
+    padding-bottom: 121px;
     padding-right: 400px;
     padding-left: 400px;
 }
