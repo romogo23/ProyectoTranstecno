@@ -31,23 +31,24 @@
 
     <div class="container mx-auto">
         <form class="test" runat="server">
-            <div class="form-group">
-                <div class="container">
-                    <h3 class="tittle">Cerrar Sesión:</h3>
+            <div class="container-fluid">
+                <div class="form-group">
+                    <div class="container">
+                        <h3 class="tittle">Cerrar Sesión:</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="container-fluid bg-1 text-center">
-                <img src="Images/8.png" class="img-circle" alt="clock" width="200px" height="200px">
-                <h3 id="userName" runat="server" class="txt"></h3>
-            </div>
+                <div class="container text-center">
+                    <img src="Images/8.png" class="img-circle" alt="clock" width="200px" height="200px">
+                    <h3 id="userName" runat="server" class="txt"></h3>
+                </div>
 
-            <div class="container-fluid bg-2 text-center">
-                <br />
-                <br />
-                <input type="submit" value="LogOut" runat="server" id="cmdSignOut" class="btn" style="background-color: #f5f0bf" onmouseover="this.style.color='#808080'; this.style.textDecoration='none'" onmouseout="this.style.color='#000000'; this.style.textDecoration='none'">
-            </div>
+                <div class="container text-center">
+                    <input type="submit" value="Cerrar Sesión" runat="server" id="cmdSignOut" class="btn">
+                </div>
         </form>
     </div>
+    </div>
+    
 
     <%--<form id="form1" runat="server" class="formImage">
         <div class="jumbotron fluid" style="background-image: url(Images/def.jpg); background-repeat: no-repeat; background-position: center; background-size: cover; background-position-y: unset;">

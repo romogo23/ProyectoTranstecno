@@ -36,7 +36,7 @@
             <div class="AdminFormBill">
                 <h1 class="titleAdmin">Gestionar Facturas:</h1>
                 <div class="formlabels">
-                    <asp:GridView ID="grdInvoices" runat="server" AutoGenerateColumns="False">
+                    <asp:GridView ID="grdInvoices" runat="server" AutoGenerateColumns="False" CssClass="table table-borderless">
                         <Columns>
                             <asp:BoundField DataField="idInvoice" />
                             <asp:BoundField DataField="ClientName" />
