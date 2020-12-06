@@ -65,7 +65,7 @@ namespace BL
             DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
             return daoIS.LoadInvoiceSupplierById(idInvoice);
         }
-        public DataTable loadInvoicesSupplierT()
+        public List<BillName> loadInvoicesSupplierT()
         {
             DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
             return daoIS.loadInvoicesSupplierT();

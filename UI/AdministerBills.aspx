@@ -35,7 +35,10 @@
         <div class="container">
             <div class="AdminFormBill">
                 <h1 class="titleAdmin">Gestionar Facturas:</h1>
+                <br />
                 <div class="formlabels">
+                    <h3 class="titleAdmin">Facturas de Clientes:</h3>
+                    <br />
                     <asp:GridView ID="grdInvoices" runat="server" AutoGenerateColumns="False" CssClass="table table-borderless" OnRowCreated="grdInvoices_RowCreated">
                         <Columns>
                             <asp:BoundField DataField="idInvoice" HeaderText ="Id de Factura"/>
@@ -46,6 +49,22 @@
                             <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='ModifyBill.aspx?idInvoice={0}'>Modificar</a>" />
                             <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='CloseBill.aspx?idInvoice={0}'>Cerrar</a>" />
                             <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='PostponeBill.aspx?idInvoice={0}'>Aplazar</a>" />
+                        </Columns>
+                    </asp:GridView>
+                    <br />
+                    <br />
+                    <h3 class="titleAdmin">Facturas de Proveedores:</h3>
+                    <br />
+                    <asp:GridView ID="grdSuppliers" runat="server" AutoGenerateColumns="False" CssClass="table table-borderless" OnRowCreated="grdInvoices_RowCreated">
+                        <Columns>
+                            <asp:BoundField DataField="idInvoiceSupplier" HeaderText ="Id de Factura"/>
+                            <asp:BoundField DataField="SupplierName" HeaderText ="Nombre de Porveedor"/>
+                            <asp:BoundField DataField="TotalBillSupplier" HeaderText ="Monto"/>
+                            <asp:BoundField DataField="PaymentDateSupplier" HeaderText ="Fecha de Recordatorio"/>
+                            <asp:BoundField DataField="StateSupplier" HeaderText ="Estado"/>
+                            <asp:BoundField DataField="idInvoiceSupplier" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='ModifyBill.aspx?idInvoiceSupplier={0}'>Modificar</a>" />
+                            <asp:BoundField DataField="idInvoiceSupplier" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='CloseBill.aspx?idInvoiceSupplier={0}'>Cerrar</a>" />
+                            <asp:BoundField DataField="idInvoiceSupplier" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='PostponeBill.aspx?idInvoiceSupplier={0}'>Aplazar</a>" />
                         </Columns>
                     </asp:GridView>
                 </div>

@@ -259,19 +259,13 @@ namespace DAO
 
             return temp;
         }
-        public DataTable loadInvoicesSupplierT()
+        public List<BillName> loadInvoicesSupplierT()
         {
-            DataTable tbl = new DataTable();
+            List<BillName> tbl = new List<BillName>();
             SqlDataReader reader;
-            String query = "SELECT dbo.FACTURA_PROVEEDOR.NUMERO_FACTURA, dbo.DESTINATARIO_FACTURA_PROVEEDOR.NOMBRE, dbo.FACTURA_PROVEEDOR.MONTO, dbo.FACTURA_PROVEEDOR.FECHA_PAGO,dbo.FACTURA_PROVEEDOR.ESTADO FROM dbo.DESTINATARIO_FACTURA_PROVEEDOR INNER JOIN dbo.FACTURA_PROVEEDOR ON dbo.DESTINATARIO_FACTURA_PROVEEDOR.ID_PROVEEDOR = dbo.FACTURA_PROVEEDOR.ID_PROVEEDOR";
+            String query = "SELECT dbo.FACTURA_PROVEEDOR.NUMERO_FACTURA, dbo.DESTINATARIO_FACTURA_PROVEEDOR.NOMBRE, dbo.FACTURA_PROVEEDOR.MONTO, dbo.FACTURA_PROVEEDOR.FECHA,dbo.FACTURA_PROVEEDOR.ESTADO FROM dbo.DESTINATARIO_FACTURA_PROVEEDOR INNER JOIN dbo.FACTURA_PROVEEDOR ON dbo.DESTINATARIO_FACTURA_PROVEEDOR.ID_PROVEEDOR = dbo.FACTURA_PROVEEDOR.ID_PROVEEDOR";
             SqlCommand comm = new SqlCommand(query, conn);
 
-
-            tbl.Columns.Add("NumberInvoice");
-            tbl.Columns.Add("Name");
-            tbl.Columns.Add("Amount");
-            tbl.Columns.Add("PaymentDate");
-            tbl.Columns.Add("Condition");
             if (conn.State != ConnectionState.Open)
             {
                 conn.Open();
@@ -282,14 +276,10 @@ namespace DAO
                 while (reader.Read())
                 {
 
-                    tbl.Rows.Add(Convert.ToString(reader.GetInt16(0)));
-                    tbl.Rows.Add(Convert.ToString(reader.GetString(1)));
-                    tbl.Rows.Add(Convert.ToString(reader.GetDouble(2)));
-                    tbl.Rows.Add(Convert.ToString(reader.GetDateTime(3)));
-                    tbl.Rows.Add(Convert.ToString(reader.GetByte(4)));
+                    tbl.Add(new BillName((string)reader["NUMERO_FACTURA"], (string)reader["NOMBRE"], double.Parse(reader["MONTO"].ToString()), (DateTime)reader["FECHA"], (Byte)reader["ESTADO"]));
                 }
             }
-            if (conn.State != System.Data.ConnectionState.Closed)
+            if (conn.State != ConnectionState.Closed)
             {
                 conn.Close();
 
