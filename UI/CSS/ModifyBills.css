@@ -2,21 +2,31 @@
 }
 
 .formImage {
-    background-image: url(../Images/User.png);
+    background-image: url(../Images/Bill.png);
+    margin-top: -20px;
+    padding-top: 20px;
     padding-bottom: 20px;
 }
 
-.AdminForm {
+.AdminFormBill {
     border-radius: 25px;
     background-color: black;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
+    padding-right: 20px;
     text-decoration: none;
     color: white;
     margin-right: 100px;
     margin-top: 0px;
     text-align: left;
+}
+
+.formlabels {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 150px;
 }
 
 .titleAdmin {
@@ -25,38 +35,15 @@
     padding-left: 20px;
 }
 
-.formlabels {
+.btnR {
     margin-top: 20px;
-    margin-bottom: 20px;
-    padding-left: 0px;
-    padding-right: 40px;
-}
-
-
-.btn {
-    background-color: white;
-    margin-top: 0px;
     margin-bottom: 10px;
     margin-left: 20px;
     padding-top: 9px;
     padding-bottom: 9px;
     padding-left: 15px;
     padding-right: 15px;
-    border-radius: 25px !important;
+    border-radius: 25px;
     text-decoration: none;
     color: black;
-    width: 150px;
-}
-
-.table {
-    border: 0px !important;
-    text-align: center;
-}
-
-    .table th, .table td {
-        border: 1px !important;
-    }
-
-.fixed-table-container {
-    border: 0px !important;
 }

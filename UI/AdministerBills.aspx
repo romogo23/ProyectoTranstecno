@@ -43,9 +43,9 @@
                             <asp:BoundField DataField="TotalBill" HeaderText ="Monto"/>
                             <asp:BoundField DataField="PaymentDate" HeaderText ="Fecha de Recordatorio"/>
                             <asp:BoundField DataField="State" HeaderText ="Estado"/>
-                            <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='ModifyInvoice.aspx?idInvoice={0}'>Modificar</a>" />
-                            <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='CloseInvoice.aspx?idInvoice={0}'>Cerrar</a>" />
-                            <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='PostponeInvoice.aspx?idInvoice={0}'>Aplazar</a>" />
+                            <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='ModifyBill.aspx?idInvoice={0}'>Modificar</a>" />
+                            <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='CloseBill.aspx?idInvoice={0}'>Cerrar</a>" />
+                            <asp:BoundField DataField="idInvoice" HtmlEncode="False" DataFormatString="<a class='btn btn-default' href='PostponeBill.aspx?idInvoice={0}'>Aplazar</a>" />
                         </Columns>
                     </asp:GridView>
                 </div>

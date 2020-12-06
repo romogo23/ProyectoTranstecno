@@ -117,6 +117,7 @@
     <Content Include="BillByClient.aspx" />
     <Content Include="BillByDate.aspx" />
     <Content Include="BillBySupplier.aspx" />
+    <Content Include="CloseBill.aspx" />
     <Content Include="CloseInvoice.aspx" />
     <Content Include="CofirmDeleteUser.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -132,6 +133,7 @@
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\ManageBills.css" />
     <Content Include="CSS\ManageUser.css" />
+    <Content Include="CSS\ModifyBills.css" />
     <Content Include="CSS\NavbarAdmin.css" />
     <Content Include="CSS\Navbar.css" />
     <Content Include="CSS\RegisterUser.css" />
@@ -173,12 +175,14 @@
     <Content Include="Logout.aspx" />
     <Content Include="ManageInvoices.aspx" />
     <Content Include="ManageUsers.aspx" />
+    <Content Include="ModifyBill.aspx" />
     <Content Include="ModifyInvoice.aspx" />
     <Content Include="ModifySuccess.aspx" />
     <Content Include="ModifyUser.aspx" />
     <Content Include="ModifyUserForm.aspx" />
     <Content Include="navbarAdmin.html" />
     <Content Include="navbarLogin.html" />
+    <Content Include="PostponeBill.aspx" />
     <Content Include="PostponeInvoice.aspx" />
     <Content Include="RegisterUser.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -254,6 +258,13 @@
     </Compile>
     <Compile Include="BillBySupplier.aspx.designer.cs">
       <DependentUpon>BillBySupplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CloseBill.aspx.cs">
+      <DependentUpon>CloseBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CloseBill.aspx.designer.cs">
+      <DependentUpon>CloseBill.aspx</DependentUpon>
     </Compile>
     <Compile Include="CloseInvoice.aspx.cs">
       <DependentUpon>CloseInvoice.aspx</DependentUpon>
@@ -377,6 +388,13 @@
     <Compile Include="ManageUsers.aspx.designer.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModifyBill.aspx.cs">
+      <DependentUpon>ModifyBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifyBill.aspx.designer.cs">
+      <DependentUpon>ModifyBill.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModifyInvoice.aspx.cs">
       <DependentUpon>ModifyInvoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -404,6 +422,13 @@
     </Compile>
     <Compile Include="ModifyUserForm.aspx.designer.cs">
       <DependentUpon>ModifyUserForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostponeBill.aspx.cs">
+      <DependentUpon>PostponeBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostponeBill.aspx.designer.cs">
+      <DependentUpon>PostponeBill.aspx</DependentUpon>
     </Compile>
     <Compile Include="PostponeInvoice.aspx.cs">
       <DependentUpon>PostponeInvoice.aspx</DependentUpon>
