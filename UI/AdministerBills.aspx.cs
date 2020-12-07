@@ -66,8 +66,11 @@ namespace UI
         {
             DataTable tblInvoiceSupplier = new DataTable();
             int cont = 1;
+            String idSupplierF = "";
+            String idSupplierS = "";
+            String idSupplier = "";
 
-            tblInvoiceSupplier.Columns.Add("idInvoiceSupplier");
+            tblInvoiceSupplier.Columns.Add("idInvoice");
             tblInvoiceSupplier.Columns.Add("SupplierName");
             tblInvoiceSupplier.Columns.Add("TotalBillSupplier");
             tblInvoiceSupplier.Columns.Add("PaymentDateSupplier");
@@ -85,7 +88,13 @@ namespace UI
                     condition = "Pagado";
                 }
 
-                tblInvoiceSupplier.Rows.Add(cont, invoice.clientName.ToString(), invoice.total.ToString(), invoice.reminderDate.ToString("dd/MM/yyyy"), condition);
+                idSupplierF = invoice.idInvoiceSupplier.Substring(0, 10);
+                idSupplierS = invoice.idInvoiceSupplier.Substring(10, 10);
+
+                idSupplier = idSupplierF + " " + idSupplierS;
+
+
+                tblInvoiceSupplier.Rows.Add(idSupplier, invoice.clientName.ToString(), invoice.total.ToString(), invoice.reminderDate.ToString("dd/MM/yyyy"), condition);
                 cont++;
 
             }

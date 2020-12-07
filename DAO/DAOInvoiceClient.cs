@@ -52,6 +52,34 @@ namespace DAO
 
         }
 
+        public bool ModifyInvoiceClientPostpone(InvoiceClient invoice)
+        {
+            if (verifyInvoiceClient((int)invoice.numberInvoice) == 1)
+            {
+
+                String query = "Update FACTURA_CLIENTE set FECHA = @reminderDate where NUMERO_FACTURA = @numberInvoice";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.Connection = conn;
+                comm.Parameters.AddWithValue("@numberInvoice", invoice.numberInvoice);
+                comm.Parameters.AddWithValue("@reminderDate", invoice.paymentDate);
+                if (conn.State != System.Data.ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+                comm.ExecuteNonQuery();
+                if (conn.State != System.Data.ConnectionState.Closed)
+                {
+                    conn.Close();
+
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public List<Reminder> LoadMonthClientReminder()
         {
             List<Reminder> reminderClientList = new List<Reminder>();
@@ -85,13 +113,14 @@ namespace DAO
             if (verifyInvoiceClient((int)invC.numberInvoice) == 1)
             {
 
-                String query = "Update FACTURA_CLIENTE set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA_PAGO = @paymentDate where NUMERO_FACTURA = @numberInvoice";
+                String query = "Update FACTURA_CLIENTE set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA_PAGO = @paymentDate, ESTADO = @condition where NUMERO_FACTURA = @numberInvoice";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@numberInvoice", invC.numberInvoice);
                 comm.Parameters.AddWithValue("@paymentDate", invC.paymentDate);
                 comm.Parameters.AddWithValue("@idPayMethod", invC.idPayMethod);
                 comm.Parameters.AddWithValue("@payMethod", invC.payMethod);
+                comm.Parameters.AddWithValue("@condition", invC.condition);
                 if (conn.State != System.Data.ConnectionState.Open)
                 {
                     conn.Open();
@@ -113,7 +142,7 @@ namespace DAO
 
         public int verifyInvoiceClient(int numberInvoice)
         {
-                String query = " select count(*) from FACTURA_CLIENTE where NUMERO_FACTURA = @numberInvoice";
+                String query = "Select count(*) from FACTURA_CLIENTE where NUMERO_FACTURA = @numberInvoice";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@numberInvoice",numberInvoice);

@@ -23,33 +23,48 @@ namespace UI
         protected void btnSave_Click(object sender, EventArgs e)
         {
             String idInvoice = Request["idInvoice"];
+            String idInvoiceSupplier = "";
+
             InvoiceClientManager invCM = new InvoiceClientManager();
             InvoiceSupplierManager invSM = new InvoiceSupplierManager();
             String paymentMethod = ddlPaymentsMethods.SelectedItem.ToString();
-            Console.WriteLine(txtIdPaymentMethod.Text.ToString());
+
             int idPaymentMethod = int.Parse(txtIdPaymentMethod.Text.ToString());
-            Console.WriteLine(idPaymentMethod);
+            //Console.WriteLine(idPaymentMethod);
             DateTime paymentDate = DateTime.Parse(txtPaymentDate.Text);
 
-            if (invCM.verifyInvoiceClient(int.Parse(idInvoice)) == 1)
+            if (idInvoice.Length < 10)
             {
-                DOM.InvoiceClient invoice = invCM.loadInvoiceClientById(idInvoice);
-                invoice.payMethod = paymentMethod;
-                invoice.idPayMethod = idPaymentMethod;
-                invoice.paymentDate = paymentDate;
-
-                if (invCM.ModifyInvoiceClient(invoice))
+                if (invCM.verifyInvoiceClient(int.Parse(idInvoice)) == 1)
                 {
-                    //Mensaje de exito
-                    Response.Redirect("~/AdministerBills.aspx");
-                }
+                    DOM.InvoiceClient invoice = invCM.loadInvoiceClientById(idInvoice);
+                    if (paymentMethod == "Transferencia")
+                    {
+                        paymentMethod = "Transferen.";
+                    }
+                    invoice.payMethod = paymentMethod;
+                    invoice.idPayMethod = idPaymentMethod;
+                    invoice.paymentDate = paymentDate;
 
+                    if (invCM.ModifyInvoiceClient(invoice))
+                    {
+                        //Mensaje de exito
+                        Response.Redirect("~/AdministerBills.aspx");
+                    }
+
+                }
             }
             else
             {
-                if (invSM.verifyInvoiceSupplier(idInvoice) == 1)
+                idInvoiceSupplier = idInvoice.Replace(" ", String.Empty);
+
+                if (invSM.verifyInvoiceSupplier(idInvoiceSupplier) == 1)
                 {
-                    DOM.InvoiceSupplier invoice = invSM.loadSupplierById(idInvoice);
+                    DOM.InvoiceSupplier invoice = invSM.loadSupplierById(idInvoiceSupplier);
+                    if (paymentMethod == "Transferencia")
+                    {
+                        paymentMethod = "Transferen.";
+                    }
                     invoice.payMethod = paymentMethod;
                     invoice.idPayMethod = idPaymentMethod;
                     invoice.paymentDate = paymentDate;

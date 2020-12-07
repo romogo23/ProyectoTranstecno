@@ -46,6 +46,12 @@ namespace BL
             return iC.LoadInvoiceClientsBydate(iniDate, endDate);
         }
 
+        public bool ModifyInvoiceClientPostpone(InvoiceClient invoice)
+        {
+            DAOInvoiceClient iC = new DAOInvoiceClient();
+            return iC.ModifyInvoiceClientPostpone(invoice);
+        }
+
         public List<Reminder> LoadClientMonthReminder()
         {
             DAOInvoiceClient iC = new DAOInvoiceClient();

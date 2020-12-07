@@ -51,6 +51,35 @@ namespace DAO
 
         }
 
+        public bool ModifyInvoiceSupplierPostpone(InvoiceSupplier invoice)
+        {
+            if (verifyInvoiceSupplier(invoice.numberInvoice) == 1)
+            {
+
+                String query = "Update FACTURA_PROVEEDOR set FECHA = @reminderDate where NUMERO_FACTURA = @numberInvoice";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.Connection = conn;
+
+                comm.Parameters.AddWithValue("@numberInvoice", invoice.numberInvoice);
+                comm.Parameters.AddWithValue("@reminderDate", invoice.paymentDate);
+                if (conn.State != System.Data.ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+                comm.ExecuteNonQuery();
+                if (conn.State != System.Data.ConnectionState.Closed)
+                {
+                    conn.Close();
+
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public List<Reminder> LoadMonthSupplierReminder()
         {
             List<Reminder> reminderSupplierList = new List<Reminder>();
@@ -84,13 +113,14 @@ namespace DAO
             if (verifyInvoiceSupplier(invS.numberInvoice) == 1)
             {
 
-                String query = "Update FACTURA_PROVEEDOR set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA = @reminderDate where NUMERO_FACTURA = @numberInvoice";
+                String query = "Update FACTURA_PROVEEDOR set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA_PAGO = @paymentDate, ESTADO = @condition where NUMERO_FACTURA = @numberInvoice";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@numberInvoice", invS.numberInvoice);
-                comm.Parameters.AddWithValue("@reminderDate", invS.paymentDate);
+                comm.Parameters.AddWithValue("@paymentDate", invS.paymentDate);
                 comm.Parameters.AddWithValue("@idPayMethod", invS.idPayMethod);
                 comm.Parameters.AddWithValue("@payMethod", invS.payMethod);
+                comm.Parameters.AddWithValue("@condition", invS.condition);
                 if (conn.State != System.Data.ConnectionState.Open)
                 {
                     conn.Open();
@@ -243,7 +273,7 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    temp = new InvoiceSupplier(reader.GetInt64(0).ToString(), reader.GetString(1), reader.GetDateTime(2), reader.GetInt16(3), reader.GetString(4), reader.GetDouble(5), reader.GetByte(6), new DateTime());
+                    temp = new InvoiceSupplier((String)reader["NUMERO_FACTURA"], (string)reader["ID_PROVEEDOR"], (DateTime)reader["FECHA_PAGO"], (int)reader["ID_METODO_PAGO"], (string)reader["METODO_PAGO"], double.Parse(reader["MONTO"].ToString()), (Byte)reader["ESTADO"], (DateTime)reader["FECHA"]);
                 //string numberInvoice, string idSupplier, DateTime paymentDate, int idPayMethod, string payMethod,double money, Byte condition, DateTime reminderDate
                 }
             }

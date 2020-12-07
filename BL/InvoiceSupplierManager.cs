@@ -60,6 +60,12 @@ namespace BL
             return daoIS.verifyInvoiceSupplier(numberInvoice);
         }
 
+        public bool ModifyInvoiceSupplierPostpone(InvoiceSupplier invoice)
+        {
+            DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
+            return daoIS.ModifyInvoiceSupplierPostpone(invoice);
+        }
+
         public InvoiceSupplier loadSupplierById(String idInvoice)
         {
             DAOInvoiceSupplier daoIS = new DAOInvoiceSupplier();
