@@ -270,13 +270,13 @@ namespace UI
 
                     int result = DateTime.Compare(dateBill, dateCompare);
 
-                    if (result < 0)
+                    if (result < 0 && idClientCell.Length <= 35)
                     {
                         //relationship = "is earlier than";
                         InvoiceReceivingClientManager invoiceReceivingClientM = new InvoiceReceivingClientManager();
-                        invoiceReceivingClientM.InsertInvoiceReceivingClient(new InvoiceReceivingClient(table.Rows[row][8].ToString(), table.Rows[row][9].ToString(), table.Rows[row][7].ToString()));
+                        invoiceReceivingClientM.InsertInvoiceReceivingClient(new InvoiceReceivingClient(idClientCell, table.Rows[row][9].ToString(), table.Rows[row][7].ToString()));
                         InvoiceClientManager invoiceClientManager = new InvoiceClientManager();
-                        invoiceClientManager.InsertInvoiceClient(new DOM.InvoiceClient(int.Parse(table.Rows[row][1].ToString()), table.Rows[row][8].ToString(), 0, "", double.Parse(table.Rows[row][24].ToString()), 0, table.Rows[row][11].ToString(), DateTime.ParseExact(table.Rows[row][26].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture)));
+                        invoiceClientManager.InsertInvoiceClient(new DOM.InvoiceClient(int.Parse(clientBillNumberCell), idClientCell, 0, "", double.Parse(totalClientCell), 0, conditionClientCell, DateTime.ParseExact(dateClientCell, "dd/MM/yyyy", CultureInfo.InvariantCulture)));
                     }
                     else
                     {
@@ -285,7 +285,7 @@ namespace UI
                     }
 
                 }
-                lblInformationInvoice.Text = "Se ingresaron todas las facturas de cliente, con solo " + failDateBillClient + " facturas fallidas por fecha errónea";
+                lblInformationInvoice.Text = "Se ingresaron todas las facturas de cliente, y no se ingresaron " + failDateBillClient + " facturas fallidas por formato erróneo";
                 return;
             }
             else //VALIDAR LO MISMO EU ARRIBA PARA LAS DE PROVEEDOR
@@ -300,13 +300,13 @@ namespace UI
 
                         int result = DateTime.Compare(dateBill, dateCompare);
 
-                        if (result < 0)
+                        if (result < 0 && supplierBillNumberCell.Length <= 50 && idSupplierCell.Length <= 35)
                         {
 
                             InvoiceReceivingSupplierManager invoiceReceivingSupplierM = new InvoiceReceivingSupplierManager();
                             invoiceReceivingSupplierM.InsertInvoiceReceivingSupplier(new InvoiceReceivingSupplier(table.Rows[row1][9].ToString(), table.Rows[row1][10].ToString()));
                             InvoiceSupplierManager invoiceSupplierManager = new InvoiceSupplierManager();
-                            invoiceSupplierManager.InsertInvoiceSupplier(new DOM.InvoiceSupplier(table.Rows[row1][4].ToString(), table.Rows[row1][9].ToString(), 0, "", double.Parse(table.Rows[row1][23].ToString()), 0, DateTime.ParseExact(table.Rows[row1][3].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture)));
+                            invoiceSupplierManager.InsertInvoiceSupplier(new DOM.InvoiceSupplier(supplierBillNumberCell, idSupplierCell, 0, "", double.Parse(totalSupplierCell), 0, DateTime.ParseExact(dateSupplierCell, "dd/MM/yyyy", CultureInfo.InvariantCulture)));
                         }
                         else
                         {
@@ -314,7 +314,7 @@ namespace UI
                             failDateBillSupplier++;
                         }
                     }
-                    lblInformationInvoice.Text = "Se ingresaron todas las facturas de proveedor, con solo " + failDateBillSupplier + " facturas fallidas por fecha errónea";
+                    lblInformationInvoice.Text = "Se ingresaron todas las facturas de proveedor, y no se ingresaron " + failDateBillSupplier + " facturas fallidas por formato erróneo";
                     return;
                 }
                 else
