@@ -54,7 +54,7 @@ namespace UI
                     condition = "Pagado";
                 }
 
-                tblInvoiceClient.Rows.Add(invoice.idInvoice.ToString(), invoice.clientName.ToString(), invoice.total.ToString(), invoice.reminderDate, condition);
+                tblInvoiceClient.Rows.Add(invoice.idInvoice.ToString(), invoice.clientName.ToString(), invoice.total.ToString(), invoice.reminderDate.ToString("dd/MM/yyyy"), condition);
 
             }
 
@@ -85,7 +85,7 @@ namespace UI
                     condition = "Pagado";
                 }
 
-                tblInvoiceSupplier.Rows.Add(cont, invoice.clientName.ToString(), invoice.total.ToString(), invoice.reminderDate, condition);
+                tblInvoiceSupplier.Rows.Add(cont, invoice.clientName.ToString(), invoice.total.ToString(), invoice.reminderDate.ToString("dd/MM/yyyy"), condition);
                 cont++;
 
             }

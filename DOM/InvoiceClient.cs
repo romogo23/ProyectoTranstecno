@@ -32,6 +32,19 @@ namespace DOM
             this.reminderDate = reminderDate;
         }
 
+        public InvoiceClient(Int64 numberInvoice, string idClient, int idPayMethod, string payMethod,
+            double money, Byte condition, string paymentCondition, DateTime reminderDate)
+        {
+            this.numberInvoice = numberInvoice;
+            this.idClient = idClient;
+            this.idPayMethod = idPayMethod;
+            this.payMethod = payMethod;
+            this.money = money;
+            this.condition = condition;
+            this.paymentCondition = paymentCondition;
+            this.reminderDate = reminderDate;
+        }
+
         public InvoiceClient()
         {
             

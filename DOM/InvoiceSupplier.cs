@@ -30,6 +30,19 @@ namespace DOM
             this.reminderDate = reminderDate;
         }
 
+        public InvoiceSupplier(string numberInvoice, string idSupplier, int idPayMethod, string payMethod,
+          double money, Byte condition, DateTime reminderDate)
+        {
+            this.numberInvoice = numberInvoice;
+            this.idSupplier = idSupplier;
+            this.idPayMethod = idPayMethod;
+            this.payMethod = payMethod;
+            this.money = money;
+            this.condition = condition;
+            this.reminderDate = reminderDate;
+        }
+
+
         public InvoiceSupplier()
         {
         }

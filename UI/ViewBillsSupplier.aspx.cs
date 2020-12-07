@@ -54,7 +54,7 @@ namespace UI
                     payMethod = "-";
                 }
 
-                tblInvoiceSupplier.Rows.Add(invoice.numberInvoice.ToString(), invoice.money.ToString(), condition, invoice.idPayMethod.ToString().Replace("0", "-"), payMethod, invoice.reminderDate.ToString(), invoice.paymentDate.ToString());
+                tblInvoiceSupplier.Rows.Add(invoice.numberInvoice.ToString(), invoice.money.ToString(), condition, invoice.idPayMethod.ToString().Replace("0", "-"), payMethod, invoice.reminderDate.ToString("dd/MM/yyyy"), invoice.paymentDate.ToString("dd/MM/yyyy").Replace("01/01/1900", "-"));
             }
 
             gdInvoiceSupplier.DataSource = tblInvoiceSupplier;

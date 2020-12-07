@@ -60,7 +60,7 @@ namespace UI
 
 
 
-                tblInvoiceClient.Rows.Add(invoice.numberInvoice.ToString(), invoice.money.ToString(), condition, invoice.idPayMethod.ToString().Replace("0", "-"), payMethod, invoice.paymentCondition, invoice.reminderDate.ToString(), invoice.paymentDate.ToString());
+                tblInvoiceClient.Rows.Add(invoice.numberInvoice.ToString(), invoice.money.ToString(), condition, invoice.idPayMethod.ToString().Replace("0", "-"), payMethod, invoice.paymentCondition, invoice.reminderDate.ToString("dd/MM/yyyy"), invoice.paymentDate.ToString("dd/MM/yyyy").Replace("01/01/1900", "-"));
 
 
 
