@@ -14,7 +14,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //VerifySession();
+            VerifySession();
             InvoiceReceivingClientManager invoiceReceivingClientManager = new InvoiceReceivingClientManager();
             createContend(invoiceReceivingClientManager.LoadAllClients());
         }
@@ -28,7 +28,7 @@ namespace UI
             else
             {
                 User role = (User)Session["userWithRol"];
-                if (role.rol != 0 && role.rol != 1)
+                if (role.rol < 0 && role.rol > 2)
                 {
                     Response.Redirect("~/Login.aspx");
                 }

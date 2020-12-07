@@ -27,10 +27,10 @@ namespace UI
 
             if (userNameIn != "" || passwordIn != "")
             {
-                //if (userNameIn.Length <= 50)
-                //{
-                //    if (passwordIn.Length <= 20)
-                //    {
+                if (userNameIn.Length <= 80)
+                {
+                    if (passwordIn.Length <= 20)
+                    {
                         bool user = um.ValidateUser(userNameIn, passwordIn);
                         if (user == false)
                         {
@@ -52,18 +52,17 @@ namespace UI
                             {
                                 Response.Redirect("~/LoadTemplate.aspx");
                             }
-
+                        }
+                    }
+                    else
+                    {
+                        Response.Write("<script> alert(" + "'La contraseña no puede tener más de 20 caracteres'" + ") </script>");
+                    }
                 }
-                //    }
-                //    else
-                //    {
-                //        Response.Write("<script> alert(" + "'Contraseña muy larga'" + ") </script>");
-                //    }
-                //}
-                //else
-                //{
-                //    Response.Write("<script> alert(" + "'Nombre de usuario muy largo'" + ") </script>");
-                //}
+                else
+                {
+                    Response.Write("<script> alert(" + "'El nombre de usuario no puede tener más de 80 caracteres'" + ") </script>");
+                }
             }
             else
             {

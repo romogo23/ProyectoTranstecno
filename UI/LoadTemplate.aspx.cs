@@ -45,7 +45,7 @@ namespace UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //VerifySession();
+            VerifySession();
             _schedleData = GetSchedule();
 
             Calendar1.FirstDayOfWeek = FirstDayOfWeek.Sunday;
@@ -86,7 +86,7 @@ namespace UI
             else
             {
                 User role = (User)Session["userWithRol"];
-                if (role.rol != 0)
+                if (role.rol < 0 && role.rol > 2)
                 {
                     Response.Redirect("~/Login.aspx");
                 }

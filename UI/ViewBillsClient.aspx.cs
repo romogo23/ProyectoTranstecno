@@ -14,12 +14,28 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            VerifySession();
             String idClient = Request["idClient"];
             InvoiceClientManager invoiceClientManager = new InvoiceClientManager();
             InvoiceReceivingClientManager invoiceReceivingClientManager = new InvoiceReceivingClientManager();
             invoiceClient(invoiceClientManager.LoadInvoiceClient(idClient), invoiceReceivingClientManager.LoadClient(idClient));
         }
 
+        private void VerifySession()
+        {
+            if (Session["userWithRol"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                User role = (User)Session["userWithRol"];
+                if (role.rol < 0 && role.rol > 2)
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
+        }
         private void invoiceClient(List<DOM.InvoiceClient> invoiceClient, InvoiceReceivingClient invoiceReceivingClient)
         {
 
