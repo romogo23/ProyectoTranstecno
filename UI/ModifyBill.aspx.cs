@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DOM;
 
 namespace UI
 {
@@ -24,11 +25,11 @@ namespace UI
         {
             String idInvoice = Request["idInvoice"];
             String idInvoiceSupplier = "";
-
+            User role = (User)Session["userWithRol"];
             InvoiceClientManager invCM = new InvoiceClientManager();
             InvoiceSupplierManager invSM = new InvoiceSupplierManager();
             String paymentMethod = ddlPaymentsMethods.SelectedItem.ToString();
-
+            UserManager userM = new UserManager();
             int idPaymentMethod = int.Parse(txtIdPaymentMethod.Text.ToString());
             //Console.WriteLine(idPaymentMethod);
             DateTime paymentDate = DateTime.Parse(txtPaymentDate.Text);
@@ -48,6 +49,7 @@ namespace UI
 
                     if (invCM.ModifyInvoiceClient(invoice))
                     {
+                        userM.UserModifyInvoiceClient(role.username, int.Parse(idInvoice));
                         //Mensaje de exito
                         Response.Redirect("~/AdministerBills.aspx");
                     }
@@ -70,6 +72,7 @@ namespace UI
                     invoice.paymentDate = paymentDate;
                     if (invSM.ModifyInvoiceSupplier(invoice))
                     {
+                        userM.UserModifyInvoiceSupplier(role.username, idInvoiceSupplier);
                         //Mensaje de exito
                         Response.Redirect("~/AdministerBills.aspx");
                     }

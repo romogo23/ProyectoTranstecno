@@ -52,7 +52,19 @@ namespace BL
             return dao.loadUsers();
         }
 
+        public void UserModifyInvoiceClient(string userName, Int64 invoiceNumber)
+        {
+            DAOUser dao = new DAOUser();
+            dao.UserModifyInvoiceClient(userName, invoiceNumber);
 
+        }
+
+        public void UserModifyInvoiceSupplier(string userName, string invoiceNumber)
+        {
+            DAOUser dao = new DAOUser();
+            dao.UserModifyInvoiceSupplier(userName, invoiceNumber);
+
+        }
 
 
     }
