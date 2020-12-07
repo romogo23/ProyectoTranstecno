@@ -85,11 +85,11 @@ namespace DAO
             if (verifyInvoiceClient((int)invC.numberInvoice) == 1)
             {
 
-                String query = "Update FACTURA_CLIENTE set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA = @reminderDate where NUMERO_FACTURA = @numberInvoice";
+                String query = "Update FACTURA_CLIENTE set METODO_PAGO = @payMethod, ID_METODO_PAGO = @idPayMethod, FECHA_PAGO = @paymentDate where NUMERO_FACTURA = @numberInvoice";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Connection = conn;
                 comm.Parameters.AddWithValue("@numberInvoice", invC.numberInvoice);
-                comm.Parameters.AddWithValue("@reminderDate", invC.paymentDate);
+                comm.Parameters.AddWithValue("@paymentDate", invC.paymentDate);
                 comm.Parameters.AddWithValue("@idPayMethod", invC.idPayMethod);
                 comm.Parameters.AddWithValue("@payMethod", invC.payMethod);
                 if (conn.State != System.Data.ConnectionState.Open)
@@ -196,7 +196,7 @@ namespace DAO
 
         public List<InvoiceClient> LoadInvoiceClientsBydate(DateTime iniDate, DateTime endDate)
         {
-            String query = "Select * from FACTURA_CLIENTE where FECHA_PAGO between @iniDate and @endDate";
+            String query = "Select * from FACTURA_CLIENTE where FECHA between @iniDate and @endDate";
             List<InvoiceClient> listInvoiceClient = new List<InvoiceClient>();
             SqlCommand comm = new SqlCommand(query, conn);
             comm.Parameters.AddWithValue("@iniDate", iniDate);

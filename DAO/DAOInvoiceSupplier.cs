@@ -197,7 +197,7 @@ namespace DAO
 
         public List<InvoiceSupplier> LoadInvoiceSupplierBydate(DateTime iniDate, DateTime endDate)
         {
-            String query = "Select * from FACTURA_PROVEEDOR where FECHA_PAGO between @iniDate and @endDate";
+            String query = "Select * from FACTURA_PROVEEDOR where FECHA between @iniDate and @endDate";
             List<InvoiceSupplier> listInvoiceSupplier = new List<InvoiceSupplier>();
             SqlCommand comm = new SqlCommand(query, conn);
             comm.Parameters.AddWithValue("@iniDate", iniDate);
