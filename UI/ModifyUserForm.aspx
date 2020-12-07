@@ -16,7 +16,6 @@
     <script type="text/javascript" src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
 
     <link rel="stylesheet" type="text/css" href="CSS/RegisterUser.css" />
-    <link rel="stylesheet" type="text/css" href="CSS/Image.css" />
 
 </head>
 <body>

@@ -32,18 +32,7 @@
     <!--end of Navigation bar-->
 
     <form id="form1" runat="server" class="formImage">
-
-        <%--<div class="containerBlack">
-            <h1 class="titleBills">Ingresar Plantilla de Facturas:</h1>
-            <h5 class="titleLoad">Cargar Plantilla:</h5>
-            <asp:FileUpload ID="FileUpload1" runat="server" />
-        </div>
-
-        <div class="containerBlack">
-            <asp:Calendar ID="Calendar2" runat="server"></asp:Calendar>
-        </div>--%>
-
-        <div class="container">
+        <div class="container fluid">
             <div class="row align-items-start">
                 <div class="col-5">
                     <div class="containerBlack">
