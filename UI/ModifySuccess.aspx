@@ -19,14 +19,37 @@
 
 </head>
 <body>
+
+    <!--Navigation bar-->
+    <div id="nav-placehold">
+    </div>
+
+    <script>
+        $(function () {
+            $("#nav-placehold").load("navbarAdmin.html");
+        });
+    </script>
+    <!--end of Navigation bar-->
+
     <form id="form1" runat="server" class="formConf">
         <div class="formLabels">
             <img src="Images/3.png" class="image"/>
             <div class="textBlock">
                 <asp:Label ID="Label1" runat="server" Text="Modificación exitosa"></asp:Label>
-                <asp:Button ID="Button1" runat="server" Text="Button" CssClass="btnStyle" OnClick="Button1_Click"/>
             </div>
         </div>
     </form>
+
+    <!--Footer-->
+    <footer id="foot-placehold">
+    </footer>
+
+    <script>
+        $(function () {
+            $("#foot-placehold").load("generalFooter.html");
+        });
+    </script>
+    <!--end of Footer-->
+
 </body>
 </html>
