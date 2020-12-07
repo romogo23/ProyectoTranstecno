@@ -45,12 +45,13 @@
                 <br />
                 <asp:Button ID="btnSearch" runat="server" Text="Buscar" OnClick="btnSearch_Click" CssClass="btnR" />
 
-                <asp:Label ID="lblBillClient" runat="server" Text=""></asp:Label>
-                <asp:GridView ID="gdInvoiceClient" runat="server"></asp:GridView>
+                <asp:Label ID="lblBillClient" runat="server" Text="" CssClass="tittle"></asp:Label>
                 <br />
-                <asp:Label ID="lblBillSupplier" runat="server" Text=""></asp:Label>
-                <asp:GridView ID="gdInvoiceSupplier" runat="server"></asp:GridView>
-
+                <asp:GridView ID="gdInvoiceClient" runat="server" CssClass="table table-borderless"></asp:GridView>
+                <br />
+                <asp:Label ID="lblBillSupplier" runat="server" Text="" CssClass="tittle"></asp:Label>
+                <br />
+                <asp:GridView ID="gdInvoiceSupplier" runat="server" CssClass="table table-borderless"></asp:GridView>
             </div>
         </div>
     </form>
