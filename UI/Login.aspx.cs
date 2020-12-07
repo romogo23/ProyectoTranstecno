@@ -46,7 +46,7 @@ namespace UI
                             }
                             if (userSesssion.rol == 1)
                             {
-                                Response.Redirect("~/AdministerUsers.aspx");
+                                Response.Redirect("~/LoaLoadTemplate.aspx");
                             }
                             if (userSesssion.rol == 2)
                             {

@@ -35,7 +35,7 @@ namespace UI
             else
             {
                 User role = (User)Session["userWithRol"];
-                if (role.rol < 0 && role.rol > 1)
+                if (role.rol < 0 || role.rol > 1)
                 {
                     Response.Redirect("~/Login.aspx");
                 }
