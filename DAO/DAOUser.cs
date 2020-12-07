@@ -298,5 +298,118 @@ namespace DAO
 
         }
 
+        private int verifyUserModifyInvoiceClient(string userName, Int64 invoiceNumber)
+        {
+            int existsU;
+            string query = "Select count(*) from USUARIO_MODIFICA_FACTURA_CLIENTE where NUMERO_FACTURA = @NUMERO_FACTURA AND NOMBRE_USUARIO = @username";
+            SqlCommand comm2 = new SqlCommand(query, conn);
+            comm2.Parameters.AddWithValue("@username", userName);
+            comm2.Parameters.AddWithValue("@NUMERO_FACTURA", invoiceNumber);
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
+            existsU = (int)comm2.ExecuteScalar();
+
+
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+            return existsU;
+
+        }
+
+
+
+
+        public void UserModifyInvoiceClient(string userName, Int64 invoiceNumber)
+        {
+            if(verifyUserModifyInvoiceClient(userName, invoiceNumber) == 0) {
+                string query = "INSERT INTO USUARIO_MODIFICA_FACTURA_CLIENTE  ([NUMERO_FACTURA] ,[NOMBRE_USUARIO]) VALUES (@InvoiceNumber, @User)";
+                SqlCommand comm2 = new SqlCommand(query, conn);
+                comm2.Parameters.AddWithValue("@User", userName);
+                comm2.Parameters.AddWithValue("@InvoiceNumber", invoiceNumber);
+                if (conn.State != System.Data.ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                comm2.ExecuteNonQuery();
+
+
+                if (conn.State != System.Data.ConnectionState.Closed)
+                {
+                    conn.Close();
+
+                }
+            }
+
+
+        }
+
+
+
+
+
+
+        private int verifyUserModifyInvoiceSupplier(string userName, string invoiceNumber)
+        {
+            int existsU;
+            string query = "Select count(*) from USUARIO_MODIFICA_FACTURA_PROVEEDOR where NUMERO_FACTURA = @NUMERO_FACTURA AND NOMBRE_USUARIO = @username";
+            SqlCommand comm2 = new SqlCommand(query, conn);
+            comm2.Parameters.AddWithValue("@username", userName);
+            comm2.Parameters.AddWithValue("@NUMERO_FACTURA", invoiceNumber);
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
+            existsU = (int)comm2.ExecuteScalar();
+
+
+            if (conn.State != System.Data.ConnectionState.Closed)
+            {
+                conn.Close();
+
+            }
+            return existsU;
+
+        }
+
+
+
+
+        public void UserModifyInvoiceSupplier(string userName, string invoiceNumber)
+        {
+            if (verifyUserModifyInvoiceSupplier(userName, invoiceNumber) == 0)
+            {
+                string query = "INSERT INTO USUARIO_MODIFICA_FACTURA_PROVEEDOR  ([NUMERO_FACTURA] ,[NOMBRE_USUARIO]) VALUES (@InvoiceNumber, @User)";
+                SqlCommand comm2 = new SqlCommand(query, conn);
+                comm2.Parameters.AddWithValue("@User", userName);
+                comm2.Parameters.AddWithValue("@InvoiceNumber", invoiceNumber);
+                if (conn.State != System.Data.ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                comm2.ExecuteNonQuery();
+
+
+                if (conn.State != System.Data.ConnectionState.Closed)
+                {
+                    conn.Close();
+
+                }
+            }
+
+
+        }
+
+
+
+
     }
 }
