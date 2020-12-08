@@ -15,7 +15,7 @@ namespace DOM
         public DateTime reminderDate { get; set; }
         public Byte state { get; set; }
 
-        public BillName(Int64 idInvoice, String clientName, double total, DateTime reminderDate, Byte payMethod)
+        public BillName(Int64 idInvoice, String clientName, double total, DateTime reminderDate, Byte state)
         {
             this.idInvoice = idInvoice;
             this.clientName = clientName;
@@ -24,7 +24,7 @@ namespace DOM
             this.state = state;
         }
 
-        public BillName(String idInvoiceSupplier, String clientName, double total, DateTime reminderDate, Byte payMethod)
+        public BillName(String idInvoiceSupplier, String clientName, double total, DateTime reminderDate, Byte state)
         {
             this.idInvoiceSupplier = idInvoiceSupplier;
             this.clientName = clientName;
