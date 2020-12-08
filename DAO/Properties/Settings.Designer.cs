@@ -26,7 +26,8 @@ namespace DAO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=Transtecno;Integrated Security=true")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SQL5063.site4now.net;Initial Catalog=DB_A6AE64_Transtecno;User Id=DB_" +
+            "A6AE64_Transtecno_admin;Password=transtecno20")]
         public string connString {
             get {
                 return ((string)(this["connString"]));

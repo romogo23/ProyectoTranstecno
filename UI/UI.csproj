@@ -156,6 +156,7 @@
     <Content Include="InsertUser.aspx" />
     <Content Include="LoadTemplate.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\Bill.png" />
     <Content Include="Images\Confirm.jpg" />
