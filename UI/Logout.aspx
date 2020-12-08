@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Tra</title>
+    <title>Cerrar Sesión</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="CSS/Login.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/Logout.css" />
 
 </head>
 <body>
@@ -33,16 +33,16 @@
         <form class="test" runat="server">
             <div class="container-fluid">
                 <div class="form-group">
-                    <div class="container">
-                        <h3 class="tittle">Cerrar Sesión:</h3>
+                    <div class="containerT">
+                        <h3 class="tittle">¿Desea cerrar sesión?</h3>
                     </div>
                 </div>
-                <div class="container text-center">
+                <div class="containerT text-center">
                     <img src="Images/8.png" class="img-circle" alt="clock" width="200px" height="200px">
-                    <h3 id="userName" runat="server" class="txt"></h3>
+                    <h3 id="userName" runat="server" class="tittle"></h3>
                 </div>
 
-                <div class="container text-center">
+                <div class="containerT text-center">
                     <input type="submit" value="Cerrar Sesión" runat="server" id="cmdSignOut" class="btn">
                 </div>
         </form>

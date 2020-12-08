@@ -1,0 +1,33 @@
+﻿body {
+    background-image: url(../Images/Login.png);
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+}
+
+.container {
+    padding-bottom: 121px;
+    padding-right: 400px;
+    padding-left: 400px;
+}
+
+.container .test {
+    background-color: black;
+    margin-top: 90px;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.container .test .container-fluid .btn {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 25px;
+}
+
+.tittle {
+    color: white;
+    text-align: center;
+}

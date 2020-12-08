@@ -51,7 +51,7 @@ namespace UI
                     if (invCM.ModifyInvoiceClientPostpone(invoice))
                     {
                         //Mensaje de exito
-                        Response.Redirect("~/AdministerBills.aspx");
+                        Response.Redirect("~/PostponeBillSuccess.aspx");
                     }
                 }
             }
@@ -66,7 +66,7 @@ namespace UI
                     if (invSM.ModifyInvoiceSupplierPostpone(invoice))
                     {
                         //Mensaje de exito
-                        Response.Redirect("~/AdministerBills.aspx");
+                        Response.Redirect("~/PostponeBillSuccess.aspx");
                     }
 
 

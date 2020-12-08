@@ -67,7 +67,7 @@ namespace UI
                     {
                         userM.UserModifyInvoiceClient(role.username, int.Parse(idInvoice));
                         //Mensaje de exito
-                        Response.Redirect("~/AdministerBills.aspx");
+                        Response.Redirect("~/ModifyBillSuccess.aspx");
                     }
 
                 }
@@ -90,7 +90,7 @@ namespace UI
                     {
                         userM.UserModifyInvoiceSupplier(role.username, idInvoiceSupplier);
                         //Mensaje de exito
-                        Response.Redirect("~/AdministerBills.aspx");
+                        Response.Redirect("~/ModifyBillSuccess.aspx");
                     }
 
 

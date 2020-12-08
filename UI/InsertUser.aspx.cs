@@ -59,6 +59,9 @@ namespace UI
                                 u = new User(userNameR, emailR, passwordR, int.Parse(rols.SelectedValue));
                                 uM.insertUser(u);
                                 Response.Write("<script> alert(" + "'Usuario registrado exitosamente'" + ") </script>");
+                                userNameRegister.Value = "";
+                                email.Value = "";
+                                password.Value = "";
                             }
                         }
                         else

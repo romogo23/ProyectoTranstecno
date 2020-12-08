@@ -62,7 +62,7 @@ namespace UI
                     if (invCM.ModifyInvoiceClient(invoice))
                     {
                         //Mensaje de exito
-                        Response.Redirect("~/AdministerBills.aspx");
+                        Response.Redirect("~/CloseBillSuccess.aspx");
                     }
                 }
             }
@@ -85,7 +85,7 @@ namespace UI
                     if (invSM.ModifyInvoiceSupplier(invoice))
                     {
                         //Mensaje de exito
-                        Response.Redirect("~/AdministerBills.aspx");
+                        Response.Redirect("~/CloseBillSuccess.aspx");
                     }
 
 

@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModifySuccess.aspx.cs" Inherits="UI.ModifySuccess" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PostponeBillSuccess.aspx.cs" Inherits="UI.PostponeBillSuccess" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Modificar Usuario Exito</title>
+    <title>Aplazar Factura Exito</title>
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -19,7 +19,7 @@
 
 </head>
 <body>
-
+    
     <!--Navigation bar-->
     <div id="nav-placehold">
     </div>
@@ -35,7 +35,7 @@
         <div class="formLabels">
             <img src="Images/3.png" class="image"/>
             <div class="textBlock">
-                <asp:Label ID="Label1" runat="server" Text="Modificación exitosa"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Factura aplazada exitosamente"></asp:Label>
             </div>
         </div>
     </form>
